@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Samridhi Informatics | Elevating Aerial Intelligence</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface": "#ffffff",
+                        "primary": "#1A36B0",
+                        "on-surface": "#191c1d",
+                        "on-error": "#ffffff",
+                        "surface-container": "#f8f9fa",
+                        "on-primary-container": "#a0aeff",
+                        "surface-container-low": "#fcfcfc",
+                        "surface-tint": "#3a52ca",
+                        "inverse-surface": "#2e3132",
+                        "inverse-primary": "#bac3ff",
+                        "background": "#ffffff",
+                        "secondary-fixed-dim": "#b9c5f2",
+                        "secondary-fixed": "#dbe1ff",
+                        "on-primary-fixed-variant": "#1c38b1",
+                        "on-background": "#191c1d",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#002eca",
+                        "primary-fixed": "#dee0ff",
+                        "surface-container-high": "#f1f3f4",
+                        "on-secondary-container": "#4c587f",
+                        "tertiary": "#001e8e",
+                        "on-primary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-tertiary-container": "#a1aeff",
+                        "outline": "#757685",
+                        "on-surface-variant": "#444654",
+                        "inverse-on-surface": "#f0f1f2",
+                        "surface-variant": "#e1e3e4",
+                        "surface-container-highest": "#e1e3e4",
+                        "primary-fixed-dim": "#bac3ff",
+                        "tertiary-fixed": "#dee0ff",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-dim": "#d9dadb",
+                        "tertiary-container": "#002ec7",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#00105b",
+                        "secondary-container": "#c4d0fd",
+                        "outline-variant": "#c5c5d6",
+                        "on-primary-fixed": "#00115a",
+                        "tertiary-fixed-dim": "#bac3ff",
+                        "secondary": "#515d84",
+                        "on-tertiary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-secondary-fixed": "#0b1a3d",
+                        "primary-container": "#1A36B0",
+                        "on-secondary-fixed-variant": "#39456b",
+                        "surface-bright": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    },
+                    "fontWeight": {
+                        "bold": "500",
+                        "extrabold": "500",
+                        "semibold": "500",
+                        "medium": "500"
+                    }
+                },
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; font-weight: 400; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+        .text-shadow-sm {
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        /* Override all font-weights to max 500 */
+        * {
+            font-weight: 400 !important;
+        }
+        .font-medium, .font-semibold, .font-bold, .font-extrabold, h1, h2, h3, h4, h5, h6, b, strong, button, nav a {
+            font-weight: 500 !important;
+        }
+
+        /* Micro-interactions for buttons */
+        .btn-interact {
+            transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease;
+        }
+        .btn-interact:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+        .btn-interact-light:hover {
+            box-shadow: 0 10px 25px -5px rgba(26, 54, 176, 0.3);
+        }
+
+        /* Scroll Reveal Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Transition utility for blue hover state - applied to text cards only */
+        .hover-card-blue {
+            transition: all 0.4s ease;
+        }
+        .hover-card-blue:hover {
+            background-color: #1A36B0;
+            color: white !important;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased">
+<!-- Floating TopNavBar -->
+<div class="fixed top-6 left-0 right-0 z-50 flex justify-center px-6">
+<nav class="glass-nav border border-white/20 rounded-full px-8 py-3.5 flex justify-between items-center w-full max-w-5xl shadow-xl">
+<div class="text-lg font-medium text-white tracking-tight">Samridhi Informatics</div>
+<div class="hidden md:flex items-center gap-x-10">
+<a class="text-sm font-medium text-white/90 hover:text-white transition-all duration-300" href="#">Solutions</a>
+<a class="text-sm font-medium text-white/70 hover:text-white transition-all duration-300" href="#">Technology</a>
+<a class="text-sm font-medium text-white/70 hover:text-white transition-all duration-300" href="#">Company</a>
+<a class="text-sm font-medium text-white/70 hover:text-white transition-all duration-300" href="#">Insights</a>
+</div>
+<button class="bg-white text-primary px-6 py-2 rounded-full text-sm font-medium hover:bg-opacity-90 transition-all duration-300 btn-interact">
+                Get In Touch
+            </button>
+</nav>
+</div>
+<main>
+<!-- Hero Section -->
+<section class="relative h-screen flex items-center overflow-hidden">
+<div class="absolute inset-0">
+<img alt="" class="w-full h-full object-cover brightness-[0.65]" data-alt="Cinematic wide angle shot of a professional industrial drone hovering over a modern architectural complex at twilight with soft blue hour lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNhDWOm2WHEEGLSaYtpUsPKy93pxjaU8_3F-JyuITrGLkpUpDL_EJLgqNe_d9FohhrkZlHNzowRUkl8HJD56WcnTnIfxJX4RjviRO_GQKYNz-2s-ibjba92IeKWiS-5-hMlNRIvPkEgsiXURDUWMMhlT2ELTfmwEGqBG8kJDVIIWVcFvhvYHdX5UynlnF7Gx0bpe6ztOgpuoHi-FeeUAJqJBY2sdl7LNKdrdrMPVVGTeOZiEwKhdBJiIn6EzNFO1fisnZ872t0TG0f"/>
+</div>
+<div class="relative z-10 px-6 md:px-12 max-w-7xl mx-auto w-full">
+<div class="max-w-4xl">
+<h1 class="text-6xl md:text-8xl font-medium text-white leading-[1.05] tracking-tight mb-8 text-shadow-sm reveal">
+                        A New Era of <br/>Drones
+                    </h1>
+<div class="flex flex-col md:flex-row md:items-end gap-12 reveal" style="transition-delay: 200ms;">
+<div class="flex-1">
+<p class="text-lg md:text-xl text-white/90 leading-relaxed mb-10 max-w-xl font-medium">
+                                Revolutionizing industries through precision robotics, advanced sensor integration, and data-driven aerial solutions designed for the sovereign architect.
+                            </p>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="bg-white text-on-surface px-8 py-4 rounded-sm font-medium text-sm uppercase tracking-widest hover:bg-slate-100 transition-all btn-interact">
+                                    Read More About Us →
+                                </button>
+</div>
+</div>
+<div class="hidden lg:block w-1/3">
+<p class="text-sm text-white/70 leading-relaxed border-l border-white/30 pl-6">
+                                Even more speed. Even more stability. Everything you might need - in a brand new Samridhi Drone.
+                            </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Core Philosophy & Values -->
+<section class="py-32 bg-white reveal">
+<div class="px-6 md:px-12 max-w-7xl mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-20">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-px bg-slate-100 border border-slate-100">
+<div class="p-12 bg-white transition-all duration-300 hover:bg-[#1A36B0] group cursor-default">
+<div class="text-xs font-medium text-primary mb-2 transition-colors duration-300 group-hover:text-white">01 ———</div>
+<h3 class="text-2xl font-medium mb-4 transition-colors duration-300 group-hover:text-white">Innovation</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed font-medium transition-colors duration-300 group-hover:text-white/90">Pushing the boundaries of what's possible in autonomous flight technology.</p>
+</div>
+<div class="p-12 bg-white transition-all duration-300 hover:bg-[#1A36B0] group cursor-default">
+<div class="text-xs font-medium text-primary mb-2 transition-colors duration-300 group-hover:text-white">02 ———</div>
+<h3 class="text-2xl font-medium mb-4 transition-colors duration-300 group-hover:text-white">Sustainability</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed font-medium transition-colors duration-300 group-hover:text-white/90">Eco-conscious manufacturing and energy-efficient aerial operations.</p>
+</div>
+<div class="p-12 bg-white transition-all duration-300 hover:bg-[#1A36B0] group cursor-default">
+<div class="text-xs font-medium text-primary mb-2 transition-colors duration-300 group-hover:text-white">03 ———</div>
+<h3 class="text-2xl font-medium mb-4 transition-colors duration-300 group-hover:text-white">Precision</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed font-medium transition-colors duration-300 group-hover:text-white/90">Millimeter-level accuracy in mapping and structural surveillance data.</p>
+</div>
+<div class="p-12 bg-white transition-all duration-300 hover:bg-[#1A36B0] group cursor-default">
+<div class="text-xs font-medium text-primary mb-2 transition-colors duration-300 group-hover:text-white">04 ———</div>
+<h3 class="text-2xl font-medium mb-4 transition-colors duration-300 group-hover:text-white">Security</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed font-medium transition-colors duration-300 group-hover:text-white/90">Military-grade encryption and secure data handling for all missions.</p>
+</div>
+</div>
+<div class="relative overflow-hidden group">
+<img alt="" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-lg2xvLH4msIeFesrd41vSPdbhZ8r6CxTD1hia6SdsVRhq6m0ru8JDLpWlDwmz-Ll00L4QUP6nXZn13lxEVNBLjgYAxCQOdxJgQs5OOgktArC2ayXY2Q2_6fRbvJYazMFgZR8mP0KyBX-kBXSeu7erPGUIZYFfRohcCdqwS2G2q_V-DUZQrQm8rfQqeYIpSMXmQilRQl4g6EeQfMXuGUaj5RrMS1twoi8_aoCdc3Ax1iSS5ywvVlkpE_9hAHwe8QI09EZ2Nr8icjq"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Showcase -->
+<section class="py-32 bg-primary text-white reveal">
+<div class="px-6 md:px-12 max-w-7xl mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+<div class="relative group overflow-hidden">
+<img alt="" class="w-full h-[500px] object-cover rounded-sm grayscale group-hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCO2biOMrki3BtsL69K_I1m2XInUirJnyve2jA5HWSKhqJRD7WyOAkH4aazpHRevFEycoU2_WJ2FepJmEVV5YrqxUxniGIeFjTszHJ_9RL9zPSEyb1haAskcrhDERWvC9VyMaTfkUuDwkbVtb80ozyojkpLYG58rkfD4kPCG_dG9SQw7zsRU6bnY9ST0IhJyHIcmO1L8fln_Pa0gLQgqanbUpMQjK0_7g2VBanNoHYz5-AnMylzNALw_7NHxeH3AeOz6CLY-TLfoYil"/>
+</div>
+<div class="p-8 md:p-12 transition-all duration-300 rounded-sm">
+<h2 class="text-4xl md:text-5xl font-medium tracking-tight mb-8">Services For Producing Aerial Photography And Videos</h2>
+<div class="flex gap-12 mb-12">
+<div>
+<div class="text-4xl font-medium mb-1">4K</div>
+<div class="text-xs uppercase tracking-widest text-white/60 font-medium">Resolution</div>
+</div>
+<div>
+<div class="text-4xl font-medium mb-1">1000+</div>
+<div class="text-xs uppercase tracking-widest text-white/60 font-medium">Projects</div>
+</div>
+<div>
+<div class="text-4xl font-medium mb-1">6+</div>
+<div class="text-xs uppercase tracking-widest text-white/60 font-medium">Years XP</div>
+</div>
+</div>
+<button class="bg-white text-primary px-10 py-4 rounded-sm font-medium text-sm uppercase tracking-widest hover:bg-slate-100 transition-all border border-transparent btn-interact">
+                            Learn More
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Our Recent Work -->
+<section class="py-32 bg-white reveal">
+<div class="px-6 md:px-12 max-w-7xl mx-auto">
+<div class="flex justify-between items-end mb-16">
+<div>
+<span class="text-primary font-medium text-xs uppercase tracking-widest block mb-4">Portfolio</span>
+<h2 class="text-4xl md:text-5xl font-medium tracking-tight">Our Recent Work</h2>
+</div>
+<button class="bg-primary text-white px-8 py-3 rounded-sm font-medium text-sm uppercase tracking-widest hover:bg-opacity-90 transition-all btn-interact btn-interact-light">
+                        View More
+                    </button>
+</div>
+<div class="space-y-12">
+<!-- Project 1: Text Left, Image Right -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center overflow-hidden cursor-pointer group">
+<div class="p-12 lg:p-16 transition-colors duration-300 hover-card-blue bg-slate-50 border border-slate-100 rounded-sm">
+<span class="text-on-surface-variant/60 group-hover:text-white/60 font-medium text-xs uppercase tracking-widest block mb-4">May 1, 2023</span>
+<h3 class="text-3xl font-medium mb-6 transition-colors duration-300">Aerial Car Photography</h3>
+<p class="text-on-surface-variant group-hover:text-white/80 text-lg leading-relaxed mb-8 max-w-lg transition-colors duration-300">
+                                This portfolio showcases cars from a unique aerial perspective, captured by drones. It includes shots of cars on the road and in scenic locations.
+                            </p>
+<a class="inline-flex items-center gap-4 text-sm font-medium uppercase tracking-widest transition-colors duration-300 group-hover:text-white" href="#">
+                                View More
+                                <span class="material-symbols-outlined group-hover:translate-x-2 transition-transform">arrow_forward</span>
+</a>
+</div>
+<div class="overflow-hidden h-[400px] lg:h-[500px] rounded-sm">
+<img alt="Aerial Car" class="w-full h-full object-cover transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJe688RHL83ZTPpPVT_SpFFfuLMIRJkcxa04omeO9O4K1bC-SyuAuW11ZGj7NfQkXtg34D8jXRN4gDVh1W6EszL7t7tTZIEsvtnn_Xo5sHyl7ih1E0DgML6glrU0DsJqaYTdX_N2aU4f1DQmVQraabZd1MIdW22ABrFqzYMzYJJ1Gm5enZiGWoA-YQGTvXgISCrhopBIRwiR9HWOl7yxq05HxKck003pBsk_CsDDqHFeP7msgf8FSnRWjjtYpuXm-Y1lhCEBSb9bhl"/>
+</div>
+</div>
+<!-- Project 2: Image Left, Text Right -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center overflow-hidden cursor-pointer group">
+<div class="overflow-hidden h-[400px] lg:h-[500px] rounded-sm lg:order-1 order-2">
+<img alt="Drone Filmography" class="w-full h-full object-cover transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuChO9ZhHbunVMlRCcsuuK2Tr72ay3jVsUTOHWYLYSyjI9phTrPItAwKMGr9d7mb3r4rR4YjG-HlyIJWXHunZ6hI7oynrBFfXo9PhW6gWSQ6B8CPecXTD6MQne_VxsB9Vbia9sFHu9y2Q84YzTqU2VDbBmdVa0Rrj9h6IymTbkLH9de6ZL98XuxOwEXdX3Q4xnHsypo84bfHIiHbODPJpLD7PCIZvju4i3jy2AT1lggO8mPj1mFNuoEqlsgZCLGuatyFaXA7WMjZCrqa"/>
+</div>
+<div class="p-12 lg:p-16 transition-colors duration-300 hover-card-blue bg-slate-50 border border-slate-100 rounded-sm lg:order-2 order-1">
+<span class="text-on-surface-variant/60 group-hover:text-white/60 font-medium text-xs uppercase tracking-widest block mb-4">April 30, 2023</span>
+<h3 class="text-3xl font-medium mb-6 transition-colors duration-300">Drone Filmography</h3>
+<p class="text-on-surface-variant group-hover:text-white/80 text-lg leading-relaxed mb-8 max-w-lg transition-colors duration-300">
+                                Drone Filmography highlights the potential of drones to capture stunning footage that allows filmmakers to tell stories in new and innovative ways.
+                            </p>
+<a class="inline-flex items-center gap-4 text-sm font-medium uppercase tracking-widest transition-colors duration-300 group-hover:text-white" href="#">
+                                View More
+                                <span class="material-symbols-outlined group-hover:translate-x-2 transition-transform">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Project 3: Text Left, Image Right -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center overflow-hidden cursor-pointer group">
+<div class="p-12 lg:p-16 transition-colors duration-300 hover-card-blue bg-slate-50 border border-slate-100 rounded-sm">
+<span class="text-on-surface-variant/60 group-hover:text-white/60 font-medium text-xs uppercase tracking-widest block mb-4">April 25, 2023</span>
+<h3 class="text-3xl font-medium mb-6 transition-colors duration-300">Wedding Moments</h3>
+<p class="text-on-surface-variant group-hover:text-white/80 text-lg leading-relaxed mb-8 max-w-lg transition-colors duration-300">
+                                This portfolio presents a collection of memorable moments from weddings captured by drones. These shots offer a bird's eye view of the special moments.
+                            </p>
+<a class="inline-flex items-center gap-4 text-sm font-medium uppercase tracking-widest transition-colors duration-300 group-hover:text-white" href="#">
+                                View More
+                                <span class="material-symbols-outlined group-hover:translate-x-2 transition-transform">arrow_forward</span>
+</a>
+</div>
+<div class="overflow-hidden h-[400px] lg:h-[500px] rounded-sm">
+<img alt="Wedding Moments" class="w-full h-full object-cover transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXnaZVJoT6Zx4yetKF92vNmvo4h1zBDMmF73EMFCoYSqyYOzCPzTlbgmd0sZmCBLMHlp3qU-WPeu7qlzcB9DKzHioabG1IBcXKXyvVua5B_150n0ukV0Pan0tE-t_a43zqlTTny3tQfpJLwSQU3DNSLMGfm2lU2ptZrDd4pP91lHo58K2N1Oi-kWhBHDekd3AD33qv0GUjwUegDpyDWzAQtEL5Z3cqALVv9F3BWP0n-KJ7bwil08Egsm3vqz0ZsNoVw1KH8-UmDlkd"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Our Vision Section -->
+<section class="relative py-32 overflow-hidden bg-primary text-white reveal">
+<div class="px-6 md:px-12 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+<div class="relative">
+<div class="absolute -top-10 -left-10 w-40 h-40 bg-white/10 rounded-full blur-[100px] opacity-50"></div>
+<img alt="" class="rounded-2xl shadow-2xl relative z-10 w-full h-[600px] object-cover border border-white/10" data-alt="Abstract cinematic shot of a drone pilot wearing VR goggles looking upwards into a clear blue sky" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDREN4M09e-HwMLrAxE0kM6XIqR_K-Jtln_7CmGzJrNBWZdnYxjHeHHdSmfi8JZ_rEh-Xryr6FNNvZVVdCavxH7TDmRuzoVgt1ogu04mnvIP7O4qdjY2v_kZX5bkN7apZ2S6439Vx59h5nm6QqQhnXNPW9ISoU1N2F_XxsHjkFEEeHFmzvJFffDNvqfZeEuGi-6bqd-subX9u2065iW6Qi5f4t317bu6WQLs9RCLa0Ij16cGwFuG7Qk_Oy8p6UujhNOjJJrdzwe8oQO"/>
+</div>
+<div>
+<div class="mb-16">
+<h4 class="text-white/60 uppercase tracking-widest font-medium text-sm mb-4">Our Vision</h4>
+<h2 class="text-4xl md:text-5xl font-medium mb-6 tracking-tight">Democratizing the Skies through Innovation</h2>
+<p class="text-xl text-white/80 leading-relaxed font-medium">To be the global catalyst for aerial intelligence, creating a world where autonomous flight enhances human potential and industrial safety across every continent.</p>
+</div>
+<div>
+<h4 class="text-white/60 uppercase tracking-widest font-medium text-sm mb-4">Our Mission</h4>
+<h2 class="text-4xl md:text-5xl font-medium mb-6 tracking-tight">Precision Engineering for a Greener Future</h2>
+<p class="text-xl text-white/80 leading-relaxed font-medium">We engineer sovereign drone ecosystems that prioritize data security, operational excellence, and environmental stewardship, delivering actionable insights from above.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Mission & Vision (New Technology) -->
+<section class="py-32 bg-slate-50 reveal">
+<div class="px-6 md:px-12 max-w-7xl mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+<div class="order-2 lg:order-1">
+<div class="mb-16">
+<span class="text-primary font-medium text-xs uppercase tracking-widest block mb-4">New Technology</span>
+<h2 class="text-4xl md:text-5xl font-medium mb-8 tracking-tight">Explore The World From A New Perspective</h2>
+<p class="text-lg text-on-surface-variant leading-relaxed mb-10 font-medium">Unleash your creativity with our drone equipment and services. We provide end-to-end aerial solutions for modern enterprise needs.</p>
+<div class="space-y-6">
+<a class="flex items-center justify-between py-5 px-6 border border-slate-200 group hover-card-blue transition-all duration-300" href="#">
+<span class="text-lg font-medium transition-colors duration-300">Great Experience</span>
+<span class="material-symbols-outlined group-hover:translate-x-2 transition-all duration-300">arrow_forward</span>
+</a>
+<a class="flex items-center justify-between py-5 px-6 border border-slate-200 group hover-card-blue transition-all duration-300" href="#">
+<span class="text-lg font-medium transition-colors duration-300">Remote Control</span>
+<span class="material-symbols-outlined group-hover:translate-x-2 transition-all duration-300">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+<div class="order-1 lg:order-2">
+<img alt="" class="w-full h-[600px] object-cover grayscale rounded-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAP7JUWvyHUakP7dau6Q03lo6ihDIXWAOzEumXxLKSG_QRCYidjZlLZfSE4MF5eK-LDio630zsmfBoHM3dsdJOFxjrjq2eOtykWv_Bs0bZtIXBRtJCKwweK3XlUAgdGwVh2i_ST4S0iAPE9qkvOy-sEnVcZ-QSl55RjAvufizJkkSf92v_bc-gwa7UEpH5r15q6XExqnryF8yL-Umi68Zm_Up3AOvYpB3TRCK6ExTJUJytzRbjnJ646V3QtsIrTc-sCERLutHmd0pzF"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Trusted By Bento Grid -->
+<section class="py-24 bg-white reveal">
+<div class="px-6 md:px-12 max-w-7xl mx-auto">
+<div class="mb-12">
+<span class="text-primary font-medium text-xs uppercase tracking-widest block mb-4">Collaborations</span>
+<h2 class="text-3xl font-medium tracking-tight">Trusted By Industry Leaders</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+<div class="bg-slate-50 p-12 flex items-center justify-center rounded-sm hover:bg-slate-100 transition-colors">
+<span class="text-2xl font-medium text-on-surface opacity-60">Zendesk</span>
+</div>
+<div class="bg-slate-50 p-12 flex items-center justify-center rounded-sm hover:bg-slate-100 transition-colors">
+<span class="text-2xl font-medium text-on-surface opacity-60">Bitbucket</span>
+</div>
+<div class="bg-slate-50 p-12 flex items-center justify-center rounded-sm hover:bg-slate-100 transition-colors">
+<span class="text-2xl font-medium text-on-surface opacity-60">Intercom</span>
+</div>
+<div class="bg-slate-50 p-12 flex items-center justify-center rounded-sm hover:bg-slate-100 transition-colors">
+<span class="text-2xl font-medium text-on-surface opacity-60">Postmark</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="py-32 bg-primary text-white text-center relative overflow-hidden reveal">
+<div class="absolute inset-0 opacity-10">
+<span class="material-symbols-outlined text-[600px] absolute -top-40 -right-40" data-icon="flight_takeoff">flight_takeoff</span>
+</div>
+<div class="px-6 md:px-12 max-w-4xl mx-auto relative z-10">
+<div class="text-xs font-medium uppercase tracking-[0.4em] mb-10 text-white/60">Samridhi Informatics</div>
+<h2 class="text-5xl md:text-7xl font-medium tracking-tight mb-8">Let's cooperate together</h2>
+<p class="text-xl text-white/70 mb-12 max-w-2xl mx-auto font-medium">Experience heightened speed, improved stability, and a complete suite of features for your next aerial mission.</p>
+<button class="bg-white text-primary px-12 py-5 rounded-sm font-medium text-sm uppercase tracking-widest hover:bg-slate-100 transition-all shadow-2xl btn-interact">
+                    Get a Free Quote
+                </button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-primary text-white/60 py-16 border-t border-white/10 reveal">
+<div class="flex flex-col md:flex-row justify-between items-center px-6 md:px-12 max-w-7xl mx-auto">
+<div class="mb-8 md:mb-0">
+<div class="text-xl font-medium text-white mb-2">Samridhi Informatics</div>
+<p class="text-xs font-medium">© 2024 Samridhi Informatics. All Rights Reserved. <a class="underline ml-2 hover:text-white" href="#">Licensing</a></p>
+</div>
+<div class="flex flex-wrap justify-center gap-10 text-xs font-medium uppercase tracking-[0.2em]">
+<a class="hover:text-white transition-colors" href="#">LinkedIn</a>
+<a class="hover:text-white transition-colors" href="#">YouTube</a>
+<a class="hover:text-white transition-colors" href="#">Instagram</a>
+<a class="hover:text-white transition-colors" href="#">Twitter</a>
+</div>
+</div>
+</footer>
+<script>
+        // Intersection Observer for scroll-reveal animations
+        const revealCallback = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(revealCallback, {
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body></html>
