@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>About Us | Samridhi Informatics</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface": "#ffffff",
+                        "primary": "#1A36B0",
+                        "on-surface": "#191c1d",
+                        "on-error": "#ffffff",
+                        "surface-container": "#f8f9fa",
+                        "on-primary-container": "#a0aeff",
+                        "surface-container-low": "#fcfcfc",
+                        "surface-tint": "#3a52ca",
+                        "inverse-surface": "#2e3132",
+                        "inverse-primary": "#bac3ff",
+                        "background": "#ffffff",
+                        "secondary-fixed-dim": "#b9c5f2",
+                        "secondary-fixed": "#dbe1ff",
+                        "on-primary-fixed-variant": "#1c38b1",
+                        "on-background": "#191c1d",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#002eca",
+                        "primary-fixed": "#dee0ff",
+                        "surface-container-high": "#f1f3f4",
+                        "on-secondary-container": "#4c587f",
+                        "tertiary": "#001e8e",
+                        "on-primary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-tertiary-container": "#a1aeff",
+                        "outline": "#757685",
+                        "on-surface-variant": "#444654",
+                        "inverse-on-surface": "#f0f1f2",
+                        "surface-variant": "#e1e3e4",
+                        "surface-container-highest": "#e1e3e4",
+                        "primary-fixed-dim": "#bac3ff",
+                        "tertiary-fixed": "#dee0ff",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-dim": "#d9dadb",
+                        "tertiary-container": "#002ec7",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#00105b",
+                        "secondary-container": "#c4d0fd",
+                        "outline-variant": "#c5c5d6",
+                        "on-primary-fixed": "#00115a",
+                        "tertiary-fixed-dim": "#bac3ff",
+                        "secondary": "#515d84",
+                        "on-tertiary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-secondary-fixed": "#0b1a3d",
+                        "primary-container": "#1A36B0",
+                        "on-secondary-fixed-variant": "#39456b",
+                        "surface-bright": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    },
+                    "fontWeight": {
+                        "bold": "500",
+                        "extrabold": "500",
+                        "semibold": "500",
+                        "medium": "500"
+                    }
+                },
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; font-weight: 400; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+        /* Nav adjustment for white background on about page */
+        .glass-nav-light {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-color: rgba(0,0,0,0.1);
+        }
+        .text-shadow-sm {
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        /* Override all font-weights to max 500 */
+        * {
+            font-weight: 400 !important;
+        }
+        .font-medium, .font-semibold, .font-bold, .font-extrabold, h1, h2, h3, h4, h5, h6, b, strong, button, nav a {
+            font-weight: 500 !important;
+        }
+
+        /* Micro-interactions for buttons */
+        .btn-interact {
+            transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease;
+        }
+        .btn-interact:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+        .btn-interact-light:hover {
+            box-shadow: 0 10px 25px -5px rgba(26, 54, 176, 0.3);
+        }
+
+        /* Scroll Reveal Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Transition utility for blue hover state - applied to text cards only */
+        .hover-card-blue {
+            transition: all 0.4s ease;
+        }
+        .hover-card-blue:hover {
+            background-color: #1A36B0;
+            color: white !important;
+        }
+
+        .editorial-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 2rem;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased">
+<!-- Floating TopNavBar -->
+<div class="fixed top-6 left-0 right-0 z-50 flex justify-center px-6">
+<nav class="glass-nav-light rounded-full px-8 py-3.5 flex justify-between items-center w-full max-w-5xl shadow-lg border border-slate-200">
+<a href="index.html" class="text-lg font-medium text-primary tracking-tight hover:opacity-80 transition-opacity">Samridhi Informatics</a>
+<div class="hidden md:flex items-center gap-x-10">
+<a class="text-sm font-medium text-on-surface-variant hover:text-primary transition-all duration-300" href="#">Solutions</a>
+<a class="text-sm font-medium text-on-surface-variant hover:text-primary transition-all duration-300" href="#">Technology</a>
+<a class="text-sm font-medium text-primary hover:text-primary transition-all duration-300 border-b-2 border-primary pb-0.5" href="about.html">Company</a>
+<a class="text-sm font-medium text-on-surface-variant hover:text-primary transition-all duration-300" href="#">Insights</a>
+</div>
+<button class="bg-primary text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-opacity-90 transition-all duration-300 btn-interact">
+                Get In Touch
+            </button>
+</nav>
+</div>
+<main class="pt-40">
+
+<!-- Hero / Mission & Vision Section -->
+<section class="max-w-7xl mx-auto px-6 md:px-12 mb-40 reveal">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
+<div class="lg:col-span-7">
+<div class="w-12 h-[2px] bg-primary mb-8"></div>
+<h1 class="text-6xl md:text-8xl font-medium text-primary tracking-tighter leading-none mb-12">
+                    Architecting the <br/>Digital Future.
+                </h1>
+<p class="text-xl md:text-2xl text-on-surface-variant leading-relaxed max-w-xl font-medium">
+                    At Samridhi Informatics, we blend clinical precision with creative vision to deliver infrastructure that endures.
+                </p>
+</div>
+<div class="lg:col-span-5 relative">
+<div class="aspect-[4/5] overflow-hidden rounded-sm shadow-2xl group">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="Breathtaking aerial photography of a modern glass skyscraper reflecting a clear blue sky at dawn, minimalist composition with strong vertical lines" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8UjT-c6255FSZtn1ApRBpliksYqecJIWheZ4n7rt--K0wapHuDlQe14TldCwhMz47adyCxH6ozCKQHZ9Fk-vwXlZ1O97CjCFidJSb2_QI4DBlo6qRR47scB8ggo31z1R3Nuv8XWbDTH9D2PTEbkhicPJmY4ZGelRzGpN0WC5LMEXWRDMozOrWA5TA8VkTKoZjZsEsNYG-Lj_efho74_zFv6n-FsbEUkIR9k-WdfxxXEFc0-jsRYy29yqh99vzNRJ98HchB6GqCyFT"/>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-24 mt-32">
+<div class="space-y-6">
+<span class="text-primary font-medium tracking-widest text-xs uppercase">Our Mission</span>
+<h2 class="text-4xl font-medium text-on-surface">To empower enterprises with resilient digital blueprints.</h2>
+<p class="text-on-surface-variant leading-relaxed font-medium">We operate at the intersection of high-end engineering and strategic foresight, ensuring every line of code serves a sovereign purpose in the global market.</p>
+</div>
+<div class="space-y-6">
+<span class="text-primary font-medium tracking-widest text-xs uppercase">Our Vision</span>
+<h2 class="text-4xl font-medium text-on-surface">Defining the gold standard of informatics by 2030.</h2>
+<p class="text-on-surface-variant leading-relaxed font-medium">Our goal is to be the silent architect behind the world's most robust systems, prioritizing security, scalability, and aesthetic integrity.</p>
+</div>
+</div>
+</section>
+
+<!-- Company History / Timeline Section -->
+<section class="bg-surface-container-low py-32 reveal">
+<div class="max-w-7xl mx-auto px-6 md:px-12">
+<div class="mb-24 flex flex-col items-center text-center">
+<div class="w-12 h-[2px] bg-primary mb-8"></div>
+<h2 class="text-4xl md:text-5xl font-medium text-on-surface tracking-tight">Our Evolution</h2>
+</div>
+<div class="relative space-y-32">
+<!-- Event 1 -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start reveal">
+<div class="md:col-span-3">
+<span class="text-7xl font-medium text-primary-container opacity-20">2014</span>
+</div>
+<div class="md:col-span-5">
+<h3 class="text-2xl font-medium mb-4">The Foundation</h3>
+<p class="text-on-surface-variant leading-relaxed font-medium">Samridhi Informatics was established in a small studio with a focus on high-performance network architecture for regional startups.</p>
+</div>
+<div class="md:col-span-4 overflow-hidden group">
+<img class="w-full h-48 object-cover rounded-sm grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="Close-up of a vintage blueprint on an architect desk with soft natural light coming from a side window" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDU0ShzSir5AuA4d3fbilgglDLYiUdtEcdrzTOEFjZPavANfSF40-v65tH6xB-7_4YaAeM-kUrygBMWCltsWoiyOaMqfiiyViGVFG4tmodzkRYc-O-yfU1Jxldb7tPybJCn4m0IGqquV_UgFQk19H-MnTRzDf8LS13fNDzOKJP-ImO-O7xdKyS0fneJYzTyhW2ysU6jMEAK8P-Uc7HdyR0Ilq8vhfhwJSXMQAHT-KHocIzjUykXHj9_yPiDZXvOzlBzUh-gs6duLgJr"/>
+</div>
+</div>
+<!-- Event 2 -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start reveal" style="transition-delay: 100ms;">
+<div class="md:col-span-3 order-1 md:order-3 text-left md:text-right">
+<span class="text-7xl font-medium text-primary-container opacity-20">2018</span>
+</div>
+<div class="md:col-span-4 order-2 md:order-1 overflow-hidden group">
+<img class="w-full h-48 object-cover rounded-sm grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="High-tech server room with glowing blue LED lights and symmetric server racks in a perspective shot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuASHg2uc3jnRK87kDawCshezpWcBeRZp_P12Z2VDgMS7leOZQd6LfcUJRcVXQAHvknV6Zb39Sc1QGm2rSi6UwcuvfwpZsywimz83lO0Y8v046z1B7rBfLY6CayBUI22q_Wxk8BJUo91H92t5ehtDZiZrPOy65M8SVOZ5JS-3_HfBvfe1Mx3JmYdiubtTncKlx4ZybRkQsAKsMNzOL_94jlv1B1QK_-MrdVcvHfNx4egYQilMZKjj224E6bMmJhuh2uTccQmewbzex7I"/>
+</div>
+<div class="md:col-span-5 order-3 md:order-2">
+<h3 class="text-2xl font-medium mb-4">Global Expansion</h3>
+<p class="text-on-surface-variant leading-relaxed font-medium">Securing our first Fortune 500 partnership, we expanded operations into three continents, specializing in cloud-native transformation.</p>
+</div>
+</div>
+<!-- Event 3 -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start reveal" style="transition-delay: 200ms;">
+<div class="md:col-span-3">
+<span class="text-7xl font-medium text-primary-container opacity-20">2023</span>
+</div>
+<div class="md:col-span-5">
+<h3 class="text-2xl font-medium mb-4">Innovation Zenith</h3>
+<p class="text-on-surface-variant leading-relaxed font-medium">Launch of our proprietary Sovereign Logic framework, setting a new benchmark for corporate informatics and data security.</p>
+</div>
+<div class="md:col-span-4 overflow-hidden group">
+<img class="w-full h-48 object-cover rounded-sm grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="Minimalist modern office lobby with marble floors and a large digital screen displaying abstract blue waves" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFv7750PjAMabVoGt29hDydK0FZqWMgNYTsULrYwEduxG-WXyqbrFHuwnTOBpvhlqVJdV0bgXxCJVu2lsCKnlr-asAkibgY1p14le2ieEdumy0mEaIQOUqJQh9WkxDyE33xhS3qOmeJxu3SJjstRfo9zvb5_Yzp35mPyMugTwi9K_9wtZOaWjZrzDhHh4npAsEG5QSCJdocNTmJ2HuMDETHadzrMlioYUoSyi-fdrW2DU2iKuBb8gD9z39fK8pMbc6Ohb8WWRoeZvh"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Leadership Team Section -->
+<section class="py-32 bg-white reveal">
+<div class="max-w-7xl mx-auto px-6 md:px-12">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-24">
+<div class="lg:col-span-5">
+<div class="w-12 h-[2px] bg-primary mb-8"></div>
+<h2 class="text-4xl md:text-5xl font-medium text-on-surface tracking-tight mb-8">The Stewardship</h2>
+</div>
+<div class="lg:col-span-7 flex items-end">
+<p class="text-xl text-on-surface-variant leading-relaxed font-medium">Our leadership combines decades of technical mastery with an unwavering commitment to corporate excellence.</p>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-slate-100 border border-slate-100">
+<!-- Leader 1 -->
+<div class="group bg-white p-12 transition-all duration-300 hover:bg-[#1A36B0] cursor-default">
+<div class="mb-8 overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-300">
+<img class="w-full aspect-square object-cover rounded-full p-2 border border-slate-200 group-hover:border-white/20" data-alt="Minimalist professional studio portrait of a woman in a charcoal suit, high-end corporate style, neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTndhyWetxm5in_yVPOD8aLSv-vq_aNYwTcDGdwbOvGW87RnUkTYAOuaHAX5C6pdW7m3oy-d40ol5WL8CygUAOilcxpG6U8j3h7AK_QzM6wbCJG9ZiERF_8d2erdBmVitLizcxgsKW0X9RxEtBVSM5w-KS34H51FzgEEIlbcis5YYDXHKpWaQibTdiM3r5pdQ7cv0v5rhEV_oF4p6yQiiMguXQoZdN4I2Loifyg74UP0oM7eJKLQ4TbMxTZDcWOvhFwhE2hvfLDpIB"/>
+</div>
+<h4 class="text-2xl font-medium mb-1 group-hover:text-white transition-colors duration-300">Elena Sterling</h4>
+<p class="text-primary font-medium text-xs tracking-widest uppercase mb-6 group-hover:text-white/80 transition-colors duration-300">Chief Executive Officer</p>
+<p class="text-on-surface-variant group-hover:text-white/70 leading-relaxed text-sm font-medium transition-colors duration-300">Formerly of Global Systems, Elena leads our long-term strategic vision and governance.</p>
+</div>
+<!-- Leader 2 -->
+<div class="group bg-white p-12 transition-all duration-300 hover:bg-[#1A36B0] cursor-default">
+<div class="mb-8 overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-300">
+<img class="w-full aspect-square object-cover rounded-full p-2 border border-slate-200 group-hover:border-white/20" data-alt="Minimalist professional studio portrait of a man in a navy turtleneck, high-end corporate style, neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAif9CySrtdCj6VIQn-J3jAV-VsW18JwXyghb0JiMTr-PZxEoZ9XyWa6zOsyqurqJjYYQj03tyZ7RcLmrIBNJfKNJ163iwoV16iOKtqQG3XfwIgdWrfCrYN3Da44nB20Zm9zZIXtdxiXCY8qF8CaZZO-Y5Yd6AJNhFNu6L5BeL8iuhaltX5vCT9oAv6trwXhAsnP9r-6RJmwggpJb-KXBEDX3h54Z50eq-aX9n6BKmrH2b6SsSBWMWgpjwQqMaaDkUMSJ-gVCjSJDp5"/>
+</div>
+<h4 class="text-2xl font-medium mb-1 group-hover:text-white transition-colors duration-300">Marcus Thorne</h4>
+<p class="text-primary font-medium text-xs tracking-widest uppercase mb-6 group-hover:text-white/80 transition-colors duration-300">Chief Technology Officer</p>
+<p class="text-on-surface-variant group-hover:text-white/70 leading-relaxed text-sm font-medium transition-colors duration-300">A pioneer in distributed systems, Marcus oversees all architectural innovations.</p>
+</div>
+<!-- Leader 3 -->
+<div class="group bg-white p-12 transition-all duration-300 hover:bg-[#1A36B0] cursor-default">
+<div class="mb-8 overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-300">
+<img class="w-full aspect-square object-cover rounded-full p-2 border border-slate-200 group-hover:border-white/20" data-alt="Minimalist professional studio portrait of a woman with glasses, high-end corporate style, neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7zIl5nkSezNKSHMARSdgrniwBA6wfqe-rWXqT3yu1chiEe_akAnM5AXFR1z5u-tuRZBE2J6sTsdogx5ScYtLD_B-Kio9haLUpfP0IenTWK2tpsbQAHYGWZBpea1c-6-cenSftRRjRfNfZe4x_zxHvnG0vTd5uSKtI3rggjz8zaq8PFbyhCQ_2ITqU06slrV-LXwE7vDJA8PNDeiQ0pVIhOF0yoX-w3JWeoLZ7ZcCPm7fPJcsEqcwpWRTGKwBsM3WyI7k-0GMngAMH"/>
+</div>
+<h4 class="text-2xl font-medium mb-1 group-hover:text-white transition-colors duration-300">Sonia Varma</h4>
+<p class="text-primary font-medium text-xs tracking-widest uppercase mb-6 group-hover:text-white/80 transition-colors duration-300">Head of Innovation</p>
+<p class="text-on-surface-variant group-hover:text-white/70 leading-relaxed text-sm font-medium transition-colors duration-300">Sonia manages our R&amp;D lab, focusing on emerging informatics and AI integration.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Values CTA -->
+<section class="max-w-7xl mx-auto px-6 md:px-12 py-32 border-t border-slate-100 reveal">
+<div class="flex flex-col md:flex-row justify-between items-center gap-12">
+<h2 class="text-4xl md:text-5xl font-medium tracking-tight">Ready to build the extraordinary?</h2>
+<a class="inline-flex items-center gap-4 bg-primary text-white px-10 py-5 rounded-sm font-medium hover:bg-opacity-90 transition-all group btn-interact btn-interact-light text-sm uppercase tracking-widest" href="#">
+                View Open Positions
+                <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-primary text-white/60 py-16 border-t border-white/10 reveal">
+<div class="flex flex-col md:flex-row justify-between items-center px-6 md:px-12 max-w-7xl mx-auto">
+<div class="mb-8 md:mb-0">
+<div class="text-xl font-medium text-white mb-2">Samridhi Informatics</div>
+<p class="text-xs font-medium">© 2024 Samridhi Informatics. All Rights Reserved. <a class="underline ml-2 hover:text-white" href="#">Licensing</a></p>
+</div>
+<div class="flex flex-wrap justify-center gap-10 text-xs font-medium uppercase tracking-[0.2em]">
+<a class="hover:text-white transition-colors" href="#">LinkedIn</a>
+<a class="hover:text-white transition-colors" href="#">YouTube</a>
+<a class="hover:text-white transition-colors" href="#">Instagram</a>
+<a class="hover:text-white transition-colors" href="#">Twitter</a>
+</div>
+</div>
+</footer>
+
+<script>
+        // Intersection Observer for scroll-reveal animations
+        const revealCallback = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(revealCallback, {
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Trigger reveal for elements already in viewport on load
+        setTimeout(() => {
+            document.querySelectorAll('.reveal').forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top <= (window.innerHeight || document.documentElement.clientHeight)) {
+                    el.classList.add('active');
+                }
+            });
+        }, 100);
+    </script>
+
+</body></html>
