@@ -4,7 +4,10 @@
 <footer class="bg-primary text-white/60 py-16 border-t border-white/10 reveal">
   <div class="flex flex-col md:flex-row justify-between items-center px-6 md:px-12 max-w-7xl mx-auto">
     <div class="mb-8 md:mb-0">
-      <div class="text-xl font-medium text-white mb-2">BKT Tactical Solutions Private Limited</div>
+      <div class="flex items-center gap-4 text-white mb-3">
+        <img alt="BKT Tactical Solutions logo" class="site-footer-logo" src="/images/bkt-logo-mark.svg" />
+        <div class="text-xl font-medium">BKT Tactical Solutions Private Limited</div>
+      </div>
       <p class="text-xs font-medium max-w-sm">Building reliable, innovative, and future-ready tactical solutions with precision and operational excellence.</p>
     </div>
     <div class="flex flex-wrap justify-center gap-10 text-xs font-medium uppercase tracking-[0.2em]">
@@ -16,3 +19,14 @@
     </div>
   </div>
 </footer>
+
+<style>
+  .site-footer-logo {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 9999px;
+    object-fit: cover;
+    flex: 0 0 auto;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+</style>

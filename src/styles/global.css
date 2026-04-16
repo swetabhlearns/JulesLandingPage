@@ -2,6 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/Manrope-400.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/fonts/Manrope-500.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Material Symbols Outlined";
+  font-style: normal;
+  font-weight: 100 700;
+  font-display: swap;
+  src: url("/fonts/MaterialSymbolsOutlined.ttf") format("truetype");
+}
+
 :root {
   color-scheme: light;
 }
@@ -54,6 +78,15 @@ nav a,
 
 .text-shadow-sm {
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.hero-gradient-overlay {
+  background: linear-gradient(
+    to right,
+    rgba(10, 16, 28, 0.72) 0%,
+    rgba(10, 16, 28, 0.42) 48%,
+    rgba(10, 16, 28, 0.12) 100%
+  );
 }
 
 .btn-interact {

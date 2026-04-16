@@ -1,0 +1,36 @@
+---
+const {
+  stem,
+  alt = "",
+  class: className = "",
+  pictureClass = "",
+  sizes = "100vw",
+  loading = "lazy",
+  decoding = "async",
+  fetchpriority,
+  width,
+  height,
+  fallback,
+  avifWidths = [],
+  webpWidths = [],
+} = Astro.props;
+
+const avifSrcset = avifWidths.length ? avifWidths.map((size) => `${stem}-${size}.avif ${size}w`).join(", ") : undefined;
+const webpSrcset = webpWidths.length ? webpWidths.map((size) => `${stem}-${size}.webp ${size}w`).join(", ") : undefined;
+const fallbackSrc = fallback ?? `${stem}.webp`;
+---
+
+<picture class={pictureClass}>
+  {avifSrcset && <source srcset={avifSrcset} sizes={sizes} type="image/avif" />}
+  {webpSrcset && <source srcset={webpSrcset} sizes={sizes} type="image/webp" />}
+  <img
+    alt={alt}
+    class={className}
+    decoding={decoding}
+    fetchpriority={fetchpriority}
+    height={height}
+    loading={loading}
+    src={fallbackSrc}
+    width={width}
+  />
+</picture>

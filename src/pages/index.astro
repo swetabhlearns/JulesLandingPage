@@ -2,142 +2,14 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import SiteNav from "../components/SiteNav.astro";
 import SiteFooter from "../components/SiteFooter.astro";
+import ResponsiveImage from "../components/ResponsiveImage.astro";
 ---
 
 <BaseLayout
-  title="Samridhi Informatics | Elevating Aerial Intelligence"
+  title="BKT Tactical Solutions | Elevating Aerial Intelligence"
+  description="BKT Tactical Solutions Private Limited delivers reliable tactical, drone, and technology-led solutions with a focus on precision, sustainability, and Make in India."
   bodyClass="bg-surface text-on-surface antialiased"
 >
-  <script slot="head" is:inline id="tailwind-config">
-        window.tailwind = window.tailwind || {};
-        window.tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {
-                        "surface": "#ffffff",
-                        "primary": "#1A36B0",
-                        "on-surface": "#191c1d",
-                        "on-error": "#ffffff",
-                        "surface-container": "#f8f9fa",
-                        "on-primary-container": "#a0aeff",
-                        "surface-container-low": "#fcfcfc",
-                        "surface-tint": "#3a52ca",
-                        "inverse-surface": "#2e3132",
-                        "inverse-primary": "#bac3ff",
-                        "background": "#ffffff",
-                        "secondary-fixed-dim": "#b9c5f2",
-                        "secondary-fixed": "#dbe1ff",
-                        "on-primary-fixed-variant": "#1c38b1",
-                        "on-background": "#191c1d",
-                        "on-secondary": "#ffffff",
-                        "on-tertiary-fixed-variant": "#002eca",
-                        "primary-fixed": "#dee0ff",
-                        "surface-container-high": "#f1f3f4",
-                        "on-secondary-container": "#4c587f",
-                        "tertiary": "#001e8e",
-                        "on-primary": "#ffffff",
-                        "error": "#ba1a1a",
-                        "on-tertiary-container": "#a1aeff",
-                        "outline": "#757685",
-                        "on-surface-variant": "#444654",
-                        "inverse-on-surface": "#f0f1f2",
-                        "surface-variant": "#e1e3e4",
-                        "surface-container-highest": "#e1e3e4",
-                        "primary-fixed-dim": "#bac3ff",
-                        "tertiary-fixed": "#dee0ff",
-                        "surface-container-lowest": "#ffffff",
-                        "surface-dim": "#d9dadb",
-                        "tertiary-container": "#002ec7",
-                        "error-container": "#ffdad6",
-                        "on-tertiary-fixed": "#00105b",
-                        "secondary-container": "#c4d0fd",
-                        "outline-variant": "#c5c5d6",
-                        "on-primary-fixed": "#00115a",
-                        "tertiary-fixed-dim": "#bac3ff",
-                        "secondary": "#515d84",
-                        "on-tertiary": "#ffffff",
-                        "on-error-container": "#93000a",
-                        "on-secondary-fixed": "#0b1a3d",
-                        "primary-container": "#1A36B0",
-                        "on-secondary-fixed-variant": "#39456b",
-                        "surface-bright": "#ffffff"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "0.125rem",
-                        "lg": "0.25rem",
-                        "xl": "0.5rem",
-                        "full": "9999px"
-                    },
-                    "fontFamily": {
-                        "headline": ["Manrope"],
-                        "body": ["Manrope"],
-                        "label": ["Manrope"]
-                    },
-                    "fontWeight": {
-                        "bold": "500",
-                        "extrabold": "500",
-                        "semibold": "500",
-                        "medium": "500"
-                    }
-                },
-            }
-        }
-    </script>
-  <style slot="head">
-        body { font-family: 'Manrope', sans-serif; font-weight: 400; }
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-            vertical-align: middle;
-        }
-        .glass-nav {
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-        }
-        .text-shadow-sm {
-            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        /* Override all font-weights to max 500 */
-        * {
-            font-weight: 400 !important;
-        }
-        .font-medium, .font-semibold, .font-bold, .font-extrabold, h1, h2, h3, h4, h5, h6, b, strong, button, nav a {
-            font-weight: 500 !important;
-        }
-
-        /* Micro-interactions for buttons */
-        .btn-interact {
-            transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease;
-        }
-        .btn-interact:hover {
-            transform: scale(1.02);
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
-        }
-        .btn-interact-light:hover {
-            box-shadow: 0 10px 25px -5px rgba(26, 54, 176, 0.3);
-        }
-
-        /* Scroll Reveal Animations */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Transition utility for blue hover state - applied to text cards only */
-        .hover-card-blue {
-            transition: all 0.4s ease;
-        }
-        .hover-card-blue:hover {
-            background-color: #1A36B0;
-            color: white !important;
-        }
-    </style>
   <SiteNav />
 
   <main>
@@ -148,8 +20,9 @@ import SiteFooter from "../components/SiteFooter.astro";
           muted
           loop
           playsinline
+          preload="metadata"
           class="w-full h-full object-cover brightness-[0.65]"
-          poster="https://lh3.googleusercontent.com/aida-public/AB6AXuCNhDWOm2WHEEGLSaYtpUsPKy93pxjaU8_3F-JyuITrGLkpUpDL_EJLgqNe_d9FohhrkZlHNzowRUkl8HJD56WcnTnIfxJX4RjviRO_GQKYNz-2s-ibjba92IeKWiS-5-hMlNRIvPkEgsiXURDUWMMhlT2ELTfmwEGqBG8kJDVIIWVcFvhvYHdX5UynlnF7Gx0bpe6ztOgpuoHi-FeeUAJqJBY2sdl7LNKdrdrMPVVGTeOZiEwKhdBJiIn6EzNFO1fisnZ872t0TG0f"
+          poster="/images/home-hero-poster.jpg"
         >
           <source src="/videos/home-hero-pexels.mp4" type="video/mp4" />
         </video>
@@ -212,10 +85,11 @@ import SiteFooter from "../components/SiteFooter.astro";
             </div>
           </div>
           <div class="relative overflow-hidden group">
-            <img
+            <ResponsiveImage
               alt=""
               class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-lg2xvLH4msIeFesrd41vSPdbhZ8r6CxTD1hia6SdsVRhq6m0ru8JDLpWlDwmz-Ll00L4QUP6nXZn13lxEVNBLjgYAxCQOdxJgQs5OOgktArC2ayXY2Q2_6fRbvJYazMFgZR8mP0KyBX-kBXSeu7erPGUIZYFfRohcCdqwS2G2q_V-DUZQrQm8rfQqeYIpSMXmQilRQl4g6EeQfMXuGUaj5RrMS1twoi8_aoCdc3Ax1iSS5ywvVlkpE_9hAHwe8QI09EZ2Nr8icjq"
+              sizes="(min-width: 1024px) 50vw, 100vw"
+              stem="/images/remote/01-6943f5504d"
             />
           </div>
         </div>
@@ -293,13 +167,23 @@ import SiteFooter from "../components/SiteFooter.astro";
               </a>
             </div>
             <div class="overflow-hidden h-[400px] lg:h-[500px] rounded-sm">
-              <img alt="Aerial Car" class="w-full h-full object-cover transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJe688RHL83ZTPpPVT_SpFFfuLMIRJkcxa04omeO9O4K1bC-SyuAuW11ZGj7NfQkXtg34D8jXRN4gDVh1W6EszL7t7tTZIEsvtnn_Xo5sHyl7ih1E0DgML6glrU0DsJqaYTdX_N2aU4f1DQmVQraabZd1MIdW22ABrFqzYMzYJJ1Gm5enZiGWoA-YQGTvXgISCrhopBIRwiR9HWOl7yxq05HxKck003pBsk_CsDDqHFeP7msgf8FSnRWjjtYpuXm-Y1lhCEBSb9bhl" />
+              <ResponsiveImage
+                alt="Aerial Car"
+                class="w-full h-full object-cover transition-all duration-700"
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                stem="/images/remote/02-afcde7f5cb"
+              />
             </div>
           </div>
 
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center overflow-hidden cursor-pointer group">
             <div class="overflow-hidden h-[400px] lg:h-[500px] rounded-sm lg:order-1 order-2">
-              <img alt="Adaptive approach" class="w-full h-full object-cover transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuChO9ZhHbunVMlRCcsuuK2Tr72ay3jVsUTOHWYLYSyjI9phTrPItAwKMGr9d7mb3r4rR4YjG-HlyIJWXHunZ6hI7oynrBFfXo9PhW6gWSQ6B8CPecXTD6MQne_VxsB9Vbia9sFHu9y2Q84YzTqU2VDbBmdVa0Rrj9h6IymTbkLH9de6ZL98XuxOwEXdX3Q4xnHsypo84bfHIiHbODPJpLD7PCIZvju4i3jy2AT1lggO8mPj1mFNuoEqlsgZCLGuatyFaXA7WMjZCrqa" />
+              <ResponsiveImage
+                alt="Adaptive approach"
+                class="w-full h-full object-cover transition-all duration-700"
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                stem="/images/remote/03-f6a7303e7b"
+              />
             </div>
             <div class="p-12 lg:p-16 transition-colors duration-300 hover-card-blue bg-slate-50 border border-slate-100 rounded-sm lg:order-2 order-1">
               <span class="text-on-surface-variant/60 group-hover:text-white/60 font-medium text-xs uppercase tracking-widest block mb-4">April 30, 2023</span>
@@ -327,7 +211,12 @@ import SiteFooter from "../components/SiteFooter.astro";
               </a>
             </div>
             <div class="overflow-hidden h-[400px] lg:h-[500px] rounded-sm">
-              <img alt="Wedding Moments" class="w-full h-full object-cover transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXnaZVJoT6Zx4yetKF92vNmvo4h1zBDMmF73EMFCoYSqyYOzCPzTlbgmd0sZmCBLMHlp3qU-WPeu7qlzcB9DKzHioabG1IBcXKXyvVua5B_150n0ukV0Pan0tE-t_a43zqlTTny3tQfpJLwSQU3DNSLMGfm2lU2ptZrDd4pP91lHo58K2N1Oi-kWhBHDekd3AD33qv0GUjwUegDpyDWzAQtEL5Z3cqALVv9F3BWP0n-KJ7bwil08Egsm3vqz0ZsNoVw1KH8-UmDlkd" />
+              <ResponsiveImage
+                alt="Wedding Moments"
+                class="w-full h-full object-cover transition-all duration-700"
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                stem="/images/remote/04-77289bfb3e"
+              />
             </div>
           </div>
         </div>
@@ -338,11 +227,11 @@ import SiteFooter from "../components/SiteFooter.astro";
       <div class="px-6 md:px-12 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
         <div class="relative">
           <div class="absolute -top-10 -left-10 w-40 h-40 bg-white/10 rounded-full blur-[100px] opacity-50"></div>
-          <img
-            alt=""
+          <ResponsiveImage
+            alt="Abstract cinematic shot of a drone pilot wearing VR goggles looking upwards into a clear blue sky"
             class="rounded-2xl shadow-2xl relative z-10 w-full h-[600px] object-cover border border-white/10"
-            data-alt="Abstract cinematic shot of a drone pilot wearing VR goggles looking upwards into a clear blue sky"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDREN4M09e-HwMLrAxE0kM6XIqR_K-Jtln_7CmGzJrNBWZdnYxjHeHHdSmfi8JZ_rEh-Xryr6FNNvZVVdCavxH7TDmRuzoVgt1ogu04mnvIP7O4qdjY2v_kZX5bkN7apZ2S6439Vx59h5nm6QqQhnXNPW9ISoU1N2F_XxsHjkFEEeHFmzvJFffDNvqfZeEuGi-6bqd-subX9u2065iW6Qi5f4t317bu6WQLs9RCLa0Ij16cGwFuG7Qk_Oy8p6UujhNOjJJrdzwe8oQO"
+            sizes="(min-width: 1024px) 50vw, 100vw"
+            stem="/images/remote/05-e3eab71c70"
           />
         </div>
         <div>
@@ -381,7 +270,12 @@ import SiteFooter from "../components/SiteFooter.astro";
             </div>
           </div>
           <div class="order-1 lg:order-2">
-            <img alt="" class="w-full h-[600px] object-cover grayscale rounded-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAP7JUWvyHUakP7dau6Q03lo6ihDIXWAOzEumXxLKSG_QRCYidjZlLZfSE4MF5eK-LDio630zsmfBoHM3dsdJOFxjrjq2eOtykWv_Bs0bZtIXBRtJCKwweK3XlUAgdGwVh2i_ST4S0iAPE9qkvOy-sEnVcZ-QSl55RjAvufizJkkSf92v_bc-gwa7UEpH5r15q6XExqnryF8yL-Umi68Zm_Up3AOvYpB3TRCK6ExTJUJytzRbjnJ646V3QtsIrTc-sCERLutHmd0pzF"/>
+            <ResponsiveImage
+              alt=""
+              class="w-full h-[600px] object-cover grayscale rounded-sm"
+              sizes="(min-width: 1024px) 50vw, 100vw"
+              stem="/images/remote/06-bd114049ac"
+            />
           </div>
         </div>
       </div>
@@ -392,7 +286,7 @@ import SiteFooter from "../components/SiteFooter.astro";
         <span class="material-symbols-outlined text-[600px] absolute -top-40 -right-40" data-icon="flight_takeoff">flight_takeoff</span>
       </div>
       <div class="px-6 md:px-12 max-w-4xl mx-auto relative z-10">
-        <div class="text-xs font-medium uppercase tracking-[0.4em] mb-10 text-white/60">Samridhi Informatics</div>
+        <div class="text-xs font-medium uppercase tracking-[0.4em] mb-10 text-white/60">BKT Tactical Solutions</div>
         <h2 class="text-5xl md:text-7xl font-medium tracking-tight mb-8">Let's cooperate together</h2>
         <p class="text-xl text-white/70 mb-12 max-w-2xl mx-auto font-medium">Experience heightened speed, improved stability, and a complete suite of features for your next aerial mission.</p>
         <button class="bg-white text-primary px-12 py-5 rounded-sm font-medium text-sm uppercase tracking-widest hover:bg-slate-100 transition-all shadow-2xl btn-interact">

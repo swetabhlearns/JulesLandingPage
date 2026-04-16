@@ -2,145 +2,27 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import SiteNav from "../components/SiteNav.astro";
 import SiteFooter from "../components/SiteFooter.astro";
+import ResponsiveImage from "../components/ResponsiveImage.astro";
 ---
 
 <BaseLayout
-  title="Contact Us | Samridhi Informatics"
+  title="Contact Us | BKT Tactical Solutions"
+  description="Contact BKT Tactical Solutions Private Limited for partnerships, inquiries, and project discussions across tactical and technical needs."
   bodyClass="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-white"
   htmlClass="light"
 >
-  <script slot="head" is:inline id="tailwind-config">
-    window.tailwind = window.tailwind || {};
-    window.tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          colors: {
-            "inverse-on-surface": "#f0f1f2",
-            surface: "#f8f9fa",
-            outline: "#757685",
-            secondary: "#515d84",
-            "on-secondary-container": "#4c587f",
-            "on-tertiary-fixed": "#00105b",
-            "on-secondary-fixed-variant": "#39456b",
-            "inverse-primary": "#bac3ff",
-            "tertiary-fixed-dim": "#bac3ff",
-            "tertiary-container": "#002ec7",
-            "primary-container": "#1a36b0",
-            "on-surface": "#191c1d",
-            "surface-container-highest": "#e1e3e4",
-            "secondary-fixed-dim": "#b9c5f2",
-            "outline-variant": "#c5c5d6",
-            "on-secondary-fixed": "#0b1a3d",
-            "on-primary-fixed-variant": "#1c38b1",
-            "error-container": "#ffdad6",
-            "on-primary-container": "#a0aeff",
-            "on-background": "#191c1d",
-            background: "#f8f9fa",
-            "on-tertiary-fixed-variant": "#002eca",
-            tertiary: "#001e8e",
-            "surface-container-lowest": "#ffffff",
-            primary: "#001f8b",
-            "surface-bright": "#f8f9fa",
-            "surface-container": "#edeeef",
-            "on-primary-fixed": "#00115a",
-            "on-primary": "#ffffff",
-            "primary-fixed": "#dee0ff",
-            "on-error": "#ffffff",
-            "on-tertiary": "#ffffff",
-            "surface-container-high": "#e7e8e9",
-            "on-error-container": "#93000a",
-            "secondary-fixed": "#dbe1ff",
-            "on-tertiary-container": "#a1aeff",
-            error: "#ba1a1a",
-            "primary-fixed-dim": "#bac3ff",
-            "surface-variant": "#e1e3e4",
-            "surface-tint": "#3a52ca",
-            "inverse-surface": "#2e3132",
-            "tertiary-fixed": "#dee0ff",
-            "on-surface-variant": "#444654",
-            "surface-container-low": "#f3f4f5",
-            "secondary-container": "#c4d0fd",
-            "on-secondary": "#ffffff",
-            "surface-dim": "#d9dadb",
-          },
-          borderRadius: {
-            DEFAULT: "0.125rem",
-            lg: "0.25rem",
-            xl: "0.5rem",
-            full: "9999px",
-          },
-          fontFamily: {
-            headline: ["Manrope"],
-            body: ["Manrope"],
-            label: ["Manrope"],
-          },
-        },
-      },
-    };
-  </script>
-  <style slot="head">
-    * {
-      font-family: "Manrope", sans-serif !important;
-      font-weight: 400 !important;
-    }
-
-    .font-medium,
-    .font-semibold,
-    .font-bold,
-    .font-extrabold,
-    h1,
-    h2,
-    h3,
-    h4,
-    b,
-    strong,
-    button,
-    nav a {
-      font-weight: 500 !important;
-    }
-
-    .material-symbols-outlined {
-      font-variation-settings: "FILL" 0, "wght" 200, "GRAD" 0, "opsz" 24;
-      vertical-align: middle;
-      font-family: "Material Symbols Outlined" !important;
-    }
-
-    .glass-nav {
-      background: rgba(255, 255, 255, 0.7);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-    }
-
-    input:focus,
-    textarea:focus {
-      outline: none;
-      box-shadow: none;
-    }
-
-    .line-accent {
-      width: 24px;
-      height: 2px;
-      background-color: #001f8b;
-    }
-
-    .hero-gradient-overlay {
-      background: linear-gradient(to right, rgba(248, 249, 250, 0.8) 0%, rgba(248, 249, 250, 0.3) 50%, rgba(248, 249, 250, 0) 100%);
-    }
-
-    .text-shadow-sm {
-      text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
-    }
-  </style>
   <SiteNav />
 
   <main>
     <div class="relative h-screen flex items-center overflow-hidden py-24 md:py-32">
       <div class="absolute inset-0 z-0">
-        <img
+        <ResponsiveImage
           alt="Professional architectural skyscraper background"
           class="w-full h-full object-cover"
-          src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6TvnRD72wb4iiB_g6tUl3pnNQnRZSCbRq0sPf6t9z-WHN1hcOh3wWM8jj0e31-cMD74D25PcKdecoJbO0LMwjEYNP4Hstn3uZC8avXC_UYg8V89LmGgV_0-PXbEpPyLbHf3LVOeqrGlpBB_Hp3qasWKQ4Ev18Q3mfbu52Tz-o7OOMJAtOM8LHiq6IP4LHOk-I16YwVeWA-CZ2xdCd7UELNKooYU44VWKgAurriz3ZKJSVc3nIR3lhKUpRQ_tP05D3Okg8Pzqckrk7"
+          fetchpriority="high"
+          loading="eager"
+          sizes="100vw"
+          stem="/images/remote/13-cf655cafd4"
         />
         <div class="absolute inset-0 hero-gradient-overlay"></div>
       </div>

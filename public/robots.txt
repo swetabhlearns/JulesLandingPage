@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bkttactical.com/sitemap.xml

@@ -2,9 +2,17 @@
 import "../styles/global.css";
 const {
   title,
+  description = "",
+  canonical,
+  ogImage,
   bodyClass = "",
   htmlClass = "scroll-smooth",
 } = Astro.props;
+const canonicalUrl = canonical ?? (Astro.site ? new URL(Astro.url.pathname, Astro.site).href : undefined);
+const siteUrl = Astro.site?.href ?? "";
+const siteName = "BKT Tactical Solutions";
+const logoUrl = siteUrl ? new URL("/images/bkt-logo-mark.svg", Astro.site).href : "/images/bkt-logo-mark.svg";
+const ogImageUrl = ogImage ?? (siteUrl ? new URL("/images/og-home.png", Astro.site).href : "/images/og-home.png");
 ---
 
 <!doctype html>
@@ -13,17 +21,43 @@ const {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
+    {description && <meta name="description" content={description} />}
+    {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+    <link rel="icon" href="/images/bkt-logo-mark.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/images/bkt-logo-mark-192.png" />
+    <meta property="og:title" content={title} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={siteName} />
+    {description && <meta property="og:description" content={description} />}
+    {canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
+    <meta property="og:image" content={ogImageUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    {description && <meta name="twitter:description" content={description} />}
+    <meta name="twitter:image" content={ogImageUrl} />
+    {siteUrl && (
+      <script type="application/ld+json" set:html={JSON.stringify([
+        {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "@id": `${siteUrl}#organization`,
+          name: siteName,
+          url: siteUrl,
+          logo: logoUrl,
+          image: logoUrl,
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "@id": `${siteUrl}#website`,
+          name: siteName,
+          url: siteUrl,
+          description,
+          inLanguage: "en",
+        },
+      ])} />
+    )}
     <slot name="head" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
-      rel="stylesheet"
-    />
   </head>
   <body class={bodyClass}>
     <slot />

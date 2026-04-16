@@ -1,118 +1,32 @@
 ---
-import "../styles/global.css";
+import BaseLayout from "../layouts/BaseLayout.astro";
 import SiteNav from "../components/SiteNav.astro";
 import SiteFooter from "../components/SiteFooter.astro";
+import ResponsiveImage from "../components/ResponsiveImage.astro";
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>About Us | Samridhi Informatics</title>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
-    <script is:inline id="tailwind-config">
-      window.tailwind = window.tailwind || {};
-      window.tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              "inverse-on-surface": "#f0f1f2",
-              surface: "#f8f9fa",
-              outline: "#757685",
-              secondary: "#515d84",
-              "on-secondary-container": "#4c587f",
-              "on-tertiary-fixed": "#00105b",
-              "on-secondary-fixed-variant": "#39456b",
-              "inverse-primary": "#bac3ff",
-              "tertiary-fixed-dim": "#bac3ff",
-              "tertiary-container": "#002ec7",
-              "primary-container": "#1a36b0",
-              "on-surface": "#191c1d",
-              "surface-container-highest": "#e1e3e4",
-              "secondary-fixed-dim": "#b9c5f2",
-              "outline-variant": "#c5c5d6",
-              "on-secondary-fixed": "#0b1a3d",
-              "on-primary-fixed-variant": "#1c38b1",
-              "error-container": "#ffdad6",
-              "on-primary-container": "#a0aeff",
-              "on-background": "#191c1d",
-              background: "#f8f9fa",
-              "on-tertiary-fixed-variant": "#002eca",
-              tertiary: "#001e8e",
-              "surface-container-lowest": "#ffffff",
-              primary: "#001f8b",
-              "surface-bright": "#f8f9fa",
-              "surface-container": "#edeeef",
-              "on-primary-fixed": "#00115a",
-              "on-primary": "#ffffff",
-              "primary-fixed": "#dee0ff",
-              "on-error": "#ffffff",
-              "on-tertiary": "#ffffff",
-              "surface-container-high": "#e7e8e9",
-              "on-error-container": "#93000a",
-              "secondary-fixed": "#dbe1ff",
-              "on-tertiary-container": "#a1aeff",
-              error: "#ba1a1a",
-              "primary-fixed-dim": "#bac3ff",
-              "surface-variant": "#e1e3e4",
-              "surface-tint": "#3a52ca",
-              "inverse-surface": "#2e3132",
-              "tertiary-fixed": "#dee0ff",
-              "on-surface-variant": "#444654",
-              "surface-container-low": "#f3f4f5",
-              "secondary-container": "#c4d0fd",
-              "on-secondary": "#ffffff",
-              "surface-dim": "#d9dadb",
-            },
-            borderRadius: {
-              DEFAULT: "0.125rem",
-              lg: "0.25rem",
-              xl: "0.5rem",
-              full: "0.75rem",
-            },
-            fontFamily: {
-              headline: ["Manrope"],
-              body: ["Inter"],
-              label: ["Inter"],
-            },
-          },
-        },
-      };
-    </script>
-    <style>
-      .material-symbols-outlined {
-        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-      }
-      .hero-gradient-overlay {
-        background: linear-gradient(to right, rgba(10, 16, 28, 0.72) 0%, rgba(10, 16, 28, 0.42) 48%, rgba(10, 16, 28, 0.12) 100%);
-      }
-      .editorial-grid {
-        display: grid;
-        grid-template-columns: repeat(12, 1fr);
-        gap: 2rem;
-      }
-      .bleed-container {
-        grid-column: 1 / -1;
-      }
-      .content-container {
-        grid-column: 2 / 12;
-      }
-    </style>
-  </head>
-  <body class="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-white">
-    <SiteNav />
+<BaseLayout
+  title="About Us | BKT Tactical Solutions"
+  description="Learn about BKT Tactical Solutions Private Limited, including its mission, vision, evolution, and leadership in tactical and drone solutions."
+  canonical="https://bkttactical.com/about"
+  bodyClass="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-white"
+  htmlClass="light"
+>
+  <SiteNav />
     <main>
       <section class="relative h-screen flex items-center overflow-hidden py-24 md:py-32">
         <div class="absolute inset-0 z-0">
-          <img
-            alt="Industrial drone flying over a mountain landscape with tactical operator"
-            class="w-full h-full object-cover"
-            src="/images/about-hero-bkt-drone.png"
-          />
+        <ResponsiveImage
+          alt="Industrial drone flying over a mountain landscape with tactical operator"
+          class="w-full h-full object-cover"
+          fallback="/images/about-hero-bkt-drone.png"
+          fetchpriority="high"
+          loading="eager"
+          sizes="100vw"
+          avifWidths={[480, 960, 1440]}
+          webpWidths={[480, 960, 1440]}
+          stem="/images/about-hero-bkt-drone"
+        />
           <div class="absolute inset-0 hero-gradient-overlay"></div>
         </div>
 
@@ -160,7 +74,12 @@ import SiteFooter from "../components/SiteFooter.astro";
                 <p class="text-on-surface-variant leading-relaxed transition-colors duration-500 group-hover:text-white/75">BKT Tactical Solutions began with a clear vision to combine innovation, tactical execution, and national relevance. From the start, the goal was to contribute meaningfully to India’s defence and technology ecosystem with a strong emphasis on self-reliance and sustainability.</p>
               </div>
               <div class="md:col-span-4">
-                <img class="w-full h-48 object-cover rounded-sm grayscale hover:grayscale-0 transition-all duration-700" alt="Close-up of a vintage blueprint on an architect desk with soft natural light coming from a side window" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDU0ShzSir5AuA4d3fbilgglDLYiUdtEcdrzTOEFjZPavANfSF40-v65tH6xB-7_4YaAeM-kUrygBMWCltsWoiyOaMqfiiyViGVFG4tmodzkRYc-O-yfU1Jxldb7tPybJCn4m0IGqquV_UgFQk19H-MnTRzDf8LS13fNDzOKJP-ImO-O7xdKyS0fneJYzTyhW2ysU6jMEAK8P-Uc7HdyR0Ilq8vhfhwJSXMQAHT-KHocIzjUykXHj9_yPiDZXvOzlBzUh-gs6duLgJr" />
+                <ResponsiveImage
+                  alt="Close-up of a vintage blueprint on an architect desk with soft natural light coming from a side window"
+                  class="w-full h-48 object-cover rounded-sm grayscale hover:grayscale-0 transition-all duration-700"
+                  sizes="(min-width: 768px) 33vw, 100vw"
+                  stem="/images/remote/07-4bd1ff6e88"
+                />
               </div>
             </div>
             <div class="group grid grid-cols-1 md:grid-cols-12 gap-8 items-start rounded-lg px-6 py-10 md:px-10 md:py-12 transition-all duration-500 hover:bg-primary mt-12 md:mt-16">
@@ -168,7 +87,12 @@ import SiteFooter from "../components/SiteFooter.astro";
                 <span class="text-7xl font-headline font-medium text-primary-container opacity-20 transition-colors duration-500 group-hover:text-white/20">2024</span>
               </div>
               <div class="md:col-span-4 order-2 md:order-1">
-                <img class="w-full h-48 object-cover rounded-sm grayscale hover:grayscale-0 transition-all duration-700" alt="Team collaborating on tactical technology planning" src="https://lh3.googleusercontent.com/aida-public/AB6AXuASHg2uc3jnRK87kDawCshezpWcBeRZp_P12Z2VDgMS7leOZQd6LfcUJRcVXQAHvknV6Zb39Sc1QGm2rSi6UwcuvfwpZsywimz83lO0Y8v046z1B7rBfLY6CayBUI22q_Wxk8BJUo91H92t5ehtDZiZrPOy65M8SVOZ5JS-3_HfBvfe1Mx3JmYdiubtTncKlx4ZybRkQsAKsMNzOL_94jlv1B1QK_-MrdVcvHfNx4egYQilMZKjj224E6bMmJhuh2uTccQmewbzex7I" />
+                <ResponsiveImage
+                  alt="Team collaborating on tactical technology planning"
+                  class="w-full h-48 object-cover rounded-sm grayscale hover:grayscale-0 transition-all duration-700"
+                  sizes="(min-width: 768px) 33vw, 100vw"
+                  stem="/images/remote/08-fa52b52484"
+                />
               </div>
               <div class="md:col-span-5 order-3 md:order-2">
                 <h3 class="text-2xl font-headline font-medium mb-4 transition-colors duration-500 group-hover:text-white">The Team</h3>
@@ -184,7 +108,12 @@ import SiteFooter from "../components/SiteFooter.astro";
                 <p class="text-on-surface-variant leading-relaxed transition-colors duration-500 group-hover:text-white/75">BKT Tactical Solutions Private Limited was formally established, translating vision into structured operations. This phase focused on building systems, strengthening networks, and aligning the organization with the principles of Make in India while preparing to deliver scalable, high-impact solutions.</p>
               </div>
               <div class="md:col-span-4">
-                <img class="w-full h-48 object-cover rounded-sm grayscale hover:grayscale-0 transition-all duration-700" alt="Drone mission control and tactical deployment planning" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFv7750PjAMabVoGt29hDydK0FZqWMgNYTsULrYwEduxG-WXyqbrFHuwnTOBpvhlqVJdV0bgXxCJVu2lsCKnlr-asAkibgY1p14le2ieEdumy0mEaIQOUqJQh9WkxDyE33xhS3qOmeJxu3SJjstRfo9zvb5_Yzp35mPyMugTwi9K_9wtZOaWjZrzDhHh4npAsEG5QSCJdocNTmJ2HuMDETHadzrMlioYUoSyi-fdrW2DU2iKuBb8gD9z39fK8pMbc6Ohb8WWRoeZvh" />
+                <ResponsiveImage
+                  alt="Drone mission control and tactical deployment planning"
+                  class="w-full h-48 object-cover rounded-sm grayscale hover:grayscale-0 transition-all duration-700"
+                  sizes="(min-width: 768px) 33vw, 100vw"
+                  stem="/images/remote/09-93c6279c0e"
+                />
               </div>
             </div>
             <div class="group grid grid-cols-1 md:grid-cols-12 gap-8 items-start rounded-lg px-6 py-10 md:px-10 md:py-12 transition-all duration-500 hover:bg-primary mt-12 md:mt-16">
@@ -192,7 +121,13 @@ import SiteFooter from "../components/SiteFooter.astro";
                 <span class="text-7xl font-headline font-medium text-primary-container opacity-20 transition-colors duration-500 group-hover:text-white/20">2026</span>
               </div>
               <div class="md:col-span-4 order-2 md:order-1">
-                <img class="w-full h-48 object-cover rounded-sm grayscale hover:grayscale-0 transition-all duration-700" alt="Indigenous drone operations in mountainous terrain" src="/images/about-hero-bkt-drone.png" />
+                <ResponsiveImage
+                  alt="Indigenous drone operations in mountainous terrain"
+                  class="w-full h-48 object-cover rounded-sm grayscale hover:grayscale-0 transition-all duration-700"
+                  fallback="/images/about-hero-bkt-drone.png"
+                  sizes="(min-width: 768px) 33vw, 100vw"
+                  stem="/images/about-hero-bkt-drone"
+                />
               </div>
               <div class="md:col-span-5 order-3 md:order-2">
                 <h3 class="text-2xl font-headline font-medium mb-4 transition-colors duration-500 group-hover:text-white">Building the Future</h3>
@@ -216,7 +151,12 @@ import SiteFooter from "../components/SiteFooter.astro";
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-1px bg-surface-container">
             <div class="group bg-white p-12 transition-all duration-500 hover:bg-[#1A36B0] hover:-translate-y-1">
               <div class="mb-8 overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-500">
-                <img class="w-full aspect-square object-cover rounded-full p-2 border border-outline-variant group-hover:border-white/20" data-alt="Minimalist professional studio portrait of a woman in a charcoal suit, high-end corporate style, neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTndhyWetxm5in_yVPOD8aLSv-vq_aNYwTcDGdwbOvGW87RnUkTYAOuaHAX5C6pdW7m3oy-d40ol5WL8CygUAOilcxpG6U8j3h7AK_QzM6wbCJG9ZiERF_8d2erdBmVitLizcxgsKW0X9RxEtBVSM5w-KS34H51FzgEEIlbcis5YYDXHKpWaQibTdiM3r5pdQ7cv0v5rhEV_oF4p6yQiiMguXQoZdN4I2Loifyg74UP0oM7eJKLQ4TbMxTZDcWOvhFwhE2hvfLDpIB" />
+                <ResponsiveImage
+                  alt="Minimalist professional studio portrait of a woman in a charcoal suit, high-end corporate style, neutral background"
+                  class="w-full aspect-square object-cover rounded-full p-2 border border-outline-variant group-hover:border-white/20"
+                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                  stem="/images/remote/10-09ae2bf321"
+                />
               </div>
               <h4 class="text-2xl font-headline font-medium mb-1 group-hover:text-white">Elena Sterling</h4>
               <p class="text-primary font-medium text-sm tracking-widest uppercase mb-6 group-hover:text-white/80">Chief Executive Officer</p>
@@ -224,7 +164,12 @@ import SiteFooter from "../components/SiteFooter.astro";
             </div>
             <div class="group bg-white p-12 transition-all duration-500 hover:bg-[#1A36B0] hover:-translate-y-1">
               <div class="mb-8 overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-500">
-                <img class="w-full aspect-square object-cover rounded-full p-2 border border-outline-variant group-hover:border-white/20" data-alt="Minimalist professional studio portrait of a man in a navy turtleneck, high-end corporate style, neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAif9CySrtdCj6VIQn-J3jAV-VsW18JwXyghb0JiMTr-PZxEoZ9XyWa6zOsyqurqJjYYQj03tyZ7RcLmrIBNJfKNJ163iwoV16iOKtqQG3XfwIgdWrfCrYN3Da44nB20Zm9zZIXtdxiXCY8qF8CaZZO-Y5Yd6AJNhFNu6L5BeL8iuhaltX5vCT9oAv6trwXhAsnP9r-6RJmwggpJb-KXBEDX3h54Z50eq-aX9n6BKmrH2b6SsSBWMWgpjwQqMaaDkUMSJ-gVCjSJDp5" />
+                <ResponsiveImage
+                  alt="Minimalist professional studio portrait of a man in a navy turtleneck, high-end corporate style, neutral background"
+                  class="w-full aspect-square object-cover rounded-full p-2 border border-outline-variant group-hover:border-white/20"
+                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                  stem="/images/remote/11-9cacf5bd2c"
+                />
               </div>
               <h4 class="text-2xl font-headline font-medium mb-1 group-hover:text-white">Marcus Thorne</h4>
               <p class="text-primary font-medium text-sm tracking-widest uppercase mb-6 group-hover:text-white/80">Chief Technology Officer</p>
@@ -232,7 +177,12 @@ import SiteFooter from "../components/SiteFooter.astro";
             </div>
             <div class="group bg-white p-12 transition-all duration-500 hover:bg-[#1A36B0] hover:-translate-y-1">
               <div class="mb-8 overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-500">
-                <img class="w-full aspect-square object-cover rounded-full p-2 border border-outline-variant group-hover:border-white/20" data-alt="Minimalist professional studio portrait of a woman with glasses, high-end corporate style, neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7zIl5nkSezNKSHMARSdgrniwBA6wfqe-rWXqT3yu1chiEe_akAnM5AXFR1z5u-tuRZBE2J6sTsdogx5ScYtLD_B-Kio9haLUpfP0IenTWK2tpsbQAHYGWZBpea1c-6-cenSftRRjRfNfZe4x_zxHvnG0vTd5uSKtI3rggjz8zaq8PFbyhCQ_2ITqU06slrV-LXwE7vDJA8PNDeiQ0pVIhOF0yoX-w3JWeoLZ7ZcCPm7fPJcsEqcwpWRTGKwBsM3WyI7k-0GMngAMH" />
+                <ResponsiveImage
+                  alt="Minimalist professional studio portrait of a woman with glasses, high-end corporate style, neutral background"
+                  class="w-full aspect-square object-cover rounded-full p-2 border border-outline-variant group-hover:border-white/20"
+                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                  stem="/images/remote/12-354c5ebb3f"
+                />
               </div>
               <h4 class="text-2xl font-headline font-medium mb-1 group-hover:text-white">Sonia Varma</h4>
               <p class="text-primary font-medium text-sm tracking-widest uppercase mb-6 group-hover:text-white/80">Head of Innovation</p>
@@ -252,23 +202,4 @@ import SiteFooter from "../components/SiteFooter.astro";
       </section>
     </main>
     <SiteFooter />
-    <script is:inline>
-      const revealCallback = (entries, observer) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("active");
-            observer.unobserve(entry.target);
-          }
-        });
-      };
-
-      const observer = new IntersectionObserver(revealCallback, {
-        threshold: 0.1,
-      });
-
-      document.querySelectorAll(".reveal").forEach((el) => {
-        observer.observe(el);
-      });
-    </script>
-  </body>
-</html>
+</BaseLayout>
