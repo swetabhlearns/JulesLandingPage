@@ -3,12 +3,14 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import SiteNav from "../components/SiteNav.astro";
 import SiteFooter from "../components/SiteFooter.astro";
 import ResponsiveImage from "../components/ResponsiveImage.astro";
+import { aboutSchema } from "../lib/schema";
 ---
 
 <BaseLayout
   title="About Us | BKT Tactical Solutions"
   description="Learn about BKT Tactical Solutions Private Limited, including its mission, vision, evolution, and leadership in tactical and drone solutions."
   canonical="https://bkttactical.com/about"
+  schema={aboutSchema()}
   bodyClass="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-white"
   htmlClass="light"
 >

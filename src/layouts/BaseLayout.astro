@@ -5,6 +5,7 @@ const {
   description = "",
   canonical,
   ogImage,
+  schema = [],
   bodyClass = "",
   htmlClass = "scroll-smooth",
 } = Astro.props;
@@ -13,6 +14,31 @@ const siteUrl = Astro.site?.href ?? "";
 const siteName = "BKT Tactical Solutions";
 const logoUrl = siteUrl ? new URL("/images/bkt-logo-mark.svg", Astro.site).href : "/images/bkt-logo-mark.svg";
 const ogImageUrl = ogImage ?? (siteUrl ? new URL("/images/og-home.png", Astro.site).href : "/images/og-home.png");
+const baseSchemas = siteUrl
+  ? [
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "@id": `${siteUrl}#organization`,
+        name: siteName,
+        url: siteUrl,
+        logo: logoUrl,
+        image: logoUrl,
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "@id": `${siteUrl}#website`,
+        name: siteName,
+        url: siteUrl,
+        description,
+        inLanguage: "en",
+      },
+    ]
+  : [];
+const normalizedSchema = Array.isArray(schema) ? schema : [schema];
+const graph = [...baseSchemas, ...normalizedSchema].filter(Boolean);
+const jsonLd = graph.length > 0 ? { "@context": "https://schema.org", "@graph": graph } : null;
 ---
 
 <!doctype html>
@@ -35,28 +61,7 @@ const ogImageUrl = ogImage ?? (siteUrl ? new URL("/images/og-home.png", Astro.si
     <meta name="twitter:title" content={title} />
     {description && <meta name="twitter:description" content={description} />}
     <meta name="twitter:image" content={ogImageUrl} />
-    {siteUrl && (
-      <script type="application/ld+json" set:html={JSON.stringify([
-        {
-          "@context": "https://schema.org",
-          "@type": "Organization",
-          "@id": `${siteUrl}#organization`,
-          name: siteName,
-          url: siteUrl,
-          logo: logoUrl,
-          image: logoUrl,
-        },
-        {
-          "@context": "https://schema.org",
-          "@type": "WebSite",
-          "@id": `${siteUrl}#website`,
-          name: siteName,
-          url: siteUrl,
-          description,
-          inLanguage: "en",
-        },
-      ])} />
-    )}
+    {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
     <slot name="head" />
   </head>
   <body class={bodyClass}>

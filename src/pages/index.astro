@@ -3,11 +3,13 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import SiteNav from "../components/SiteNav.astro";
 import SiteFooter from "../components/SiteFooter.astro";
 import ResponsiveImage from "../components/ResponsiveImage.astro";
+import { homeSchema } from "../lib/schema";
 ---
 
 <BaseLayout
   title="BKT Tactical Solutions | Elevating Aerial Intelligence"
   description="BKT Tactical Solutions Private Limited delivers reliable tactical, drone, and technology-led solutions with a focus on precision, sustainability, and Make in India."
+  schema={homeSchema()}
   bodyClass="bg-surface text-on-surface antialiased"
 >
   <SiteNav />
@@ -39,8 +41,8 @@ import ResponsiveImage from "../components/ResponsiveImage.astro";
                 Trusted for measurable outcomes, reliable execution, and scalable support across critical sectors.
               </p>
               <div class="flex flex-col sm:flex-row gap-4">
-                <a class="bg-white text-on-surface px-8 py-4 rounded-sm font-medium text-sm uppercase tracking-widest hover:bg-slate-100 transition-all btn-interact" href="/about">
-                  Get In Touch
+                <a class="bg-white text-on-surface px-8 py-4 rounded-sm font-medium text-sm uppercase tracking-widest hover:bg-slate-100 transition-all btn-interact" href="/contact">
+                  Contact Our Team
                 </a>
               </div>
             </div>
@@ -134,7 +136,7 @@ import ResponsiveImage from "../components/ResponsiveImage.astro";
                 We deliver high-impact tactical, drone, and technology-driven solutions that combine innovation, precision, and operational reliability for complex mission requirements.
               </p>
               <a class="bg-white text-primary px-10 py-4 rounded-sm font-medium text-sm uppercase tracking-widest hover:bg-slate-100 transition-all border border-transparent btn-interact btn-interact-light inline-flex shrink-0" href="/contact">
-                Learn More
+                Learn More About Our Services
               </a>
             </div>
           </div>
@@ -150,7 +152,7 @@ import ResponsiveImage from "../components/ResponsiveImage.astro";
             <h2 class="text-4xl md:text-5xl font-medium tracking-tight">Our Recent Work</h2>
           </div>
           <a class="bg-primary text-white px-8 py-3 rounded-sm font-medium text-sm uppercase tracking-widest hover:bg-opacity-90 transition-all btn-interact btn-interact-light" href="/about">
-            View More
+            View More Projects and Background
           </a>
         </div>
         <div class="space-y-12">

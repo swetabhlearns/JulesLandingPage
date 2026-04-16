@@ -3,11 +3,13 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import SiteNav from "../components/SiteNav.astro";
 import SiteFooter from "../components/SiteFooter.astro";
 import ResponsiveImage from "../components/ResponsiveImage.astro";
+import { careersSchema } from "../lib/schema";
 ---
 
 <BaseLayout
   title="Careers | BKT Tactical Solutions"
   description="Explore careers at BKT Tactical Solutions Private Limited and learn about the culture, benefits, and openings."
+  schema={careersSchema()}
   bodyClass="bg-surface text-on-surface antialiased"
 >
   <SiteNav />

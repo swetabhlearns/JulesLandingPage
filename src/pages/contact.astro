@@ -3,11 +3,13 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import SiteNav from "../components/SiteNav.astro";
 import SiteFooter from "../components/SiteFooter.astro";
 import ResponsiveImage from "../components/ResponsiveImage.astro";
+import { contactSchema } from "../lib/schema";
 ---
 
 <BaseLayout
   title="Contact Us | BKT Tactical Solutions"
   description="Contact BKT Tactical Solutions Private Limited for partnerships, inquiries, and project discussions across tactical and technical needs."
+  schema={contactSchema()}
   bodyClass="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-white"
   htmlClass="light"
 >
