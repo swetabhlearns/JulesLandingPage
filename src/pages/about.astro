@@ -1,0 +1,274 @@
+---
+import "../styles/global.css";
+import SiteNav from "../components/SiteNav.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>About Us | Samridhi Informatics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <script is:inline id="tailwind-config">
+      window.tailwind = window.tailwind || {};
+      window.tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "inverse-on-surface": "#f0f1f2",
+              surface: "#f8f9fa",
+              outline: "#757685",
+              secondary: "#515d84",
+              "on-secondary-container": "#4c587f",
+              "on-tertiary-fixed": "#00105b",
+              "on-secondary-fixed-variant": "#39456b",
+              "inverse-primary": "#bac3ff",
+              "tertiary-fixed-dim": "#bac3ff",
+              "tertiary-container": "#002ec7",
+              "primary-container": "#1a36b0",
+              "on-surface": "#191c1d",
+              "surface-container-highest": "#e1e3e4",
+              "secondary-fixed-dim": "#b9c5f2",
+              "outline-variant": "#c5c5d6",
+              "on-secondary-fixed": "#0b1a3d",
+              "on-primary-fixed-variant": "#1c38b1",
+              "error-container": "#ffdad6",
+              "on-primary-container": "#a0aeff",
+              "on-background": "#191c1d",
+              background: "#f8f9fa",
+              "on-tertiary-fixed-variant": "#002eca",
+              tertiary: "#001e8e",
+              "surface-container-lowest": "#ffffff",
+              primary: "#001f8b",
+              "surface-bright": "#f8f9fa",
+              "surface-container": "#edeeef",
+              "on-primary-fixed": "#00115a",
+              "on-primary": "#ffffff",
+              "primary-fixed": "#dee0ff",
+              "on-error": "#ffffff",
+              "on-tertiary": "#ffffff",
+              "surface-container-high": "#e7e8e9",
+              "on-error-container": "#93000a",
+              "secondary-fixed": "#dbe1ff",
+              "on-tertiary-container": "#a1aeff",
+              error: "#ba1a1a",
+              "primary-fixed-dim": "#bac3ff",
+              "surface-variant": "#e1e3e4",
+              "surface-tint": "#3a52ca",
+              "inverse-surface": "#2e3132",
+              "tertiary-fixed": "#dee0ff",
+              "on-surface-variant": "#444654",
+              "surface-container-low": "#f3f4f5",
+              "secondary-container": "#c4d0fd",
+              "on-secondary": "#ffffff",
+              "surface-dim": "#d9dadb",
+            },
+            borderRadius: {
+              DEFAULT: "0.125rem",
+              lg: "0.25rem",
+              xl: "0.5rem",
+              full: "0.75rem",
+            },
+            fontFamily: {
+              headline: ["Manrope"],
+              body: ["Inter"],
+              label: ["Inter"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .hero-gradient-overlay {
+        background: linear-gradient(to right, rgba(10, 16, 28, 0.72) 0%, rgba(10, 16, 28, 0.42) 48%, rgba(10, 16, 28, 0.12) 100%);
+      }
+      .editorial-grid {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 2rem;
+      }
+      .bleed-container {
+        grid-column: 1 / -1;
+      }
+      .content-container {
+        grid-column: 2 / 12;
+      }
+    </style>
+  </head>
+  <body class="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-white">
+    <SiteNav />
+    <main>
+      <section class="relative h-screen flex items-center overflow-hidden py-24 md:py-32">
+        <div class="absolute inset-0 z-0">
+          <img
+            alt="Industrial drone flying over a mountain landscape with tactical operator"
+            class="w-full h-full object-cover"
+            src="/images/about-hero-bkt-drone.png"
+          />
+          <div class="absolute inset-0 hero-gradient-overlay"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-8 w-full">
+          <div class="max-w-3xl">
+            <div class="w-12 h-1 bg-primary mb-8"></div>
+            <h1 class="font-headline text-5xl md:text-7xl font-medium text-white tracking-tight leading-[1.1] mb-8 text-shadow-sm">
+              Tactical solutions shaped for performance.
+            </h1>
+            <p class="text-lg md:text-xl text-slate-200 max-w-xl font-body mb-10 leading-relaxed text-shadow-sm">
+              BKT Tactical Solutions Private Limited combines advanced technology, indigenous capabilities, and responsible operations to deliver measurable outcomes.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="max-w-7xl mx-auto px-8 mb-20 md:mb-24">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-24 mt-20 md:mt-24">
+          <div class="space-y-6 bg-surface-container-lowest p-10 rounded-lg transition-all duration-500 hover:bg-primary group">
+            <span class="text-primary font-headline font-medium tracking-widest text-sm uppercase group-hover:text-white/80 transition-colors">Our Mission</span>
+            <h2 class="text-4xl font-headline font-medium text-on-surface group-hover:text-white transition-colors">Reliable execution through advanced technology.</h2>
+            <p class="text-on-surface-variant leading-relaxed group-hover:text-white/75 transition-colors">We deliver high-quality, reliable, and scalable tactical and drone solutions through innovation-led execution, indigenous capability, sustainable operations, and long-term partnerships built on trust and performance.</p>
+          </div>
+          <div class="space-y-6 bg-surface-container-lowest p-10 rounded-lg transition-all duration-500 hover:bg-primary group">
+            <span class="text-primary font-headline font-medium tracking-widest text-sm uppercase group-hover:text-white/80 transition-colors">Our Vision</span>
+            <h2 class="text-4xl font-headline font-medium text-on-surface group-hover:text-white transition-colors">Trusted leader in tactical and drone solutions.</h2>
+            <p class="text-on-surface-variant leading-relaxed group-hover:text-white/75 transition-colors">To become a trusted leader in tactical, technology-driven, and drone solutions by fostering innovation, promoting sustainable practices, and contributing to India’s self-reliant growth.</p>
+          </div>
+        </div>
+      </section>
+      <section class="bg-surface-container-low py-32">
+        <div class="max-w-7xl mx-auto px-8">
+          <div class="mb-24 flex flex-col items-center text-center">
+            <div class="w-12 h-[2px] bg-primary mb-8"></div>
+            <h2 class="text-5xl font-headline font-medium text-on-surface tracking-tight">Our Evolution</h2>
+            <p class="mt-6 max-w-3xl text-lg text-on-surface-variant leading-relaxed">Our journey reflects a focused progression from an idea to a mission-driven organization building indigenous, future-ready tactical and drone solutions.</p>
+          </div>
+          <div class="relative">
+            <div class="group grid grid-cols-1 md:grid-cols-12 gap-8 items-start rounded-lg px-6 py-10 md:px-10 md:py-12 transition-all duration-500 hover:bg-primary">
+              <div class="md:col-span-3">
+                <span class="text-7xl font-headline font-medium text-primary-container opacity-20 transition-colors duration-500 group-hover:text-white/20">2023</span>
+              </div>
+              <div class="md:col-span-5">
+                <h3 class="text-2xl font-headline font-medium mb-4 transition-colors duration-500 group-hover:text-white">The Idea</h3>
+                <p class="text-on-surface-variant leading-relaxed transition-colors duration-500 group-hover:text-white/75">BKT Tactical Solutions began with a clear vision to combine innovation, tactical execution, and national relevance. From the start, the goal was to contribute meaningfully to India’s defence and technology ecosystem with a strong emphasis on self-reliance and sustainability.</p>
+              </div>
+              <div class="md:col-span-4">
+                <img class="w-full h-48 object-cover rounded-sm grayscale hover:grayscale-0 transition-all duration-700" alt="Close-up of a vintage blueprint on an architect desk with soft natural light coming from a side window" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDU0ShzSir5AuA4d3fbilgglDLYiUdtEcdrzTOEFjZPavANfSF40-v65tH6xB-7_4YaAeM-kUrygBMWCltsWoiyOaMqfiiyViGVFG4tmodzkRYc-O-yfU1Jxldb7tPybJCn4m0IGqquV_UgFQk19H-MnTRzDf8LS13fNDzOKJP-ImO-O7xdKyS0fneJYzTyhW2ysU6jMEAK8P-Uc7HdyR0Ilq8vhfhwJSXMQAHT-KHocIzjUykXHj9_yPiDZXvOzlBzUh-gs6duLgJr" />
+              </div>
+            </div>
+            <div class="group grid grid-cols-1 md:grid-cols-12 gap-8 items-start rounded-lg px-6 py-10 md:px-10 md:py-12 transition-all duration-500 hover:bg-primary mt-12 md:mt-16">
+              <div class="md:col-span-3 order-1 md:order-3 text-right">
+                <span class="text-7xl font-headline font-medium text-primary-container opacity-20 transition-colors duration-500 group-hover:text-white/20">2024</span>
+              </div>
+              <div class="md:col-span-4 order-2 md:order-1">
+                <img class="w-full h-48 object-cover rounded-sm grayscale hover:grayscale-0 transition-all duration-700" alt="Team collaborating on tactical technology planning" src="https://lh3.googleusercontent.com/aida-public/AB6AXuASHg2uc3jnRK87kDawCshezpWcBeRZp_P12Z2VDgMS7leOZQd6LfcUJRcVXQAHvknV6Zb39Sc1QGm2rSi6UwcuvfwpZsywimz83lO0Y8v046z1B7rBfLY6CayBUI22q_Wxk8BJUo91H92t5ehtDZiZrPOy65M8SVOZ5JS-3_HfBvfe1Mx3JmYdiubtTncKlx4ZybRkQsAKsMNzOL_94jlv1B1QK_-MrdVcvHfNx4egYQilMZKjj224E6bMmJhuh2uTccQmewbzex7I" />
+              </div>
+              <div class="md:col-span-5 order-3 md:order-2">
+                <h3 class="text-2xl font-headline font-medium mb-4 transition-colors duration-500 group-hover:text-white">The Team</h3>
+                <p class="text-on-surface-variant leading-relaxed transition-colors duration-500 group-hover:text-white/75">With the vision in place, 2024 marked the coming together of a dedicated and skilled team. Built on integrity, execution excellence, and innovation, the team laid the groundwork for technology-driven solutions, including emerging drone applications.</p>
+              </div>
+            </div>
+            <div class="group grid grid-cols-1 md:grid-cols-12 gap-8 items-start rounded-lg px-6 py-10 md:px-10 md:py-12 transition-all duration-500 hover:bg-primary mt-12 md:mt-16">
+              <div class="md:col-span-3">
+                <span class="text-7xl font-headline font-medium text-primary-container opacity-20 transition-colors duration-500 group-hover:text-white/20">2025</span>
+              </div>
+              <div class="md:col-span-5">
+                <h3 class="text-2xl font-headline font-medium mb-4 transition-colors duration-500 group-hover:text-white">Establishment</h3>
+                <p class="text-on-surface-variant leading-relaxed transition-colors duration-500 group-hover:text-white/75">BKT Tactical Solutions Private Limited was formally established, translating vision into structured operations. This phase focused on building systems, strengthening networks, and aligning the organization with the principles of Make in India while preparing to deliver scalable, high-impact solutions.</p>
+              </div>
+              <div class="md:col-span-4">
+                <img class="w-full h-48 object-cover rounded-sm grayscale hover:grayscale-0 transition-all duration-700" alt="Drone mission control and tactical deployment planning" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFv7750PjAMabVoGt29hDydK0FZqWMgNYTsULrYwEduxG-WXyqbrFHuwnTOBpvhlqVJdV0bgXxCJVu2lsCKnlr-asAkibgY1p14le2ieEdumy0mEaIQOUqJQh9WkxDyE33xhS3qOmeJxu3SJjstRfo9zvb5_Yzp35mPyMugTwi9K_9wtZOaWjZrzDhHh4npAsEG5QSCJdocNTmJ2HuMDETHadzrMlioYUoSyi-fdrW2DU2iKuBb8gD9z39fK8pMbc6Ohb8WWRoeZvh" />
+              </div>
+            </div>
+            <div class="group grid grid-cols-1 md:grid-cols-12 gap-8 items-start rounded-lg px-6 py-10 md:px-10 md:py-12 transition-all duration-500 hover:bg-primary mt-12 md:mt-16">
+              <div class="md:col-span-3 order-1 md:order-3 text-right">
+                <span class="text-7xl font-headline font-medium text-primary-container opacity-20 transition-colors duration-500 group-hover:text-white/20">2026</span>
+              </div>
+              <div class="md:col-span-4 order-2 md:order-1">
+                <img class="w-full h-48 object-cover rounded-sm grayscale hover:grayscale-0 transition-all duration-700" alt="Indigenous drone operations in mountainous terrain" src="/images/about-hero-bkt-drone.png" />
+              </div>
+              <div class="md:col-span-5 order-3 md:order-2">
+                <h3 class="text-2xl font-headline font-medium mb-4 transition-colors duration-500 group-hover:text-white">Building the Future</h3>
+                <p class="text-on-surface-variant leading-relaxed transition-colors duration-500 group-hover:text-white/75">Today, we are committed to developing indigenous drone solutions that support India’s defence and tactical technology landscape. With innovation, sustainability, and self-reliance at the core, we are building solutions that are advanced, responsible, and future-ready.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-8">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-24">
+            <div class="lg:col-span-5">
+              <div class="w-12 h-[2px] bg-primary mb-8"></div>
+              <h2 class="text-5xl font-headline font-medium text-on-surface tracking-tight mb-8">The Stewardship</h2>
+            </div>
+            <div class="lg:col-span-7 flex items-end">
+              <p class="text-xl text-on-surface-variant leading-relaxed">Our leadership combines decades of technical mastery with an unwavering commitment to corporate excellence.</p>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-1px bg-surface-container">
+            <div class="group bg-white p-12 transition-all duration-500 hover:bg-[#1A36B0] hover:-translate-y-1">
+              <div class="mb-8 overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-500">
+                <img class="w-full aspect-square object-cover rounded-full p-2 border border-outline-variant group-hover:border-white/20" data-alt="Minimalist professional studio portrait of a woman in a charcoal suit, high-end corporate style, neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTndhyWetxm5in_yVPOD8aLSv-vq_aNYwTcDGdwbOvGW87RnUkTYAOuaHAX5C6pdW7m3oy-d40ol5WL8CygUAOilcxpG6U8j3h7AK_QzM6wbCJG9ZiERF_8d2erdBmVitLizcxgsKW0X9RxEtBVSM5w-KS34H51FzgEEIlbcis5YYDXHKpWaQibTdiM3r5pdQ7cv0v5rhEV_oF4p6yQiiMguXQoZdN4I2Loifyg74UP0oM7eJKLQ4TbMxTZDcWOvhFwhE2hvfLDpIB" />
+              </div>
+              <h4 class="text-2xl font-headline font-medium mb-1 group-hover:text-white">Elena Sterling</h4>
+              <p class="text-primary font-medium text-sm tracking-widest uppercase mb-6 group-hover:text-white/80">Chief Executive Officer</p>
+              <p class="text-on-surface-variant group-hover:text-white/70 leading-relaxed text-sm">Formerly of Global Systems, Elena leads our long-term strategic vision and governance.</p>
+            </div>
+            <div class="group bg-white p-12 transition-all duration-500 hover:bg-[#1A36B0] hover:-translate-y-1">
+              <div class="mb-8 overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-500">
+                <img class="w-full aspect-square object-cover rounded-full p-2 border border-outline-variant group-hover:border-white/20" data-alt="Minimalist professional studio portrait of a man in a navy turtleneck, high-end corporate style, neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAif9CySrtdCj6VIQn-J3jAV-VsW18JwXyghb0JiMTr-PZxEoZ9XyWa6zOsyqurqJjYYQj03tyZ7RcLmrIBNJfKNJ163iwoV16iOKtqQG3XfwIgdWrfCrYN3Da44nB20Zm9zZIXtdxiXCY8qF8CaZZO-Y5Yd6AJNhFNu6L5BeL8iuhaltX5vCT9oAv6trwXhAsnP9r-6RJmwggpJb-KXBEDX3h54Z50eq-aX9n6BKmrH2b6SsSBWMWgpjwQqMaaDkUMSJ-gVCjSJDp5" />
+              </div>
+              <h4 class="text-2xl font-headline font-medium mb-1 group-hover:text-white">Marcus Thorne</h4>
+              <p class="text-primary font-medium text-sm tracking-widest uppercase mb-6 group-hover:text-white/80">Chief Technology Officer</p>
+              <p class="text-on-surface-variant group-hover:text-white/70 leading-relaxed text-sm">A pioneer in distributed systems, Marcus oversees all architectural innovations.</p>
+            </div>
+            <div class="group bg-white p-12 transition-all duration-500 hover:bg-[#1A36B0] hover:-translate-y-1">
+              <div class="mb-8 overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-500">
+                <img class="w-full aspect-square object-cover rounded-full p-2 border border-outline-variant group-hover:border-white/20" data-alt="Minimalist professional studio portrait of a woman with glasses, high-end corporate style, neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7zIl5nkSezNKSHMARSdgrniwBA6wfqe-rWXqT3yu1chiEe_akAnM5AXFR1z5u-tuRZBE2J6sTsdogx5ScYtLD_B-Kio9haLUpfP0IenTWK2tpsbQAHYGWZBpea1c-6-cenSftRRjRfNfZe4x_zxHvnG0vTd5uSKtI3rggjz8zaq8PFbyhCQ_2ITqU06slrV-LXwE7vDJA8PNDeiQ0pVIhOF0yoX-w3JWeoLZ7ZcCPm7fPJcsEqcwpWRTGKwBsM3WyI7k-0GMngAMH" />
+              </div>
+              <h4 class="text-2xl font-headline font-medium mb-1 group-hover:text-white">Sonia Varma</h4>
+              <p class="text-primary font-medium text-sm tracking-widest uppercase mb-6 group-hover:text-white/80">Head of Innovation</p>
+              <p class="text-on-surface-variant group-hover:text-white/70 leading-relaxed text-sm">Sonia manages our R&amp;D lab, focusing on emerging informatics and AI integration.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="max-w-7xl mx-auto px-8 py-32 border-t border-surface-container">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-12">
+          <h2 class="text-4xl md:text-5xl font-headline font-medium tracking-tight">Ready to build the extraordinary?</h2>
+          <a class="inline-flex items-center gap-4 bg-primary text-white px-10 py-5 rounded-sm font-medium hover:opacity-90 transition-all group" href="#">
+            View Open Positions
+            <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+          </a>
+        </div>
+      </section>
+    </main>
+    <SiteFooter />
+    <script is:inline>
+      const revealCallback = (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+            observer.unobserve(entry.target);
+          }
+        });
+      };
+
+      const observer = new IntersectionObserver(revealCallback, {
+        threshold: 0.1,
+      });
+
+      document.querySelectorAll(".reveal").forEach((el) => {
+        observer.observe(el);
+      });
+    </script>
+  </body>
+</html>

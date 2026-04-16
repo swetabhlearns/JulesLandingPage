@@ -1,0 +1,70 @@
+---
+---
+
+<div class="fixed top-6 left-0 right-0 z-50 flex justify-center px-6">
+  <nav class="site-nav-shell">
+    <a class="site-nav-brand" href="/">BKT Tactical Solutions</a>
+    <div class="hidden md:flex items-center gap-x-10">
+      <a class="site-nav-link" href="/">Home</a>
+      <a class="site-nav-link" href="/about">About Us</a>
+      <a class="site-nav-link" href="/contact">Contact Us</a>
+    </div>
+    <a class="site-nav-button" href="/contact">
+      Get in Touch
+    </a>
+  </nav>
+</div>
+
+<style>
+  .site-nav-shell {
+    background: rgba(26, 22, 27, 0.4);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 9999px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 64rem;
+    padding: 0.875rem 2rem;
+  }
+
+  .site-nav-brand {
+    color: #ffffff;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    font-weight: 500;
+    letter-spacing: -0.025em;
+  }
+
+  .site-nav-link {
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  .site-nav-link:hover {
+    color: #ffffff;
+  }
+
+  .site-nav-button {
+    background: #ffffff;
+    color: #1a36b0;
+    padding: 0.5rem 1.5rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 500;
+    transition: background-color 0.3s ease, opacity 0.3s ease, transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease;
+  }
+
+  .site-nav-button:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: scale(1.02);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  }
+</style>
