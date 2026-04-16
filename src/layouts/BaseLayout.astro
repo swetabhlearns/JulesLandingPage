@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import { ViewTransitions } from "astro:transitions";
 const {
   title,
   description = "",
@@ -62,28 +63,38 @@ const jsonLd = graph.length > 0 ? { "@context": "https://schema.org", "@graph": 
     <meta name="twitter:title" content={title} />
     {description && <meta name="twitter:description" content={description} />}
     <meta name="twitter:image" content={ogImageUrl} />
+    <ViewTransitions />
     {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
     <slot name="head" />
   </head>
   <body class={bodyClass}>
     <slot />
     <script is:inline>
-      const revealCallback = (entries, observer) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("active");
-            observer.unobserve(entry.target);
-          }
+      let observer;
+
+      const initReveal = () => {
+        observer?.disconnect();
+
+        const revealCallback = (entries, currentObserver) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("active");
+              currentObserver.unobserve(entry.target);
+            }
+          });
+        };
+
+        observer = new IntersectionObserver(revealCallback, {
+          threshold: 0.1,
+        });
+
+        document.querySelectorAll(".reveal").forEach((el) => {
+          observer.observe(el);
         });
       };
 
-      const observer = new IntersectionObserver(revealCallback, {
-        threshold: 0.1,
-      });
-
-      document.querySelectorAll(".reveal").forEach((el) => {
-        observer.observe(el);
-      });
+      document.addEventListener("astro:page-load", initReveal);
+      initReveal();
     </script>
   </body>
 </html>

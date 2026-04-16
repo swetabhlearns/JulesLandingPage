@@ -1,11 +1,11 @@
 ---
 ---
 
-<div class="fixed top-6 left-0 right-0 z-50 flex justify-center px-6">
+<div class="fixed top-4 left-3 right-3 md:top-6 md:left-0 md:right-0 z-50 flex justify-center px-0 md:px-6">
   <nav class="site-nav-shell">
     <a class="site-nav-brand" href="/">
       <img alt="BKT Tactical Solutions logo" class="site-nav-logo" src="/images/bkt-logo-mark.svg" />
-      <span class="site-nav-brand-text">BKT Tactical Solutions</span>
+      <span class="site-nav-brand-text hidden sm:inline">BKT Tactical Solutions</span>
     </a>
     <div class="hidden md:flex items-center gap-x-10">
       <a class="site-nav-link" href="/">Home</a>
@@ -13,7 +13,8 @@
       <a class="site-nav-link" href="/contact">Contact Us</a>
     </div>
     <a class="site-nav-button" href="/contact">
-      Get in Touch
+      <span class="sm:hidden">Contact</span>
+      <span class="hidden sm:inline">Get in Touch</span>
     </a>
   </nav>
 </div>
@@ -31,7 +32,7 @@
     align-items: center;
     width: 100%;
     max-width: 64rem;
-    padding: 0.875rem 2rem;
+    padding: 0.625rem 0.875rem;
   }
 
   .site-nav-brand {
@@ -44,8 +45,8 @@
   }
 
   .site-nav-logo {
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 2.25rem;
+    height: 2.25rem;
     border-radius: 9999px;
     object-fit: cover;
     flex: 0 0 auto;
@@ -53,8 +54,8 @@
   }
 
   .site-nav-brand-text {
-    font-size: 1.125rem;
-    line-height: 1.75rem;
+    font-size: 1rem;
+    line-height: 1.5rem;
   }
 
   .site-nav-link {
@@ -72,7 +73,7 @@
   .site-nav-button {
     background: #ffffff;
     color: #1a36b0;
-    padding: 0.5rem 1.5rem;
+    padding: 0.45rem 0.9rem;
     border-radius: 9999px;
     font-size: 0.875rem;
     line-height: 1.25rem;
