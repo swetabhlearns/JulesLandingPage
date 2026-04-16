@@ -2,6 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import SiteNav from "../components/SiteNav.astro";
 import SiteFooter from "../components/SiteFooter.astro";
+import Icon from "../components/Icon.astro";
 import ResponsiveImage from "../components/ResponsiveImage.astro";
 import { careersSchema } from "../lib/schema";
 ---
@@ -39,8 +40,8 @@ import { careersSchema } from "../lib/schema";
             We are building a culture of radical autonomy and technical excellence. Join a team of sovereign architects shaping the digital landscape.
           </p>
           <div class="flex flex-wrap gap-4">
-            <a class="bg-primary text-on-primary px-8 py-4 rounded-lg font-medium hover:bg-primary-container transition-all" href="#openings">View Openings</a>
-            <a class="bg-white/10 backdrop-blur-md border border-white/20 text-white px-8 py-4 rounded-lg font-medium hover:bg-white/20 transition-all" href="#culture">Our Culture</a>
+            <a class="bg-primary text-on-primary px-8 py-4 rounded-lg font-medium hover:bg-primary-container transition-all" href="#openings">See Open Roles</a>
+            <a class="bg-white/10 backdrop-blur-md border border-white/20 text-white px-8 py-4 rounded-lg font-medium hover:bg-white/20 transition-all" href="#culture">Culture & Benefits</a>
           </div>
         </div>
       </div>
@@ -55,17 +56,17 @@ import { careersSchema } from "../lib/schema";
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-slate-200 border border-slate-200">
           <div class="bg-white p-12 transition-all duration-300 hover:bg-[#1A36B0] group cursor-default">
-            <span class="material-symbols-outlined text-primary text-3xl mb-6 transition-colors duration-300 group-hover:text-white">architecture</span>
+            <Icon class="text-primary text-3xl mb-6 transition-colors duration-300 group-hover:text-white" name="architecture" />
             <h3 class="text-2xl font-medium mb-4 transition-colors duration-300 group-hover:text-white">Radical Autonomy</h3>
             <p class="text-on-surface-variant text-sm leading-relaxed font-medium transition-colors duration-300 group-hover:text-white/90">We trust our experts. You define your workflow and own your architectural decisions from end-to-end.</p>
           </div>
           <div class="bg-white p-12 transition-all duration-300 hover:bg-[#1A36B0] group cursor-default">
-            <span class="material-symbols-outlined text-primary text-3xl mb-6 transition-colors duration-300 group-hover:text-white">psychology</span>
+            <Icon class="text-primary text-3xl mb-6 transition-colors duration-300 group-hover:text-white" name="psychology" />
             <h3 class="text-2xl font-medium mb-4 transition-colors duration-300 group-hover:text-white">Intellectual Rigor</h3>
             <p class="text-on-surface-variant text-sm leading-relaxed font-medium transition-colors duration-300 group-hover:text-white/90">A culture of continuous learning. Weekly deep-dives and a dedicated budget for professional growth.</p>
           </div>
           <div class="bg-white p-12 transition-all duration-300 hover:bg-[#1A36B0] group cursor-default">
-            <span class="material-symbols-outlined text-primary text-3xl mb-6 transition-colors duration-300 group-hover:text-white">workspace_premium</span>
+            <Icon class="text-primary text-3xl mb-6 transition-colors duration-300 group-hover:text-white" name="workspace_premium" />
             <h3 class="text-2xl font-medium mb-4 transition-colors duration-300 group-hover:text-white">Premium Environment</h3>
             <p class="text-on-surface-variant text-sm leading-relaxed font-medium transition-colors duration-300 group-hover:text-white/90">From top-tier hardware to clinical workspaces designed for focused, uninterrupted deep work.</p>
           </div>
@@ -85,21 +86,21 @@ import { careersSchema } from "../lib/schema";
               <h3 class="text-3xl font-medium mb-8">More than a paycheck</h3>
               <ul class="space-y-8">
                 <li class="flex items-start gap-4">
-                  <span class="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-full">check_circle</span>
+                  <Icon class="text-primary bg-primary/10 p-2 rounded-full" name="check_circle" />
                   <div>
                     <h4 class="font-medium text-lg text-on-surface mb-1">Global Health Coverage</h4>
                     <p class="text-on-surface-variant text-sm font-medium">Comprehensive medical, dental, and vision for you and your dependents.</p>
                   </div>
                 </li>
                 <li class="flex items-start gap-4">
-                  <span class="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-full">check_circle</span>
+                  <Icon class="text-primary bg-primary/10 p-2 rounded-full" name="check_circle" />
                   <div>
                     <h4 class="font-medium text-lg text-on-surface mb-1">Unlimited Sabbaticals</h4>
                     <p class="text-on-surface-variant text-sm font-medium">We value rest as much as performance. Take time when you need it.</p>
                   </div>
                 </li>
                 <li class="flex items-start gap-4">
-                  <span class="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-full">check_circle</span>
+                  <Icon class="text-primary bg-primary/10 p-2 rounded-full" name="check_circle" />
                   <div>
                     <h4 class="font-medium text-lg text-on-surface mb-1">Stock Options</h4>
                     <p class="text-on-surface-variant text-sm font-medium">Ownership in the company's success from day one.</p>
@@ -129,7 +130,7 @@ import { careersSchema } from "../lib/schema";
         </div>
 
         <div class="grid grid-cols-1 gap-6">
-          <a class="group block bg-surface-container p-8 lg:p-10 transition-all duration-300 hover:bg-primary rounded-sm" href="#">
+          <a class="group block bg-surface-container p-8 lg:p-10 transition-all duration-300 hover:bg-primary rounded-sm" href="/contact?role=lead-full-stack-architect">
             <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
               <div class="space-y-2">
                 <span class="text-xs font-medium uppercase tracking-widest text-primary group-hover:text-white/80 transition-colors">Engineering</span>
@@ -137,12 +138,12 @@ import { careersSchema } from "../lib/schema";
                 <p class="text-on-surface-variant group-hover:text-white/70 transition-colors font-medium">Remote / Full-time</p>
               </div>
               <div class="flex items-center gap-4">
-                <span class="material-symbols-outlined text-primary group-hover:text-white text-3xl group-hover:translate-x-2 transition-all">arrow_forward</span>
+                <Icon class="text-primary group-hover:text-white text-3xl group-hover:translate-x-2 transition-all" name="arrow_forward" />
               </div>
             </div>
           </a>
 
-          <a class="group block bg-surface-container p-8 lg:p-10 transition-all duration-300 hover:bg-primary rounded-sm" href="#">
+          <a class="group block bg-surface-container p-8 lg:p-10 transition-all duration-300 hover:bg-primary rounded-sm" href="/contact?role=senior-product-designer">
             <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
               <div class="space-y-2">
                 <span class="text-xs font-medium uppercase tracking-widest text-primary group-hover:text-white/80 transition-colors">Design</span>
@@ -150,12 +151,12 @@ import { careersSchema } from "../lib/schema";
                 <p class="text-on-surface-variant group-hover:text-white/70 transition-colors font-medium">New York, NY / Hybrid</p>
               </div>
               <div class="flex items-center gap-4">
-                <span class="material-symbols-outlined text-primary group-hover:text-white text-3xl group-hover:translate-x-2 transition-all">arrow_forward</span>
+                <Icon class="text-primary group-hover:text-white text-3xl group-hover:translate-x-2 transition-all" name="arrow_forward" />
               </div>
             </div>
           </a>
 
-          <a class="group block bg-surface-container p-8 lg:p-10 transition-all duration-300 hover:bg-primary rounded-sm" href="#">
+          <a class="group block bg-surface-container p-8 lg:p-10 transition-all duration-300 hover:bg-primary rounded-sm" href="/contact?role=technical-project-director">
             <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
               <div class="space-y-2">
                 <span class="text-xs font-medium uppercase tracking-widest text-primary group-hover:text-white/80 transition-colors">Operations</span>
@@ -163,7 +164,7 @@ import { careersSchema } from "../lib/schema";
                 <p class="text-on-surface-variant group-hover:text-white/70 transition-colors font-medium">London, UK / On-site</p>
               </div>
               <div class="flex items-center gap-4">
-                <span class="material-symbols-outlined text-primary group-hover:text-white text-3xl group-hover:translate-x-2 transition-all">arrow_forward</span>
+                <Icon class="text-primary group-hover:text-white text-3xl group-hover:translate-x-2 transition-all" name="arrow_forward" />
               </div>
             </div>
           </a>
@@ -215,8 +216,8 @@ import { careersSchema } from "../lib/schema";
       <div class="max-w-4xl mx-auto text-white">
         <h2 class="text-5xl md:text-6xl font-medium mb-8 tracking-tight">Don't see the right fit?</h2>
         <p class="text-white/80 max-w-2xl mx-auto mb-12 text-lg font-medium">We are always looking for exceptional architects, engineers, and visionaries. Send us your portfolio and let's start a conversation.</p>
-        <a class="bg-white text-primary px-12 py-5 rounded-sm font-medium text-sm uppercase tracking-widest hover:bg-slate-100 transition-all shadow-xl btn-interact inline-flex" href="/contact">
-          Get in Touch
+          <a class="bg-white text-primary px-12 py-5 rounded-sm font-medium text-sm uppercase tracking-widest hover:bg-slate-100 transition-all shadow-xl btn-interact inline-flex" href="/contact">
+          Start a Conversation
         </a>
       </div>
     </section>

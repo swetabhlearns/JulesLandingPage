@@ -2,6 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import SiteNav from "../components/SiteNav.astro";
 import SiteFooter from "../components/SiteFooter.astro";
+import Icon from "../components/Icon.astro";
 import ResponsiveImage from "../components/ResponsiveImage.astro";
 import { aboutSchema } from "../lib/schema";
 ---
@@ -196,9 +197,9 @@ import { aboutSchema } from "../lib/schema";
       <section class="max-w-7xl mx-auto px-8 py-32 border-t border-surface-container">
         <div class="flex flex-col md:flex-row justify-between items-center gap-12">
           <h2 class="text-4xl md:text-5xl font-headline font-medium tracking-tight">Ready to build the extraordinary?</h2>
-          <a class="inline-flex items-center gap-4 bg-primary text-white px-10 py-5 rounded-sm font-medium hover:opacity-90 transition-all group" href="#">
-            View Open Positions
-            <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+          <a class="inline-flex items-center gap-4 bg-primary text-white px-10 py-5 rounded-sm font-medium hover:opacity-90 transition-all group" href="/contact">
+            Talk to Our Team
+            <Icon class="group-hover:translate-x-1 transition-transform" name="arrow_forward" />
           </a>
         </div>
       </section>

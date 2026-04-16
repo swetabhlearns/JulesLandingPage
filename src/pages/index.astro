@@ -2,6 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import SiteNav from "../components/SiteNav.astro";
 import SiteFooter from "../components/SiteFooter.astro";
+import Icon from "../components/Icon.astro";
 import ResponsiveImage from "../components/ResponsiveImage.astro";
 import { homeSchema } from "../lib/schema";
 ---
@@ -42,7 +43,7 @@ import { homeSchema } from "../lib/schema";
               </p>
               <div class="flex flex-col sm:flex-row gap-4">
                 <a class="bg-white text-on-surface px-8 py-4 rounded-sm font-medium text-sm uppercase tracking-widest hover:bg-slate-100 transition-all btn-interact" href="/contact">
-                  Contact Our Team
+                  Start a Conversation
                 </a>
               </div>
             </div>
@@ -135,8 +136,8 @@ import { homeSchema } from "../lib/schema";
               <p class="text-lg text-white/80 leading-relaxed max-w-2xl">
                 We deliver high-impact tactical, drone, and technology-driven solutions that combine innovation, precision, and operational reliability for complex mission requirements.
               </p>
-              <a class="bg-white text-primary px-10 py-4 rounded-sm font-medium text-sm uppercase tracking-widest hover:bg-slate-100 transition-all border border-transparent btn-interact btn-interact-light inline-flex shrink-0" href="/contact">
-                Learn More About Our Services
+                <a class="bg-white text-primary px-10 py-4 rounded-sm font-medium text-sm uppercase tracking-widest hover:bg-slate-100 transition-all border border-transparent btn-interact btn-interact-light inline-flex shrink-0" href="/contact">
+                Explore Our Services
               </a>
             </div>
           </div>
@@ -152,7 +153,7 @@ import { homeSchema } from "../lib/schema";
             <h2 class="text-4xl md:text-5xl font-medium tracking-tight">Our Recent Work</h2>
           </div>
           <a class="bg-primary text-white px-8 py-3 rounded-sm font-medium text-sm uppercase tracking-widest hover:bg-opacity-90 transition-all btn-interact btn-interact-light" href="/about">
-            View More Projects and Background
+            Explore More Background
           </a>
         </div>
         <div class="space-y-12">
@@ -163,9 +164,9 @@ import { homeSchema } from "../lib/schema";
               <p class="text-on-surface-variant group-hover:text-white/80 text-lg leading-relaxed mb-8 max-w-lg transition-colors duration-300">
                 This portfolio showcases cars from a unique aerial perspective, captured by drones. It includes shots of cars on the road and in scenic locations.
               </p>
-              <a class="inline-flex items-center gap-4 text-sm font-medium uppercase tracking-widest transition-colors duration-300 group-hover:text-white" href="#">
-                View More
-                <span class="material-symbols-outlined group-hover:translate-x-2 transition-transform">arrow_forward</span>
+                <a class="inline-flex items-center gap-4 text-sm font-medium uppercase tracking-widest transition-colors duration-300 group-hover:text-white" href="/contact">
+                Discuss This Capability
+                <Icon class="group-hover:translate-x-2 transition-transform" name="arrow_forward" />
               </a>
             </div>
             <div class="overflow-hidden h-[400px] lg:h-[500px] rounded-sm">
@@ -193,9 +194,9 @@ import { homeSchema } from "../lib/schema";
               <p class="text-on-surface-variant group-hover:text-white/80 text-lg leading-relaxed mb-8 max-w-lg transition-colors duration-300">
                 Drone Filmography highlights the potential of drones to capture stunning footage that allows filmmakers to tell stories in new and innovative ways.
               </p>
-              <a class="inline-flex items-center gap-4 text-sm font-medium uppercase tracking-widest transition-colors duration-300 group-hover:text-white" href="#">
-                View More
-                <span class="material-symbols-outlined group-hover:translate-x-2 transition-transform">arrow_forward</span>
+                <a class="inline-flex items-center gap-4 text-sm font-medium uppercase tracking-widest transition-colors duration-300 group-hover:text-white" href="/contact">
+                Discuss This Capability
+                <Icon class="group-hover:translate-x-2 transition-transform" name="arrow_forward" />
               </a>
             </div>
           </div>
@@ -207,9 +208,9 @@ import { homeSchema } from "../lib/schema";
               <p class="text-on-surface-variant group-hover:text-white/80 text-lg leading-relaxed mb-8 max-w-lg transition-colors duration-300">
                 This portfolio presents a collection of memorable moments from weddings captured by drones. These shots offer a bird's eye view of the special moments.
               </p>
-              <a class="inline-flex items-center gap-4 text-sm font-medium uppercase tracking-widest transition-colors duration-300 group-hover:text-white" href="#">
-                View More
-                <span class="material-symbols-outlined group-hover:translate-x-2 transition-transform">arrow_forward</span>
+                <a class="inline-flex items-center gap-4 text-sm font-medium uppercase tracking-widest transition-colors duration-300 group-hover:text-white" href="/contact">
+                Discuss This Capability
+                <Icon class="group-hover:translate-x-2 transition-transform" name="arrow_forward" />
               </a>
             </div>
             <div class="overflow-hidden h-[400px] lg:h-[500px] rounded-sm">
@@ -260,13 +261,13 @@ import { homeSchema } from "../lib/schema";
               <h2 class="text-4xl md:text-5xl font-medium mb-8 tracking-tight">Explore The World From A New Perspective</h2>
               <p class="text-lg text-on-surface-variant leading-relaxed mb-10 font-medium">Unleash your creativity with our drone equipment and services. We provide end-to-end aerial solutions for modern enterprise needs.</p>
               <div class="space-y-6">
-                <a class="flex items-center justify-between py-5 px-6 border border-slate-200 group hover-card-blue transition-all duration-300" href="#">
-                  <span class="text-lg font-medium transition-colors duration-300">Great Experience</span>
-                  <span class="material-symbols-outlined group-hover:translate-x-2 transition-all duration-300">arrow_forward</span>
+                <a class="flex items-center justify-between py-5 px-6 border border-slate-200 group hover-card-blue transition-all duration-300" href="/about">
+                  <span class="text-lg font-medium transition-colors duration-300">Execution capability</span>
+                  <Icon class="group-hover:translate-x-2 transition-all duration-300" name="arrow_forward" />
                 </a>
-                <a class="flex items-center justify-between py-5 px-6 border border-slate-200 group hover-card-blue transition-all duration-300" href="#">
-                  <span class="text-lg font-medium transition-colors duration-300">Remote Control</span>
-                  <span class="material-symbols-outlined group-hover:translate-x-2 transition-all duration-300">arrow_forward</span>
+                <a class="flex items-center justify-between py-5 px-6 border border-slate-200 group hover-card-blue transition-all duration-300" href="/contact">
+                  <span class="text-lg font-medium transition-colors duration-300">Direct coordination</span>
+                  <Icon class="group-hover:translate-x-2 transition-all duration-300" name="arrow_forward" />
                 </a>
               </div>
             </div>
@@ -285,14 +286,14 @@ import { homeSchema } from "../lib/schema";
 
     <section class="py-32 bg-primary text-white text-center relative overflow-hidden reveal" style="background-color: #1A36B0;">
       <div class="absolute inset-0 opacity-10">
-        <span class="material-symbols-outlined text-[600px] absolute -top-40 -right-40" data-icon="flight_takeoff">flight_takeoff</span>
+        <Icon class="text-[600px] absolute -top-40 -right-40" name="flight_takeoff" />
       </div>
       <div class="px-6 md:px-12 max-w-4xl mx-auto relative z-10">
         <div class="text-xs font-medium uppercase tracking-[0.4em] mb-10 text-white/60">BKT Tactical Solutions</div>
         <h2 class="text-5xl md:text-7xl font-medium tracking-tight mb-8">Let's cooperate together</h2>
         <p class="text-xl text-white/70 mb-12 max-w-2xl mx-auto font-medium">Experience heightened speed, improved stability, and a complete suite of features for your next aerial mission.</p>
         <button class="bg-white text-primary px-12 py-5 rounded-sm font-medium text-sm uppercase tracking-widest hover:bg-slate-100 transition-all shadow-2xl btn-interact">
-                    Get a Free Quote
+                    Start Project Discussion
         </button>
       </div>
     </section>

@@ -2,6 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import SiteNav from "../components/SiteNav.astro";
 import SiteFooter from "../components/SiteFooter.astro";
+import Icon from "../components/Icon.astro";
 import ResponsiveImage from "../components/ResponsiveImage.astro";
 import { contactSchema } from "../lib/schema";
 ---
@@ -64,7 +65,7 @@ import { contactSchema } from "../lib/schema";
           </div>
           <button class="group flex items-center gap-4 bg-primary text-on-primary px-8 py-4 rounded-md font-medium transition-all duration-300 hover:shadow-[0_12px_32px_rgba(0,31,139,0.15)] active:scale-95" type="submit">
             Send Inquiry
-            <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+            <Icon class="group-hover:translate-x-1 transition-transform" name="arrow_forward" />
           </button>
         </form>
       </div>
@@ -74,14 +75,14 @@ import { contactSchema } from "../lib/schema";
           <h3 class="font-headline text-sm font-medium tracking-[0.2em] text-primary uppercase mb-8">Contact Nodes</h3>
           <div class="space-y-8">
             <div class="flex items-start gap-6">
-              <span class="material-symbols-outlined text-primary mt-1">alternate_email</span>
+              <Icon class="text-primary mt-1" name="alternate_email" />
               <div>
                 <p class="text-xs font-medium text-outline uppercase tracking-widest mb-1">Electronic Mail</p>
                 <a class="text-xl font-medium text-on-surface hover:text-primary transition-colors" href="mailto:info.tactical@bktcorp.com">info.tactical@bktcorp.com</a>
               </div>
             </div>
             <div class="flex items-start gap-6">
-              <span class="material-symbols-outlined text-primary mt-1">call</span>
+              <Icon class="text-primary mt-1" name="call" />
               <div>
                 <p class="text-xs font-medium text-outline uppercase tracking-widest mb-1">Direct Line</p>
                 <a class="text-xl font-medium text-on-surface hover:text-primary transition-colors" href="tel:+18005550199">+1 (800) 555-0199</a>
@@ -93,15 +94,15 @@ import { contactSchema } from "../lib/schema";
         <div>
           <h3 class="font-headline text-sm font-medium tracking-[0.2em] text-primary uppercase mb-8">Social Ecosystem</h3>
           <div class="flex flex-wrap gap-4">
-            <a class="w-12 h-12 flex items-center justify-center bg-surface-container-high rounded-full hover:bg-primary hover:text-white transition-all" href="#">
-              <span class="material-symbols-outlined">share</span>
-            </a>
-            <a class="w-12 h-12 flex items-center justify-center bg-surface-container-high rounded-full hover:bg-primary hover:text-white transition-all" href="#">
-              <span class="material-symbols-outlined">hub</span>
-            </a>
-            <a class="w-12 h-12 flex items-center justify-center bg-surface-container-high rounded-full hover:bg-primary hover:text-white transition-all" href="#">
-              <span class="material-symbols-outlined">link</span>
-            </a>
+            <span class="w-12 h-12 flex items-center justify-center bg-surface-container-high rounded-full text-primary" aria-hidden="true">
+              <Icon name="share" />
+            </span>
+            <span class="w-12 h-12 flex items-center justify-center bg-surface-container-high rounded-full text-primary" aria-hidden="true">
+              <Icon name="hub" />
+            </span>
+            <span class="w-12 h-12 flex items-center justify-center bg-surface-container-high rounded-full text-primary" aria-hidden="true">
+              <Icon name="link" />
+            </span>
           </div>
         </div>
 
