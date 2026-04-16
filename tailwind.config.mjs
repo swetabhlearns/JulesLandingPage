@@ -59,9 +59,9 @@ export default {
         full: "9999px",
       },
       fontFamily: {
-        headline: ["Manrope"],
-        body: ["Manrope"],
-        label: ["Manrope"],
+        headline: ["var(--font-headline)"],
+        body: ["var(--font-body)"],
+        label: ["var(--font-label)"],
       },
       fontWeight: {
         bold: "500",
