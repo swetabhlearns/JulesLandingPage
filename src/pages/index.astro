@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import homeHeroPoster from "../assets/home-hero-poster.jpg";
 import SiteNav from "../components/SiteNav.astro";
 import SiteFooter from "../components/SiteFooter.astro";
 import Icon from "../components/Icon.astro";
@@ -25,7 +26,7 @@ import { homeSchema } from "../lib/schema";
           playsinline
           preload="metadata"
           class="w-full h-full object-cover brightness-[0.65]"
-          poster="/images/home-hero-poster.jpg"
+          poster={homeHeroPoster.src}
         >
           <source src="/videos/home-hero-pexels.mp4" type="video/mp4" />
         </video>

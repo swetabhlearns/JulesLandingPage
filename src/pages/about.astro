@@ -1,5 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
+import aboutHeroImage from "../assets/about-hero-bkt-drone.png";
 import SiteNav from "../components/SiteNav.astro";
 import SiteFooter from "../components/SiteFooter.astro";
 import Icon from "../components/Icon.astro";
@@ -19,17 +21,15 @@ import { aboutSchema } from "../lib/schema";
     <main>
       <section class="relative h-screen flex items-center overflow-hidden py-24 md:py-32">
         <div class="absolute inset-0 z-0">
-        <ResponsiveImage
-          alt="Industrial drone flying over a mountain landscape with tactical operator"
-          class="w-full h-full object-cover"
-          fallback="/images/about-hero-bkt-drone.png"
-          fetchpriority="high"
-          loading="eager"
-          sizes="100vw"
-          avifWidths={[480, 960, 1440]}
-          webpWidths={[480, 960, 1440]}
-          stem="/images/about-hero-bkt-drone"
-        />
+          <Image
+            alt="Industrial drone flying over a mountain landscape with tactical operator"
+            class="w-full h-full object-cover"
+            loading="eager"
+            priority
+            sizes="100vw"
+            src={aboutHeroImage}
+            widths={[480, 960, 1440]}
+          />
           <div class="absolute inset-0 hero-gradient-overlay"></div>
         </div>
 
