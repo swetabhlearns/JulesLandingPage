@@ -45,6 +45,12 @@ body {
   color: #191c1d;
 }
 
+@media (max-width: 767px) {
+  body {
+    padding-bottom: 6.5rem;
+  }
+}
+
 * {
   box-sizing: border-box;
   font-weight: 400 !important;

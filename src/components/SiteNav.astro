@@ -1,7 +1,11 @@
 ---
+import Icon from "./Icon.astro";
+
+const pathname = Astro.url.pathname;
+const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
 ---
 
-<div class="fixed top-4 left-3 right-3 md:top-6 md:left-0 md:right-0 z-50 flex justify-center px-0 md:px-6">
+<div class="hidden md:flex fixed top-4 left-3 right-3 md:top-6 md:left-0 md:right-0 z-50 justify-center px-0 md:px-6">
   <nav class="site-nav-shell">
     <a class="site-nav-brand" href="/">
       <img alt="BKT Tactical Solutions logo" class="site-nav-logo" decoding="async" fetchpriority="high" height="36" loading="eager" src="/images/bkt-logo-mark.svg" width="36" />
@@ -15,6 +19,27 @@
     <a class="site-nav-button" href="/contact">
       <span class="sm:hidden">Contact</span>
       <span class="hidden sm:inline">Get in Touch</span>
+    </a>
+  </nav>
+</div>
+
+<div class="md:hidden fixed bottom-4 left-4 right-4 z-50">
+  <nav class="mobile-dock-shell">
+    <a class:list={["mobile-dock-item", isActive("/") && "active"]} href="/">
+      <Icon class="mobile-dock-icon" name="home" size={22} />
+      <span>Home</span>
+    </a>
+    <a class:list={["mobile-dock-item", isActive("/about") && "active"]} href="/about">
+      <Icon class="mobile-dock-icon" name="info" size={22} />
+      <span>About</span>
+    </a>
+    <a class:list={["mobile-dock-item", isActive("/careers") && "active"]} href="/careers">
+      <Icon class="mobile-dock-icon" name="work" size={22} />
+      <span>Careers</span>
+    </a>
+    <a class:list={["mobile-dock-item", isActive("/contact") && "active"]} href="/contact">
+      <Icon class="mobile-dock-icon" name="mail" size={22} />
+      <span>Contact</span>
     </a>
   </nav>
 </div>
@@ -85,5 +110,50 @@
     background: rgba(255, 255, 255, 0.9);
     transform: scale(1.02);
     box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  }
+
+  .mobile-dock-shell {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.25rem;
+    padding: 0.5rem;
+    background: rgba(26, 22, 27, 0.55);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 1.5rem;
+    box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.28);
+  }
+
+  .mobile-dock-item {
+    color: rgba(255, 255, 255, 0.78);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    min-height: 4rem;
+    border-radius: 1rem;
+    font-size: 0.675rem;
+    line-height: 1rem;
+    font-weight: 500;
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  .mobile-dock-item.active {
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+  }
+
+  .mobile-dock-item:active {
+    transform: scale(0.98);
+  }
+
+  .mobile-dock-icon {
+    color: currentColor;
+    opacity: 0.95;
   }
 </style>
