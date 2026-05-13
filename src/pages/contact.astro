@@ -44,7 +44,21 @@ import { contactSchema } from "../lib/schema";
     <section id="contact-form-section" class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start mb-20 md:mb-32">
       <div class="lg:col-span-7 bg-surface-container-low p-6 sm:p-8 md:p-16 rounded-lg">
         <h2 class="font-headline text-2xl sm:text-3xl font-medium text-primary mb-8 md:mb-12">Inquiry Brief</h2>
-        <form id="contact-form" class="space-y-8 md:space-y-10" action="/api/contact" method="POST">
+        <form
+          id="contact-form"
+          class="space-y-8 md:space-y-10"
+          action="https://forms.zohopublic.in/infosiplbkt1/form/ContactUs/formperma/5qpFoP4bi2NLqntvKVKMJmC2imjxHwiVGTlTdngtS9I/htmlRecords/submit"
+          accept-charset="UTF-8"
+          enctype="multipart/form-data"
+          method="POST"
+          target="zoho-contact-submit-frame"
+        >
+          <input type="hidden" name="zf_referrer_name" id="zf_referrer_name" value="" />
+          <input type="hidden" name="zf_redirect_url" value="" />
+          <input type="hidden" name="zc_gad" value="" />
+          <input type="hidden" name="Name_First" id="zoho-name-first" value="" />
+          <input type="hidden" name="Name_Last" id="zoho-name-last" value="" />
+
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
             <div class="relative group">
               <label class="block text-sm font-medium text-on-surface-variant mb-2 font-label" for="full-name">Full Name</label>
@@ -52,24 +66,30 @@ import { contactSchema } from "../lib/schema";
             </div>
             <div class="relative group">
               <label class="block text-sm font-medium text-on-surface-variant mb-2 font-label" for="work-email">Work Email</label>
-              <input id="work-email" name="email" class="w-full bg-surface-container-high px-0 py-3 border-b border-outline-variant focus:border-primary transition-all duration-500 bg-transparent placeholder:text-outline-variant/50" placeholder="john@enterprise.com" type="email" required />
+              <input id="work-email" name="Email" class="w-full bg-surface-container-high px-0 py-3 border-b border-outline-variant focus:border-primary transition-all duration-500 bg-transparent placeholder:text-outline-variant/50" placeholder="john@enterprise.com" type="email" required />
             </div>
           </div>
           <div class="relative group">
             <label class="block text-sm font-medium text-on-surface-variant mb-2 font-label" for="subject">Subject</label>
-            <input id="subject" name="subject" class="w-full bg-surface-container-high px-0 py-3 border-b border-outline-variant focus:border-primary transition-all duration-500 bg-transparent placeholder:text-outline-variant/50" placeholder="Digital Transformation Strategy" type="text" required />
+            <input id="subject" name="SingleLine" class="w-full bg-surface-container-high px-0 py-3 border-b border-outline-variant focus:border-primary transition-all duration-500 bg-transparent placeholder:text-outline-variant/50" placeholder="Digital Transformation Strategy" type="text" required />
           </div>
           <div class="relative group">
             <label class="block text-sm font-medium text-on-surface-variant mb-2 font-label" for="message">Message</label>
-            <textarea id="message" name="message" class="w-full bg-surface-container-high px-0 py-3 border-b border-outline-variant focus:border-primary transition-all duration-500 bg-transparent placeholder:text-outline-variant/50 resize-none" placeholder="Tell us about your objectives..." rows="4" required></textarea>
+            <textarea id="message" name="MultiLine" class="w-full bg-surface-container-high px-0 py-3 border-b border-outline-variant focus:border-primary transition-all duration-500 bg-transparent placeholder:text-outline-variant/50 resize-none" placeholder="Tell us about your objectives..." rows="4" required></textarea>
           </div>
-          <input aria-hidden="true" class="hidden" name="bot_field" tabindex="-1" type="text" autocomplete="off" />
           <button class="group flex items-center gap-4 bg-primary text-on-primary px-8 py-4 rounded-md font-medium transition-all duration-300 hover:shadow-[0_12px_32px_rgba(0,31,139,0.15)] active:scale-95" type="submit">
             Send Inquiry
             <Icon class="group-hover:translate-x-1 transition-transform" name="arrow_forward" />
           </button>
           <p id="contact-status" class="text-sm text-on-surface-variant min-h-5 transition-colors duration-200" aria-live="polite"></p>
         </form>
+        <iframe
+          aria-hidden="true"
+          class="hidden"
+          id="zoho-contact-submit-frame"
+          name="zoho-contact-submit-frame"
+          title="Zoho contact submit frame"
+        ></iframe>
       </div>
 
       <div class="lg:col-span-5 lg:pl-12 lg:pt-16 space-y-12 md:space-y-16">
@@ -156,39 +176,75 @@ import { contactSchema } from "../lib/schema";
 <script>
   const form = document.getElementById("contact-form");
   const status = document.getElementById("contact-status");
-  const submitButton = form?.querySelector('button[type="submit"]');
+  const submitFrame = document.getElementById("zoho-contact-submit-frame");
+  const fullNameInput = document.getElementById("full-name");
+  const nameFirstInput = document.getElementById("zoho-name-first");
+  const nameLastInput = document.getElementById("zoho-name-last");
+  const referrerInput = document.getElementById("zf_referrer_name");
 
-  if (form && status && submitButton) {
-    form.addEventListener("submit", async (event) => {
-      event.preventDefault();
-      status.textContent = "Sending your message...";
-      status.classList.remove("text-error", "text-primary", "text-secondary");
-      status.classList.add("text-on-surface-variant");
-      submitButton.setAttribute("disabled", "true");
+  let pendingSubmission = false;
+  let frameLoadedOnce = false;
 
-      try {
-        const response = await fetch(form.action, {
-          method: "POST",
-          body: new FormData(form),
-        });
+  function splitFullName(value) {
+    const normalized = value.trim().replace(/\s+/g, " ");
+    const parts = normalized.split(" ").filter(Boolean);
 
-        const result = await response.json();
+    if (parts.length === 0) {
+      return { firstName: "", lastName: "" };
+    }
 
-        if (!response.ok || !result.ok) {
-          throw new Error(result.error || "Unable to submit the form.");
-        }
+    if (parts.length === 1) {
+      return { firstName: "", lastName: parts[0] };
+    }
 
-        form.reset();
+    return {
+      firstName: parts.slice(0, -1).join(" "),
+      lastName: parts[parts.length - 1] ?? "",
+    };
+  }
+
+  if (referrerInput) {
+    referrerInput.value = window.location.href;
+  }
+
+  if (submitFrame) {
+    submitFrame.addEventListener("load", () => {
+      if (!frameLoadedOnce) {
+        frameLoadedOnce = true;
+        return;
+      }
+
+      if (!pendingSubmission) return;
+
+      pendingSubmission = false;
+      if (status) {
         status.textContent = "Your message has been sent. We will get back to you shortly.";
         status.classList.remove("text-error", "text-on-surface-variant");
         status.classList.add("text-primary");
-      } catch (error) {
-        status.textContent = error instanceof Error ? error.message : "Unable to submit the form.";
-        status.classList.remove("text-primary", "text-on-surface-variant");
-        status.classList.add("text-error");
-      } finally {
-        submitButton.removeAttribute("disabled");
       }
+      if (form) {
+        form.reset();
+      }
+    });
+  }
+
+  if (form && status && fullNameInput && nameFirstInput && nameLastInput) {
+    form.addEventListener("submit", () => {
+      const { firstName, lastName } = splitFullName(String(fullNameInput.value || ""));
+      nameFirstInput.value = firstName;
+      nameLastInput.value = lastName;
+      pendingSubmission = true;
+      status.textContent = "Sending your message...";
+      status.classList.remove("text-error", "text-primary");
+      status.classList.add("text-on-surface-variant");
+      window.setTimeout(() => {
+        if (pendingSubmission) {
+          pendingSubmission = false;
+          status.textContent = "If the form does not confirm, please try again.";
+          status.classList.remove("text-primary", "text-on-surface-variant");
+          status.classList.add("text-error");
+        }
+      }, 12000);
     });
   }
 </script>
