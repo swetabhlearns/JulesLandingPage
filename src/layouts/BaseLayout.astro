@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import { ViewTransitions } from "astro:transitions";
+import { siteUrl } from "../lib/seo-data";
 const {
   title,
   description = "",
@@ -10,34 +11,34 @@ const {
   bodyClass = "",
   htmlClass = "scroll-smooth",
 } = Astro.props;
-const canonicalUrl = canonical ?? (Astro.site ? new URL(Astro.url.pathname, Astro.site).href : undefined);
-const siteUrl = Astro.site?.href ?? "";
+const canonicalUrl = canonical ?? new URL(Astro.url.pathname, siteUrl).href;
 const siteName = "BKT Tactical Solutions";
-const logoUrl = siteUrl ? new URL("/images/bkt-logo-mark.svg", Astro.site).href : "/images/bkt-logo-mark.svg";
-const ogImageUrl = ogImage ?? (siteUrl ? new URL("/images/og-home.png", Astro.site).href : "/images/og-home.png");
-const baseSchemas = siteUrl
-  ? [
-      {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "@id": `${siteUrl}#organization`,
-        name: siteName,
-        url: siteUrl,
-        logo: logoUrl,
-        image: logoUrl,
-        sameAs: ["https://www.linkedin.com/company/bkt-tactical/"],
-      },
-      {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "@id": `${siteUrl}#website`,
-        name: siteName,
-        url: siteUrl,
-        description,
-        inLanguage: "en",
-      },
-    ]
-  : [];
+const logoUrl = new URL("/images/bkt-logo-mark.svg", siteUrl).href;
+const ogImageUrl = ogImage ?? new URL("/images/og-home.png", siteUrl).href;
+const baseSchemas = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": `${siteUrl}#organization`,
+    name: "BKT Tactical Solutions Private Limited",
+    alternateName: siteName,
+    url: siteUrl,
+    logo: logoUrl,
+    image: logoUrl,
+    email: "info.tactical@bktcorp.com",
+    areaServed: "IN",
+    sameAs: ["https://www.linkedin.com/company/bkt-tactical/"],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${siteUrl}#website`,
+    name: siteName,
+    url: siteUrl,
+    description,
+    inLanguage: "en",
+  },
+];
 const normalizedSchema = Array.isArray(schema) ? schema : [schema];
 const graph = [...baseSchemas, ...normalizedSchema].filter(Boolean);
 const jsonLd = graph.length > 0 ? { "@context": "https://schema.org", "@graph": graph } : null;

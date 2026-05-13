@@ -4,5 +4,6 @@ import tailwind from '@astrojs/tailwind';
 export default defineConfig({
   site: 'https://bkttactical.com',
   output: 'static',
+  trailingSlash: 'always',
   integrations: [tailwind()],
 });
