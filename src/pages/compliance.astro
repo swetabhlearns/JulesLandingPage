@@ -1,0 +1,61 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SiteNav from "../components/SiteNav.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+import Icon from "../components/Icon.astro";
+import { complianceSchema } from "../lib/schema";
+---
+
+<BaseLayout
+  title="Drone Compliance & Make in India UAV Readiness | BKT Tactical"
+  description="Review BKT Tactical's approach to responsible UAV development, Make in India capability, DGCA-aware operations, and verified compliance disclosures."
+  schema={complianceSchema()}
+  bodyClass="bg-surface text-on-surface antialiased"
+>
+  <SiteNav />
+
+  <main>
+    <section class="min-h-[74svh] flex items-center bg-slate-950 text-white py-28 md:py-40 reveal">
+      <div class="px-4 sm:px-6 md:px-12 max-w-7xl mx-auto w-full">
+        <div class="max-w-4xl">
+          <div class="text-xs uppercase tracking-[0.35em] text-white/55 mb-6">Compliance Readiness</div>
+          <h1 class="text-4xl sm:text-5xl md:text-7xl font-medium tracking-tight leading-[1.08] mb-8">Responsible UAV development with verified disclosure.</h1>
+          <p class="text-lg md:text-2xl text-white/78 leading-relaxed max-w-3xl">
+            BKT Tactical aligns drone development and deployment planning with Indian operational realities, Make in India capability, and compliance-aware execution.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 md:py-32 bg-white reveal">
+      <div class="px-4 sm:px-6 md:px-12 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <article class="border border-slate-100 bg-slate-50 p-8 rounded-sm">
+            <Icon class="text-primary mb-6" name="verified" size={32} />
+            <h2 class="text-2xl font-medium mb-4">Verified claims only</h2>
+            <p class="text-on-surface-variant leading-relaxed">Legal registrations, certification details, and approvals will be published only after source documents are verified.</p>
+          </article>
+          <article class="border border-slate-100 bg-slate-50 p-8 rounded-sm">
+            <Icon class="text-primary mb-6" name="flag" size={32} />
+            <h2 class="text-2xl font-medium mb-4">Make in India focus</h2>
+            <p class="text-on-surface-variant leading-relaxed">The platform roadmap prioritizes domestic capability, maintainability, and supplier resilience for Indian UAV requirements.</p>
+          </article>
+          <article class="border border-slate-100 bg-slate-50 p-8 rounded-sm">
+            <Icon class="text-primary mb-6" name="policy" size={32} />
+            <h2 class="text-2xl font-medium mb-4">DGCA-aware planning</h2>
+            <p class="text-on-surface-variant leading-relaxed">Operational planning should account for applicable DGCA rules, airspace limits, payload risk, and mission-specific permissions.</p>
+          </article>
+        </div>
+
+        <div class="mt-20 bg-primary text-white p-8 md:p-12 rounded-sm" style="background-color: #1A36B0;">
+          <h2 class="text-3xl md:text-4xl font-medium mb-5">Compliance details pending verification.</h2>
+          <p class="text-white/78 max-w-3xl leading-relaxed">
+            This page intentionally avoids publishing CIN, GST, registered address, DGCA approval status, certification badges, or leadership credentials until those details are provided and verified.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <SiteFooter />
+</BaseLayout>

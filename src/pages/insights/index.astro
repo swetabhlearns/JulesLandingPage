@@ -1,0 +1,51 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SiteNav from "../../components/SiteNav.astro";
+import SiteFooter from "../../components/SiteFooter.astro";
+import Icon from "../../components/Icon.astro";
+import { insights } from "../../lib/seo-data";
+import { insightsSchema } from "../../lib/schema";
+---
+
+<BaseLayout
+  title="Drone Insights India | Heavy Payload UAV Guides | BKT Tactical"
+  description="Read practical insights on heavy payload drones, RTK navigation, Make in India UAV manufacturing, and emergency response drone logistics."
+  schema={insightsSchema()}
+  bodyClass="bg-surface text-on-surface antialiased"
+>
+  <SiteNav />
+
+  <main>
+    <section class="min-h-[70svh] flex items-center bg-white py-28 md:py-40 reveal">
+      <div class="px-4 sm:px-6 md:px-12 max-w-7xl mx-auto w-full">
+        <div class="max-w-4xl">
+          <div class="w-12 h-1 bg-primary mb-8"></div>
+          <h1 class="text-4xl sm:text-5xl md:text-7xl font-medium tracking-tight leading-[1.08] mb-8">Drone insights for heavy payload UAV decisions.</h1>
+          <p class="text-lg md:text-2xl text-on-surface-variant leading-relaxed max-w-3xl">
+            Practical guides on UAV payload planning, RTK navigation, Make in India drone manufacturing, and emergency response logistics.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 md:py-32 bg-slate-50 reveal">
+      <div class="px-4 sm:px-6 md:px-12 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {insights.map((article) => (
+            <a class="group block bg-white border border-slate-100 p-8 md:p-10 rounded-sm hover:bg-primary transition-colors" href={article.path}>
+              <div class="text-xs uppercase tracking-[0.28em] text-primary mb-6 group-hover:text-white/70">{article.category}</div>
+              <h2 class="text-3xl font-medium leading-tight mb-5 group-hover:text-white">{article.title}</h2>
+              <p class="text-on-surface-variant leading-relaxed mb-8 group-hover:text-white/82">{article.description}</p>
+              <span class="inline-flex items-center gap-3 text-primary group-hover:text-white">
+                Read guide
+                <Icon class="transition-transform group-hover:translate-x-1" name="arrow_forward" size={18} />
+              </span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <SiteFooter />
+</BaseLayout>
