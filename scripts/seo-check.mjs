@@ -40,6 +40,8 @@ assertIncludes(baseLayout, '"@graph"', "Base layout should emit JSON-LD @graph."
 assertIncludes(baseLayout, "application/ld+json", "Base layout should emit JSON-LD.");
 assertIncludes(baseLayout, "og:image", "Base layout should emit Open Graph image metadata.");
 assertIncludes(baseLayout, "twitter:card", "Base layout should emit Twitter card metadata.");
+assertIncludes(baseLayout, "googletagmanager.com/gtag/js", "Base layout should load GA4.");
+assertIncludes(baseLayout, "G-H7BQYR81SD", "Base layout should include the BKT GA4 measurement ID.");
 
 const schema = read("src/lib/schema.ts");
 for (const schemaType of ["BreadcrumbList", "ContactPoint", "Product", "Article", "ItemList"]) {
