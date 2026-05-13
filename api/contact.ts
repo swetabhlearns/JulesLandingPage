@@ -195,6 +195,7 @@ export default {
         },
       });
     } catch (error) {
+      console.error("Contact form submission failed:", error);
       const message = error instanceof Error ? error.message : "Unable to submit contact form.";
       return new Response(JSON.stringify({ ok: false, error: message }), {
         status: 500,
