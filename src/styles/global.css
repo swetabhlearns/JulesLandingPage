@@ -129,6 +129,10 @@ nav a,
   color: white !important;
 }
 
+.hover-card-blue:hover :where(h1, h2, h3, h4, h5, h6, p, span, div, li, a, svg) {
+  color: white !important;
+}
+
 input:focus,
 textarea:focus {
   outline: none;
