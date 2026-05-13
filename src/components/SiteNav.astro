@@ -2,7 +2,7 @@
 import Icon from "./Icon.astro";
 
 const pathname = Astro.url.pathname;
-const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
+const isActive = (href: string) => (href === "/" ? pathname === "/" : pathname.startsWith(href));
 ---
 
 <div class="hidden md:flex fixed top-4 left-3 right-3 md:top-6 md:left-0 md:right-0 z-50 justify-center px-0 md:px-6">
@@ -13,10 +13,12 @@ const isActive = (href: string) => pathname === href || pathname.startsWith(`${h
     </a>
     <div class="hidden md:flex items-center gap-x-10">
       <a class="site-nav-link" href="/">Home</a>
-      <a class="site-nav-link" href="/about">About Us</a>
-      <a class="site-nav-link" href="/contact">Contact Us</a>
+      <a class="site-nav-link" href="/products/">Products</a>
+      <a class="site-nav-link" href="/solutions/">Solutions</a>
+      <a class="site-nav-link" href="/about/">About</a>
+      <a class="site-nav-link" href="/insights/">Insights</a>
     </div>
-    <a class="site-nav-button" href="/contact">
+    <a class="site-nav-button" href="/contact/">
       <span class="sm:hidden">Contact</span>
       <span class="hidden sm:inline">Get in Touch</span>
     </a>
@@ -29,15 +31,19 @@ const isActive = (href: string) => pathname === href || pathname.startsWith(`${h
       <Icon class="mobile-dock-icon" name="home" size={22} />
       <span>Home</span>
     </a>
-    <a class:list={["mobile-dock-item", isActive("/about") && "active"]} href="/about">
+    <a class:list={["mobile-dock-item", isActive("/products/") && "active"]} href="/products/">
+      <Icon class="mobile-dock-icon" name="flight" size={22} />
+      <span>Products</span>
+    </a>
+    <a class:list={["mobile-dock-item", isActive("/solutions/") && "active"]} href="/solutions/">
+      <Icon class="mobile-dock-icon" name="route" size={22} />
+      <span>Solutions</span>
+    </a>
+    <a class:list={["mobile-dock-item", isActive("/about/") && "active"]} href="/about/">
       <Icon class="mobile-dock-icon" name="info" size={22} />
       <span>About</span>
     </a>
-    <a class:list={["mobile-dock-item", isActive("/careers") && "active"]} href="/careers">
-      <Icon class="mobile-dock-icon" name="work" size={22} />
-      <span>Careers</span>
-    </a>
-    <a class:list={["mobile-dock-item", isActive("/contact") && "active"]} href="/contact">
+    <a class:list={["mobile-dock-item", isActive("/contact/") && "active"]} href="/contact/">
       <Icon class="mobile-dock-icon" name="mail" size={22} />
       <span>Contact</span>
     </a>
@@ -56,7 +62,7 @@ const isActive = (href: string) => pathname === href || pathname.startsWith(`${h
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    max-width: 64rem;
+    max-width: 76rem;
     padding: 0.625rem 0.875rem;
   }
 
@@ -114,7 +120,7 @@ const isActive = (href: string) => pathname === href || pathname.startsWith(`${h
 
   .mobile-dock-shell {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(5, minmax(0, 1fr));
     gap: 0.25rem;
     padding: 0.5rem;
     background: rgba(26, 22, 27, 0.55);
