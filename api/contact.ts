@@ -79,14 +79,22 @@ async function getZohoAccessToken() {
     body,
   });
 
+  const responseText = await response.text();
+
   if (!response.ok) {
-    throw new Error(`Zoho token refresh failed with status ${response.status}`);
+    throw new Error(`Zoho token refresh failed with status ${response.status}: ${responseText}`);
   }
 
-  const token = (await response.json()) as ZohoTokenResponse;
+  let token: Partial<ZohoTokenResponse> | null = null;
+
+  try {
+    token = JSON.parse(responseText) as Partial<ZohoTokenResponse>;
+  } catch {
+    throw new Error(`Zoho token refresh returned non-JSON response: ${responseText}`);
+  }
 
   if (!token.access_token || !token.api_domain) {
-    throw new Error("Zoho token refresh returned an invalid response.");
+    throw new Error(`Zoho token refresh returned an invalid response: ${responseText}`);
   }
 
   cachedAccessToken = token.access_token;
