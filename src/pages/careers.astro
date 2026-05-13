@@ -8,25 +8,24 @@ import { careersSchema } from "../lib/schema";
 ---
 
 <BaseLayout
-  title="Careers | BKT Tactical Solutions"
-  description="Explore careers at BKT Tactical Solutions Private Limited and learn about the culture, benefits, and openings."
+  title="Careers at BKT Tactical | Drone & Defence Tech Jobs India"
+  description="Explore UAV engineering, embedded systems, manufacturing, operations, supply chain, and field support career paths at BKT Tactical Solutions in India."
   schema={careersSchema()}
   bodyClass="bg-surface text-on-surface antialiased"
 >
   <SiteNav />
 
   <main>
-    <section class="relative min-h-[100svh] md:min-h-[92vh] flex items-center overflow-hidden reveal py-24 md:py-56">
+    <section class="relative min-h-[86svh] flex items-center overflow-hidden reveal py-24 md:py-48">
       <div class="absolute inset-0 z-0">
         <ResponsiveImage
-          alt="Professional minimalist architectural space"
+          alt="Engineering team reviewing UAV hardware and flight operations planning"
           class="w-full h-full object-cover opacity-90 grayscale-[20%]"
           fetchpriority="high"
           loading="eager"
           sizes="100vw"
-          stem="/images/remote/14-89d514d399"
+          stem="/images/remote/15-82b6885bd5"
         />
-        <div class="absolute inset-0 bg-gradient-to-r from-slate-950/70 via-slate-950/20 to-transparent"></div>
         <div class="absolute inset-0 hero-gradient-overlay"></div>
       </div>
 
@@ -34,197 +33,67 @@ import { careersSchema } from "../lib/schema";
         <div class="max-w-3xl">
           <div class="w-12 h-1 bg-primary mb-8"></div>
           <h1 class="font-headline text-4xl sm:text-5xl md:text-7xl font-medium text-white tracking-tight leading-[1.1] mb-6 md:mb-8 text-shadow-sm">
-            Design the future of <span class="text-inverse-primary">Informatics.</span>
+            Build drone and defence technology in India.
           </h1>
           <p class="text-base sm:text-lg md:text-xl text-slate-200 max-w-xl font-body mb-8 md:mb-10 leading-relaxed text-shadow-sm">
-            We are building a culture of radical autonomy and technical excellence. Join a team of sovereign architects shaping the digital landscape.
+            BKT Tactical is shaping UAV capability across engineering, embedded systems, manufacturing, operations, supply chain, and field deployment.
           </p>
-          <div class="flex flex-wrap gap-4">
-            <a class="bg-primary text-on-primary px-8 py-4 rounded-lg font-medium hover:bg-primary-container transition-all w-full sm:w-auto text-center" href="#openings">See Open Roles</a>
-            <a class="bg-white/10 backdrop-blur-md border border-white/20 text-white px-8 py-4 rounded-lg font-medium hover:bg-white/20 transition-all w-full sm:w-auto text-center" href="#culture">Culture & Benefits</a>
-          </div>
+          <a class="bg-primary text-on-primary px-8 py-4 rounded-sm font-medium hover:bg-primary-container transition-all w-full sm:w-auto text-center inline-flex justify-center" href="#focus-areas">Explore Career Areas</a>
         </div>
       </div>
     </section>
 
-    <section id="culture" class="bg-surface-container py-20 md:py-32 px-4 sm:px-6 md:px-12 reveal">
+    <section id="focus-areas" class="bg-surface-container py-20 md:py-32 px-4 sm:px-6 md:px-12 reveal">
       <div class="max-w-7xl mx-auto">
-        <div class="mb-20">
+        <div class="mb-16">
           <div class="w-8 h-1 bg-primary mb-6"></div>
-          <h2 class="text-4xl md:text-5xl font-medium text-on-surface mb-4 tracking-tight">The Sovereign Standard</h2>
-          <p class="text-on-surface-variant text-lg font-medium">Our culture is defined by precision, transparency, and architectural thinking.</p>
+          <h2 class="text-4xl md:text-5xl font-medium text-on-surface mb-4 tracking-tight">Career areas aligned with UAV execution.</h2>
+          <p class="text-on-surface-variant text-lg font-medium max-w-3xl">The roles below represent the operating disciplines BKT Tactical expects to hire for as product development, manufacturing, and deployment programs mature.</p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-slate-200 border border-slate-200">
-          <div class="bg-white p-6 sm:p-8 md:p-12 transition-all duration-300 hover:bg-[#1A36B0] group cursor-default">
-            <Icon class="text-primary text-3xl mb-6 transition-colors duration-300 group-hover:text-white" name="architecture" />
-            <h3 class="text-2xl font-medium mb-4 transition-colors duration-300 group-hover:text-white">Radical Autonomy</h3>
-            <p class="text-on-surface-variant text-sm leading-relaxed font-medium transition-colors duration-300 group-hover:text-white/90">We trust our experts. You define your workflow and own your architectural decisions from end-to-end.</p>
-          </div>
-          <div class="bg-white p-6 sm:p-8 md:p-12 transition-all duration-300 hover:bg-[#1A36B0] group cursor-default">
-            <Icon class="text-primary text-3xl mb-6 transition-colors duration-300 group-hover:text-white" name="psychology" />
-            <h3 class="text-2xl font-medium mb-4 transition-colors duration-300 group-hover:text-white">Intellectual Rigor</h3>
-            <p class="text-on-surface-variant text-sm leading-relaxed font-medium transition-colors duration-300 group-hover:text-white/90">A culture of continuous learning. Weekly deep-dives and a dedicated budget for professional growth.</p>
-          </div>
-          <div class="bg-white p-6 sm:p-8 md:p-12 transition-all duration-300 hover:bg-[#1A36B0] group cursor-default">
-            <Icon class="text-primary text-3xl mb-6 transition-colors duration-300 group-hover:text-white" name="workspace_premium" />
-            <h3 class="text-2xl font-medium mb-4 transition-colors duration-300 group-hover:text-white">Premium Environment</h3>
-            <p class="text-on-surface-variant text-sm leading-relaxed font-medium transition-colors duration-300 group-hover:text-white/90">From top-tier hardware to clinical workspaces designed for focused, uninterrupted deep work.</p>
-          </div>
-        </div>
-
-        <div class="mt-16 md:mt-32 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center reveal">
-          <div class="relative group overflow-hidden">
-            <ResponsiveImage
-              alt="Diverse group of tech professionals collaborating around a large wooden table in a high-end corporate office with natural light"
-              class="rounded-sm relative z-10 grayscale group-hover:grayscale-0 transition-all duration-700 h-[260px] sm:h-[320px] md:h-[400px] w-full object-cover"
-              sizes="(min-width: 1024px) 50vw, 100vw"
-              stem="/images/remote/15-82b6885bd5"
-            />
-          </div>
-          <div class="space-y-8 md:space-y-12 pl-0 lg:pl-12">
-            <div>
-              <h3 class="text-3xl font-medium mb-8">More than a paycheck</h3>
-              <ul class="space-y-8">
-                <li class="flex items-start gap-4">
-                  <span class="w-12 h-12 sm:w-14 sm:h-14 flex shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
-                    <Icon size={28} name="check_circle" />
-                  </span>
-                  <div>
-                    <h4 class="font-medium text-lg text-on-surface mb-1">Global Health Coverage</h4>
-                    <p class="text-on-surface-variant text-sm font-medium">Comprehensive medical, dental, and vision for you and your dependents.</p>
-                  </div>
-                </li>
-                <li class="flex items-start gap-4">
-                  <span class="w-12 h-12 sm:w-14 sm:h-14 flex shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
-                    <Icon size={28} name="check_circle" />
-                  </span>
-                  <div>
-                    <h4 class="font-medium text-lg text-on-surface mb-1">Unlimited Sabbaticals</h4>
-                    <p class="text-on-surface-variant text-sm font-medium">We value rest as much as performance. Take time when you need it.</p>
-                  </div>
-                </li>
-                <li class="flex items-start gap-4">
-                  <span class="w-12 h-12 sm:w-14 sm:h-14 flex shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
-                    <Icon size={28} name="check_circle" />
-                  </span>
-                  <div>
-                    <h4 class="font-medium text-lg text-on-surface mb-1">Stock Options</h4>
-                    <p class="text-on-surface-variant text-sm font-medium">Ownership in the company's success from day one.</p>
-                  </div>
-                </li>
-              </ul>
+          {[
+            ["UAV Engineering", "Airframe, propulsion, payload integration, and flight-system engineering for heavy payload drone platforms.", "precision_manufacturing"],
+            ["Embedded Systems", "Flight electronics, datalink planning, sensor integration, and reliability-focused control systems.", "memory"],
+            ["Manufacturing & QA", "Production planning, assembly workflows, inspection, maintainability, and quality assurance.", "fact_check"],
+            ["Flight Operations", "Mission planning, test coordination, field procedures, and safety-focused deployment support.", "flight_takeoff"],
+            ["Supply Chain", "Vendor coordination, component planning, logistics readiness, and local sourcing workflows.", "inventory_2"],
+            ["Field Support", "On-ground deployment, customer coordination, maintenance support, and mission feedback loops.", "support_agent"],
+          ].map(([title, body, icon]) => (
+            <div class="bg-white p-6 sm:p-8 md:p-10 transition-all duration-300 hover:bg-[#1A36B0] group cursor-default">
+              <Icon class="text-primary text-3xl mb-6 transition-colors duration-300 group-hover:text-white" name={icon} />
+              <h3 class="text-2xl font-medium mb-4 transition-colors duration-300 group-hover:text-white">{title}</h3>
+              <p class="text-on-surface-variant text-sm leading-relaxed font-medium transition-colors duration-300 group-hover:text-white/90">{body}</p>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
 
-    <section id="openings" class="py-20 md:py-32 px-4 sm:px-6 md:px-12 bg-white reveal">
+    <section class="py-20 md:py-32 px-4 sm:px-6 md:px-12 bg-white reveal">
       <div class="max-w-7xl mx-auto">
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 md:gap-8">
-          <div>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+          <div class="lg:col-span-5">
             <div class="w-12 h-1 bg-primary mb-6"></div>
-            <h2 class="text-4xl md:text-5xl font-medium text-on-surface mb-4 tracking-tight">Open Opportunities</h2>
-            <p class="text-on-surface-variant text-lg font-medium">Find your place in our growing collective.</p>
+            <h2 class="text-4xl md:text-5xl font-medium text-on-surface mb-6 tracking-tight">Open applications</h2>
+            <p class="text-on-surface-variant text-lg leading-relaxed">
+              Current hiring needs will be published when role details are verified. Candidates with relevant UAV, embedded, manufacturing, or field operations experience can still introduce themselves.
+            </p>
           </div>
-          <div class="flex flex-wrap gap-3 md:gap-4">
-            <button class="px-6 sm:px-8 py-3 rounded-full bg-primary text-white text-sm font-medium uppercase tracking-widest btn-interact">All Roles</button>
-            <button class="px-6 sm:px-8 py-3 rounded-full border border-slate-200 bg-white text-on-surface-variant text-sm font-medium uppercase tracking-widest hover:border-primary transition-colors btn-interact">Engineering</button>
-            <button class="px-6 sm:px-8 py-3 rounded-full border border-slate-200 bg-white text-on-surface-variant text-sm font-medium uppercase tracking-widest hover:border-primary transition-colors btn-interact">Design</button>
-            <button class="px-6 sm:px-8 py-3 rounded-full border border-slate-200 bg-white text-on-surface-variant text-sm font-medium uppercase tracking-widest hover:border-primary transition-colors btn-interact">Operations</button>
-          </div>
-        </div>
-
-        <div class="grid grid-cols-1 gap-6">
-          <a class="group block bg-surface-container p-6 sm:p-8 lg:p-10 transition-all duration-300 hover:bg-primary rounded-sm" href="/contact?role=lead-full-stack-architect">
-            <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
-              <div class="space-y-2">
-                <span class="text-xs font-medium uppercase tracking-widest text-primary group-hover:text-white/80 transition-colors">Engineering</span>
-                <h3 class="text-2xl md:text-3xl font-medium text-on-surface group-hover:text-white transition-colors">Lead Full-Stack Architect</h3>
-                <p class="text-on-surface-variant group-hover:text-white/70 transition-colors font-medium">Remote / Full-time</p>
+          <div class="lg:col-span-7 space-y-5">
+            {[
+              "UAV or aerospace engineering experience",
+              "Embedded systems, electronics, or flight controller familiarity",
+              "Manufacturing, quality, or supply chain execution",
+              "Drone operations, mission planning, or field deployment experience",
+            ].map((item) => (
+              <div class="flex items-center gap-4 bg-surface-container p-5 rounded-sm">
+                <Icon class="text-primary shrink-0" name="task_alt" />
+                <span class="text-on-surface-variant">{item}</span>
               </div>
-              <div class="flex items-center gap-4">
-                <Icon class="text-primary group-hover:text-white text-3xl group-hover:translate-x-2 transition-all" name="arrow_forward" />
-              </div>
-            </div>
-          </a>
-
-          <a class="group block bg-surface-container p-6 sm:p-8 lg:p-10 transition-all duration-300 hover:bg-primary rounded-sm" href="/contact?role=senior-product-designer">
-            <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
-              <div class="space-y-2">
-                <span class="text-xs font-medium uppercase tracking-widest text-primary group-hover:text-white/80 transition-colors">Design</span>
-                <h3 class="text-2xl md:text-3xl font-medium text-on-surface group-hover:text-white transition-colors">Senior Product Designer</h3>
-                <p class="text-on-surface-variant group-hover:text-white/70 transition-colors font-medium">New York, NY / Hybrid</p>
-              </div>
-              <div class="flex items-center gap-4">
-                <Icon class="text-primary group-hover:text-white text-3xl group-hover:translate-x-2 transition-all" name="arrow_forward" />
-              </div>
-            </div>
-          </a>
-
-          <a class="group block bg-surface-container p-6 sm:p-8 lg:p-10 transition-all duration-300 hover:bg-primary rounded-sm" href="/contact?role=technical-project-director">
-            <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
-              <div class="space-y-2">
-                <span class="text-xs font-medium uppercase tracking-widest text-primary group-hover:text-white/80 transition-colors">Operations</span>
-                <h3 class="text-2xl md:text-3xl font-medium text-on-surface group-hover:text-white transition-colors">Technical Project Director</h3>
-                <p class="text-on-surface-variant group-hover:text-white/70 transition-colors font-medium">London, UK / On-site</p>
-              </div>
-              <div class="flex items-center gap-4">
-                <Icon class="text-primary group-hover:text-white text-3xl group-hover:translate-x-2 transition-all" name="arrow_forward" />
-              </div>
-            </div>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section class="py-20 md:py-32 px-4 sm:px-6 md:px-12 bg-slate-100 reveal">
-      <div class="max-w-7xl mx-auto">
-        <div class="text-center mb-24">
-          <h2 class="text-4xl md:text-5xl font-medium text-on-surface mb-6 tracking-tight">The Selection Journey</h2>
-          <p class="text-on-surface-variant max-w-2xl mx-auto text-lg font-medium">Transparent, rigorous, and respectful. We value your time as much as your talent.</p>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12 relative">
-          <div class="hidden md:block absolute top-12 left-0 w-full h-[1px] bg-slate-300 z-0"></div>
-          <div class="relative z-10 flex flex-col items-center text-center group cursor-default">
-            <div class="w-24 h-24 bg-white rounded-sm flex items-center justify-center shadow-sm mb-8 transition-all duration-500 group-hover:bg-primary">
-              <span class="font-medium text-2xl text-primary group-hover:text-white">01</span>
-            </div>
-            <h3 class="text-xl font-medium mb-3">Review</h3>
-            <p class="text-sm text-on-surface-variant font-medium">Our team reviews your portfolio and experience within 48 hours.</p>
-          </div>
-          <div class="relative z-10 flex flex-col items-center text-center group cursor-default">
-            <div class="w-24 h-24 bg-white rounded-sm flex items-center justify-center shadow-sm mb-8 transition-all duration-500 group-hover:bg-primary">
-              <span class="font-medium text-2xl text-primary group-hover:text-white">02</span>
-            </div>
-            <h3 class="text-xl font-medium mb-3">Discovery</h3>
-            <p class="text-sm text-on-surface-variant font-medium">A 30-minute introductory call to align on values and aspirations.</p>
-          </div>
-          <div class="relative z-10 flex flex-col items-center text-center group cursor-default">
-            <div class="w-24 h-24 bg-white rounded-sm flex items-center justify-center shadow-sm mb-8 transition-all duration-500 group-hover:bg-primary">
-              <span class="font-medium text-2xl text-primary group-hover:text-white">03</span>
-            </div>
-            <h3 class="text-xl font-medium mb-3">Technical</h3>
-            <p class="text-sm text-on-surface-variant font-medium">Real-world architectural challenge and peer-to-peer review session.</p>
-          </div>
-          <div class="relative z-10 flex flex-col items-center text-center group cursor-default">
-            <div class="w-24 h-24 bg-white rounded-sm flex items-center justify-center shadow-sm mb-8 transition-all duration-500 group-hover:bg-primary">
-              <span class="font-medium text-2xl text-primary group-hover:text-white">04</span>
-            </div>
-            <h3 class="text-xl font-medium mb-3">Sovereign Day</h3>
-            <p class="text-sm text-on-surface-variant font-medium">Meet the founders and team. Final decision within 24 hours.</p>
+            ))}
+            <a class="bg-primary text-white px-8 py-4 rounded-sm font-medium text-sm uppercase tracking-widest hover:opacity-90 transition-all inline-flex w-full sm:w-auto justify-center" href="/contact/">Contact Careers Team</a>
           </div>
         </div>
-      </div>
-    </section>
-
-    <section class="py-20 md:py-32 px-4 sm:px-6 md:px-12 bg-primary text-center reveal">
-      <div class="max-w-4xl mx-auto text-white">
-        <h2 class="text-4xl sm:text-5xl md:text-6xl font-medium mb-8 tracking-tight">Don't see the right fit?</h2>
-        <p class="text-white/80 max-w-2xl mx-auto mb-12 text-lg font-medium">We are always looking for exceptional architects, engineers, and visionaries. Send us your portfolio and let's start a conversation.</p>
-          <a class="bg-white text-primary px-12 py-5 rounded-sm font-medium text-sm uppercase tracking-widest hover:bg-slate-100 transition-all shadow-xl btn-interact inline-flex w-full sm:w-auto justify-center" href="/contact">
-          Start a Conversation
-        </a>
       </div>
     </section>
   </main>
