@@ -2,11 +2,16 @@
 import "../styles/global.css";
 import { ViewTransitions } from "astro:transitions";
 import { siteUrl } from "../lib/seo-data";
+import { companyProfile } from "../lib/company-profile";
+import { ogImageForPath } from "../lib/og";
 const {
   title,
   description = "",
   canonical,
   ogImage,
+  ogType = "website",
+  publishedTime,
+  modifiedTime,
   schema = [],
   bodyClass = "",
   htmlClass = "scroll-smooth",
@@ -14,22 +19,42 @@ const {
 const canonicalUrl = canonical ?? new URL(Astro.url.pathname, siteUrl).href;
 const siteName = "BKT Tactical Solutions";
 const logoUrl = new URL("/images/bkt-logo-mark.svg", siteUrl).href;
-const ogImageUrl = ogImage ?? new URL("/images/og-home.png", siteUrl).href;
+const ogImageUrl = new URL(ogImage ?? ogImageForPath(Astro.url.pathname), siteUrl).href;
 const gaMeasurementId = import.meta.env.PUBLIC_GA_MEASUREMENT_ID ?? "G-H7BQYR81SD";
+const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": `${siteUrl}#organization`,
+  name: companyProfile.legalName,
+  alternateName: companyProfile.displayName,
+  url: siteUrl,
+  logo: logoUrl,
+  image: logoUrl,
+  email: companyProfile.email,
+  areaServed: "IN",
+  sameAs: [companyProfile.linkedInUrl],
+  ...(companyProfile.cin ? { identifier: companyProfile.cin } : {}),
+  ...(companyProfile.gst ? { taxID: companyProfile.gst } : {}),
+  ...(companyProfile.registeredAddress
+    ? {
+        address: {
+          "@type": "PostalAddress",
+          ...companyProfile.registeredAddress,
+        },
+      }
+    : {}),
+  ...(companyProfile.directors.length
+    ? {
+        founder: companyProfile.directors.map((name) => ({
+          "@type": "Person",
+          name,
+        })),
+      }
+    : {}),
+};
 const baseSchemas = [
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "@id": `${siteUrl}#organization`,
-    name: "BKT Tactical Solutions Private Limited",
-    alternateName: siteName,
-    url: siteUrl,
-    logo: logoUrl,
-    image: logoUrl,
-    email: "info.tactical@bktcorp.com",
-    areaServed: "IN",
-    sameAs: ["https://www.linkedin.com/company/bkt-tactical/"],
-  },
+  organizationSchema,
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
@@ -55,12 +80,15 @@ const jsonLd = graph.length > 0 ? { "@context": "https://schema.org", "@graph": 
     {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
     <link rel="icon" href="/images/bkt-logo-mark.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/images/bkt-logo-mark-192.png" />
+    {googleSiteVerification && <meta name="google-site-verification" content={googleSiteVerification} />}
     <meta property="og:title" content={title} />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:site_name" content={siteName} />
     {description && <meta property="og:description" content={description} />}
     {canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
     <meta property="og:image" content={ogImageUrl} />
+    {publishedTime && <meta property="article:published_time" content={publishedTime} />}
+    {modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     {description && <meta name="twitter:description" content={description} />}

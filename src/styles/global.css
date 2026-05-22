@@ -158,3 +158,56 @@ textarea:focus {
 .content-container {
   grid-column: 2 / 12;
 }
+
+.article-prose {
+  color: #444654;
+  font-size: 1.0625rem;
+  line-height: 1.85;
+}
+
+.article-prose :where(p, ul, ol) {
+  margin: 0 0 1.15rem;
+}
+
+.article-prose :where(p, ul, ol):last-child {
+  margin-bottom: 0;
+}
+
+.article-prose :where(ul, ol) {
+  padding-left: 1.25rem;
+}
+
+.article-prose li + li {
+  margin-top: 0.45rem;
+}
+
+.article-prose a {
+  color: #1A36B0;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.article-prose strong {
+  color: #191c1d;
+}
+
+.article-prose-invert {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 1.125rem;
+  line-height: 1.75;
+}
+
+.article-prose-invert a,
+.article-prose-invert strong {
+  color: #ffffff;
+}
+
+@media (min-width: 768px) {
+  .article-prose {
+    font-size: 1.125rem;
+  }
+
+  .article-prose-invert {
+    font-size: 1.25rem;
+  }
+}

@@ -1,18 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://bkttactical.com/</loc>
-    <lastmod>2026-05-13</lastmod>
-  </url>
-  <url>
-    <loc>https://bkttactical.com/about/</loc>
-    <lastmod>2026-05-13</lastmod>
-  </url>
-  <url>
-    <loc>https://bkttactical.com/products/</loc>
-    <lastmod>2026-05-13</lastmod>
-  </url>
-  <url>
     <loc>https://bkttactical.com/products/trishul-10kg/</loc>
     <lastmod>2026-05-13</lastmod>
   </url>
@@ -22,18 +10,6 @@
   </url>
   <url>
     <loc>https://bkttactical.com/products/trishul-30kg/</loc>
-    <lastmod>2026-05-13</lastmod>
-  </url>
-  <url>
-    <loc>https://bkttactical.com/solutions/</loc>
-    <lastmod>2026-05-13</lastmod>
-  </url>
-  <url>
-    <loc>https://bkttactical.com/compliance/</loc>
-    <lastmod>2026-05-13</lastmod>
-  </url>
-  <url>
-    <loc>https://bkttactical.com/insights/</loc>
     <lastmod>2026-05-13</lastmod>
   </url>
   <url>
@@ -50,6 +26,30 @@
   </url>
   <url>
     <loc>https://bkttactical.com/insights/emergency-response-uav-logistics/</loc>
+    <lastmod>2026-05-13</lastmod>
+  </url>
+  <url>
+    <loc>https://bkttactical.com/</loc>
+    <lastmod>2026-05-13</lastmod>
+  </url>
+  <url>
+    <loc>https://bkttactical.com/about/</loc>
+    <lastmod>2026-05-13</lastmod>
+  </url>
+  <url>
+    <loc>https://bkttactical.com/products/</loc>
+    <lastmod>2026-05-13</lastmod>
+  </url>
+  <url>
+    <loc>https://bkttactical.com/solutions/</loc>
+    <lastmod>2026-05-13</lastmod>
+  </url>
+  <url>
+    <loc>https://bkttactical.com/compliance/</loc>
+    <lastmod>2026-05-13</lastmod>
+  </url>
+  <url>
+    <loc>https://bkttactical.com/insights/</loc>
     <lastmod>2026-05-13</lastmod>
   </url>
   <url>

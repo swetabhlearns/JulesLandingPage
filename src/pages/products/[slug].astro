@@ -5,6 +5,7 @@ import SiteFooter from "../../components/SiteFooter.astro";
 import Icon from "../../components/Icon.astro";
 import { products } from "../../lib/seo-data";
 import { productSchema } from "../../lib/schema";
+import { productFaqItems, productSpecRows, toBeConfirmed } from "../../lib/product-content";
 
 export function getStaticPaths() {
   return products.map((product) => ({
@@ -14,24 +15,28 @@ export function getStaticPaths() {
 }
 
 const { product } = Astro.props;
+const specRows = productSpecRows(product);
+const faqItems = productFaqItems(product);
 ---
 
 <BaseLayout
   title={product.title}
   description={product.description}
   canonical={`https://bkttactical.com${product.path}`}
+  ogType="product"
   schema={productSchema(product.slug)}
   bodyClass="bg-surface text-on-surface antialiased"
 >
   <SiteNav />
 
   <main>
-    <section class="min-h-[78svh] flex items-center bg-slate-950 text-white py-28 md:py-40 reveal">
-      <div class="px-4 sm:px-6 md:px-12 max-w-7xl mx-auto w-full">
+    <section class="relative overflow-hidden min-h-[78svh] flex items-center bg-primary text-white py-28 md:py-40 reveal" style="background-color: #1A36B0;">
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_78%_18%,rgba(186,195,255,0.28),transparent_32%),linear-gradient(135deg,rgba(0,17,90,0.38),rgba(26,54,176,0)_55%)]"></div>
+      <div class="relative px-4 sm:px-6 md:px-12 max-w-7xl mx-auto w-full">
         <div class="max-w-4xl">
-          <div class="text-xs uppercase tracking-[0.35em] text-white/55 mb-6">Trishul Series</div>
+          <div class="text-xs uppercase tracking-[0.35em] text-white/65 mb-6">Trishul Series</div>
           <h1 class="text-4xl sm:text-5xl md:text-7xl font-medium tracking-tight leading-[1.08] mb-8">{product.name}</h1>
-          <p class="text-lg md:text-2xl text-white/78 leading-relaxed max-w-3xl">{product.description}</p>
+          <p class="text-lg md:text-2xl text-white/82 leading-relaxed max-w-3xl">{product.description}</p>
         </div>
       </div>
     </section>
@@ -83,6 +88,83 @@ const { product } = Astro.props;
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+
+        <div class="mt-20 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
+          <div class="lg:col-span-4">
+            <div class="text-xs uppercase tracking-[0.28em] text-primary mb-4">Technical Detail</div>
+            <h2 class="text-3xl md:text-4xl font-medium tracking-tight mb-5">Technical specification</h2>
+            <p class="text-on-surface-variant leading-relaxed">
+              Published values are limited to confirmed platform-level information. Fields marked {toBeConfirmed} will be shared only after configuration and source documents are verified.
+            </p>
+            <a class="mt-7 inline-flex items-center gap-3 text-primary font-medium" href="/contact/">
+              Datasheet available on request
+              <Icon name="arrow_forward" size={18} />
+            </a>
+          </div>
+          <div class="lg:col-span-8 overflow-x-auto border border-slate-200 bg-white">
+            <table class="min-w-full text-left text-sm">
+              <tbody class="divide-y divide-slate-200">
+                {specRows.map((row) => (
+                  <tr>
+                    <th class="w-1/3 bg-slate-50 px-5 py-4 font-medium text-on-surface">{row.label}</th>
+                    <td class:list={["px-5 py-4 text-on-surface-variant", row.value === toBeConfirmed && "text-slate-400"]}>{row.value}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="mt-20">
+          <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-5 mb-8">
+            <div>
+              <div class="text-xs uppercase tracking-[0.28em] text-primary mb-4">Platform Range</div>
+              <h2 class="text-3xl md:text-4xl font-medium tracking-tight">Trishul variant comparison</h2>
+            </div>
+            <p class="text-on-surface-variant leading-relaxed max-w-xl">
+              Use the comparison as a starting point for payload-class selection. Final configuration depends on mission profile, route planning, and operating conditions.
+            </p>
+          </div>
+          <div class="overflow-x-auto border border-slate-200 bg-white">
+            <table class="min-w-full text-left text-sm">
+              <thead class="bg-slate-50 text-xs uppercase tracking-[0.18em] text-slate-500">
+                <tr>
+                  <th class="px-5 py-4 font-medium">Variant</th>
+                  <th class="px-5 py-4 font-medium">Payload</th>
+                  <th class="px-5 py-4 font-medium">Endurance</th>
+                  <th class="px-5 py-4 font-medium">Airframe</th>
+                  <th class="px-5 py-4 font-medium">Best-fit use case</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-200">
+                {products.map((item) => (
+                  <tr class:list={[item.slug === product.slug && "bg-primary/5"]}>
+                    <th class="px-5 py-4 font-medium text-on-surface">
+                      <a class="hover:text-primary" href={item.path}>{item.shortName}</a>
+                    </th>
+                    <td class="px-5 py-4 text-on-surface-variant">{item.payload}</td>
+                    <td class="px-5 py-4 text-on-surface-variant">{item.endurance}</td>
+                    <td class="px-5 py-4 text-on-surface-variant">{item.configuration}</td>
+                    <td class="px-5 py-4 text-on-surface-variant">{item.useCases[0]}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div id="faq" class="mt-20 border-t border-slate-200 pt-12">
+          <div class="text-xs uppercase tracking-[0.28em] text-primary mb-4">Buyer Questions</div>
+          <h2 class="text-3xl md:text-4xl font-medium tracking-tight mb-8">Product FAQs</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {faqItems.map((item) => (
+              <section class="border border-slate-100 bg-slate-50 p-6 rounded-sm">
+                <h3 class="text-xl font-medium tracking-tight leading-snug mb-3">{item.question}</h3>
+                <p class="text-on-surface-variant leading-relaxed">{item.answer}</p>
+              </section>
+            ))}
           </div>
         </div>
 

@@ -1,4 +1,5 @@
 import { insights, products, siteUrl, solutions } from "./seo-data";
+import { productFaqItems, productSpecRows } from "./product-content";
 
 type BreadcrumbItem = {
   name: string;
@@ -103,11 +104,23 @@ export function productSchema(slug: string) {
         "@id": `${siteUrl}#organization`,
       },
       category: "Heavy Payload UAV",
-      additionalProperty: [
-        { "@type": "PropertyValue", name: "Payload", value: product.payload },
-        { "@type": "PropertyValue", name: "Endurance", value: product.endurance },
-        { "@type": "PropertyValue", name: "Configuration", value: product.configuration },
-      ],
+      additionalProperty: productSpecRows(product).map((row) => ({
+        "@type": "PropertyValue",
+        name: row.label,
+        value: row.value,
+      })),
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `${absoluteUrl(product.path)}#faq`,
+      mainEntity: productFaqItems(product).map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })),
     },
     breadcrumb([
       { name: "Home", path: "/" },
@@ -162,18 +175,33 @@ export function insightsSchema() {
     webPage(
       "CollectionPage",
       "/insights/",
-      "Drone Insights India | Heavy Payload UAV Guides | BKT Tactical",
-      "Read practical insights on heavy payload drones, RTK navigation, Make in India UAV manufacturing, and emergency response drone logistics.",
+      "Drone Blogs India | Heavy Payload UAV Guides | BKT Tactical",
+      "Read practical blogs on heavy payload drones, RTK navigation, Make in India drone manufacturing, and emergency response drone logistics.",
     ),
     breadcrumb([
       { name: "Home", path: "/" },
-      { name: "Insights", path: "/insights/" },
+      { name: "Blogs", path: "/insights/" },
     ]),
   ];
 }
 
-export function articleSchema(slug: string) {
-  const article = insights.find((item) => item.slug === slug);
+type ArticleSchemaInput =
+  | string
+  | {
+      slug?: string;
+      title: string;
+      description: string;
+      category: string;
+      path: string;
+      publishedAt?: string;
+      updatedAt?: string;
+    };
+
+export function articleSchema(input: ArticleSchemaInput) {
+  const article =
+    typeof input === "string"
+      ? insights.find((item) => item.slug === input)
+      : input;
   if (!article) return [];
 
   return [
@@ -193,10 +221,12 @@ export function articleSchema(slug: string) {
       mainEntityOfPage: {
         "@id": `${absoluteUrl(article.path)}#webpage`,
       },
+      ...(article.publishedAt ? { datePublished: article.publishedAt } : {}),
+      ...(article.updatedAt ? { dateModified: article.updatedAt } : {}),
     },
     breadcrumb([
       { name: "Home", path: "/" },
-      { name: "Insights", path: "/insights/" },
+      { name: "Blogs", path: "/insights/" },
       { name: article.category, path: article.path },
     ]),
   ];

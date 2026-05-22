@@ -4,6 +4,7 @@ import SiteNav from "../components/SiteNav.astro";
 import SiteFooter from "../components/SiteFooter.astro";
 import Icon from "../components/Icon.astro";
 import { complianceSchema } from "../lib/schema";
+import { companyProfile, hasVerifiedLegalDetails } from "../lib/company-profile";
 ---
 
 <BaseLayout
@@ -15,12 +16,13 @@ import { complianceSchema } from "../lib/schema";
   <SiteNav />
 
   <main>
-    <section class="min-h-[74svh] flex items-center bg-slate-950 text-white py-28 md:py-40 reveal">
-      <div class="px-4 sm:px-6 md:px-12 max-w-7xl mx-auto w-full">
+    <section class="relative overflow-hidden min-h-[74svh] flex items-center bg-primary text-white py-28 md:py-40 reveal" style="background-color: #1A36B0;">
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_78%_18%,rgba(186,195,255,0.28),transparent_32%),linear-gradient(135deg,rgba(0,17,90,0.38),rgba(26,54,176,0)_55%)]"></div>
+      <div class="relative px-4 sm:px-6 md:px-12 max-w-7xl mx-auto w-full">
         <div class="max-w-4xl">
-          <div class="text-xs uppercase tracking-[0.35em] text-white/55 mb-6">Compliance Readiness</div>
+          <div class="text-xs uppercase tracking-[0.35em] text-white/65 mb-6">Compliance Readiness</div>
           <h1 class="text-4xl sm:text-5xl md:text-7xl font-medium tracking-tight leading-[1.08] mb-8">Responsible UAV development with verified disclosure.</h1>
-          <p class="text-lg md:text-2xl text-white/78 leading-relaxed max-w-3xl">
+          <p class="text-lg md:text-2xl text-white/82 leading-relaxed max-w-3xl">
             BKT Tactical aligns drone development and deployment planning with Indian operational realities, Make in India capability, and compliance-aware execution.
           </p>
         </div>
@@ -32,8 +34,8 @@ import { complianceSchema } from "../lib/schema";
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <article class="border border-slate-100 bg-slate-50 p-8 rounded-sm">
             <Icon class="text-primary mb-6" name="verified" size={32} />
-            <h2 class="text-2xl font-medium mb-4">Verified claims only</h2>
-            <p class="text-on-surface-variant leading-relaxed">Legal registrations, certification details, and approvals will be published only after source documents are verified.</p>
+            <h2 class="text-2xl font-medium mb-4">Verified disclosure</h2>
+            <p class="text-on-surface-variant leading-relaxed">Company registration and director details are published from public records. Certification, GST, and approval claims are added only after source documents are confirmed.</p>
           </article>
           <article class="border border-slate-100 bg-slate-50 p-8 rounded-sm">
             <Icon class="text-primary mb-6" name="flag" size={32} />
@@ -47,12 +49,51 @@ import { complianceSchema } from "../lib/schema";
           </article>
         </div>
 
-        <div class="mt-20 bg-primary text-white p-8 md:p-12 rounded-sm" style="background-color: #1A36B0;">
-          <h2 class="text-3xl md:text-4xl font-medium mb-5">Compliance details pending verification.</h2>
-          <p class="text-white/78 max-w-3xl leading-relaxed">
-            This page intentionally avoids publishing CIN, GST, registered address, DGCA approval status, certification badges, or leadership credentials until those details are provided and verified.
-          </p>
-        </div>
+        {
+          hasVerifiedLegalDetails ? (
+            <section class="mt-16 border border-slate-100 bg-white p-6 md:p-8 rounded-sm">
+              <div class="flex flex-col lg:flex-row gap-8 lg:items-start lg:justify-between">
+                <div class="max-w-xl">
+                  <div class="text-xs uppercase tracking-[0.28em] text-primary mb-4">Company Disclosure</div>
+                  <h2 class="text-3xl md:text-4xl font-medium tracking-tight mb-4">Verified company details</h2>
+                  <p class="text-on-surface-variant leading-relaxed">
+                    Core registration details are published for due diligence. Regulatory approvals, certifications, and GST details will be added only after supporting documents are confirmed.
+                  </p>
+                </div>
+                <dl class="grid grid-cols-1 sm:grid-cols-2 gap-5 text-sm lg:w-[44rem]">
+                  {companyProfile.cin ? (
+                    <div class="border-t border-slate-100 pt-4">
+                      <dt class="text-xs uppercase tracking-[0.22em] text-slate-400 mb-2">CIN</dt>
+                      <dd class="text-on-surface">{companyProfile.cin}</dd>
+                    </div>
+                  ) : null}
+                  {companyProfile.directors.length ? (
+                    <div class="border-t border-slate-100 pt-4">
+                      <dt class="text-xs uppercase tracking-[0.22em] text-slate-400 mb-2">Directors</dt>
+                      <dd class="text-on-surface">{companyProfile.directors.join(", ")}</dd>
+                    </div>
+                  ) : null}
+                  {companyProfile.registeredAddress ? (
+                    <div class="border-t border-slate-100 pt-4 sm:col-span-2">
+                      <dt class="text-xs uppercase tracking-[0.22em] text-slate-400 mb-2">Registered office</dt>
+                      <dd class="text-on-surface leading-relaxed">
+                        {companyProfile.registeredAddress.streetAddress}, {companyProfile.registeredAddress.addressLocality}, {companyProfile.registeredAddress.addressRegion} {companyProfile.registeredAddress.postalCode}, {companyProfile.registeredAddress.addressCountry}
+                      </dd>
+                    </div>
+                  ) : null}
+                </dl>
+              </div>
+            </section>
+          ) : (
+            <section class="mt-16 border border-slate-100 bg-white p-6 md:p-8 rounded-sm">
+              <div class="text-xs uppercase tracking-[0.28em] text-primary mb-4">Company Disclosure</div>
+              <h2 class="text-3xl md:text-4xl font-medium tracking-tight mb-4">Compliance details pending verification.</h2>
+              <p class="text-on-surface-variant max-w-3xl leading-relaxed">
+                This page intentionally avoids publishing CIN, GST, registered address, DGCA approval status, certification badges, or leadership credentials until those details are provided and verified.
+              </p>
+            </section>
+          )
+        }
       </div>
     </section>
   </main>

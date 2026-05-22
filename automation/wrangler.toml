@@ -1,0 +1,35 @@
+name = "bkt-blog-automation"
+main = "src/worker.js"
+compatibility_date = "2026-05-15"
+account_id = "492fc4576122703e808fac5d55c2dbf7"
+preview_urls = true
+
+[triggers]
+crons = ["0 4 * * 1,4", "0 3 * * *"]
+
+[[d1_databases]]
+binding = "BLOG_DB"
+database_name = "bkt-blog-automation-db"
+database_id = "f0afea44-be80-42da-84ff-6c307726f442"
+
+[[kv_namespaces]]
+binding = "BLOG_CACHE"
+id = "719cf5f00ddc4c9d847dae6fd846c06b"
+
+[vars]
+SITE_URL = "https://bkttactical.com"
+BLOG_API_PREFIX = "/api/blogs"
+GROQ_MODEL = "llama-3.3-70b-versatile"
+EXA_BASE_URL = "https://api.exa.ai"
+GROQ_BASE_URL = "https://api.groq.com/openai/v1"
+EXA_MAX_QUERIES = "30"
+EXA_SOURCE_LIMIT = "8"
+BLOG_MIN_WORDS = "1500"
+BLOG_MIN_SECTIONS = "6"
+BLOG_REQUIRE_FAQ = "true"
+
+[observability]
+enabled = false
+
+[observability.logs]
+enabled = false

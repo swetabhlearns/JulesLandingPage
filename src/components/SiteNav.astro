@@ -5,8 +5,8 @@ const pathname = Astro.url.pathname;
 const isActive = (href: string) => (href === "/" ? pathname === "/" : pathname.startsWith(href));
 ---
 
-<div class="hidden md:flex fixed top-4 left-3 right-3 md:top-6 md:left-0 md:right-0 z-50 justify-center px-0 md:px-6">
-  <nav class="site-nav-shell">
+<div aria-hidden="false" class="hidden md:flex fixed top-4 left-3 right-3 md:top-6 md:left-0 md:right-0 z-50 justify-center px-0 md:px-6" data-desktop-nav>
+  <nav aria-label="Primary navigation" class="site-nav-shell">
     <a class="site-nav-brand" href="/">
       <img alt="BKT Tactical Solutions logo" class="site-nav-logo" decoding="async" fetchpriority="high" height="36" loading="eager" src="/images/bkt-logo-mark.svg" width="36" />
       <span class="site-nav-brand-text hidden sm:inline">BKT Tactical Solutions</span>
@@ -16,7 +16,7 @@ const isActive = (href: string) => (href === "/" ? pathname === "/" : pathname.s
       <a class="site-nav-link" href="/products/">Products</a>
       <a class="site-nav-link" href="/solutions/">Solutions</a>
       <a class="site-nav-link" href="/about/">About</a>
-      <a class="site-nav-link" href="/insights/">Insights</a>
+      <a class="site-nav-link" href="/insights/">Blogs</a>
     </div>
     <a class="site-nav-button" href="/contact/">
       <span class="sm:hidden">Contact</span>
@@ -25,8 +25,8 @@ const isActive = (href: string) => (href === "/" ? pathname === "/" : pathname.s
   </nav>
 </div>
 
-<div class="md:hidden fixed bottom-4 left-4 right-4 z-50">
-  <nav class="mobile-dock-shell">
+<div aria-hidden="true" class="md:hidden fixed bottom-4 left-4 right-4 z-50" data-mobile-nav>
+  <nav aria-label="Mobile navigation" class="mobile-dock-shell">
     <a class:list={["mobile-dock-item", isActive("/") && "active"]} href="/">
       <Icon class="mobile-dock-icon" name="home" size={22} />
       <span>Home</span>
@@ -49,6 +49,20 @@ const isActive = (href: string) => (href === "/" ? pathname === "/" : pathname.s
     </a>
   </nav>
 </div>
+
+<script is:inline>
+  const syncResponsiveNavState = () => {
+    const desktopNav = document.querySelector("[data-desktop-nav]");
+    const mobileNav = document.querySelector("[data-mobile-nav]");
+    const isDesktop = window.matchMedia("(min-width: 768px)").matches;
+
+    desktopNav?.setAttribute("aria-hidden", String(!isDesktop));
+    mobileNav?.setAttribute("aria-hidden", String(isDesktop));
+  };
+
+  document.addEventListener("astro:page-load", syncResponsiveNavState);
+  syncResponsiveNavState();
+</script>
 
 <style>
   .site-nav-shell {

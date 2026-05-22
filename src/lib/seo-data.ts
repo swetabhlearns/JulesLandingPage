@@ -78,6 +78,8 @@ export const insights = [
       "A practical guide to heavy payload drones in India, including UAV payload classes, endurance tradeoffs, and mission planning considerations.",
     path: "/insights/heavy-payload-drones-india/",
     category: "Heavy Payload UAVs",
+    publishedAt: "2026-05-13T00:00:00.000+05:30",
+    updatedAt: "2026-05-13T00:00:00.000+05:30",
     intro:
       "Heavy payload drones create value when the mission requires more than aerial imaging. They support logistics, emergency response, tactical payloads, and remote operations where payload capacity and reliability matter together.",
     sections: [
@@ -102,6 +104,8 @@ export const insights = [
       "Understand how RTK navigation improves UAV mission accuracy for logistics, surveying, field operations, and autonomous drone routes.",
     path: "/insights/rtk-navigation-for-uav-missions/",
     category: "Navigation",
+    publishedAt: "2026-05-13T00:00:00.000+05:30",
+    updatedAt: "2026-05-13T00:00:00.000+05:30",
     intro:
       "RTK navigation improves UAV mission repeatability by reducing positioning error. For heavy payload drones, that accuracy supports safer route planning, controlled landing, and precise deployment workflows.",
     sections: [
@@ -126,6 +130,8 @@ export const insights = [
       "Learn why Make in India drone manufacturing matters for UAV supply chains, tactical technology, local maintenance, and long-term resilience.",
     path: "/insights/make-in-india-drone-manufacturing/",
     category: "Make in India",
+    publishedAt: "2026-05-13T00:00:00.000+05:30",
+    updatedAt: "2026-05-13T00:00:00.000+05:30",
     intro:
       "Indigenous UAV manufacturing supports local supply chains, faster serviceability, and better adaptation to Indian operating conditions. For tactical and logistics users, those advantages can matter as much as technical specifications.",
     sections: [
@@ -150,6 +156,8 @@ export const insights = [
       "See how heavy payload UAVs can support emergency response logistics, relief delivery, medical payload movement, and rapid field coordination.",
     path: "/insights/emergency-response-uav-logistics/",
     category: "Emergency Response",
+    publishedAt: "2026-05-13T00:00:00.000+05:30",
+    updatedAt: "2026-05-13T00:00:00.000+05:30",
     intro:
       "Emergency response logistics often need speed, reach, and flexibility. Heavy payload UAVs can support response teams when roads are blocked, terrain is difficult, or delivery windows are narrow.",
     sections: [
@@ -175,7 +183,7 @@ export const corePages = [
   { path: "/products/", title: "Products" },
   { path: "/solutions/", title: "Solutions" },
   { path: "/compliance/", title: "Compliance" },
-  { path: "/insights/", title: "Insights" },
+  { path: "/insights/", title: "Blogs" },
   { path: "/careers/", title: "Careers" },
   { path: "/contact/", title: "Contact" },
 ] as const;

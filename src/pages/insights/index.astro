@@ -3,25 +3,28 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import SiteNav from "../../components/SiteNav.astro";
 import SiteFooter from "../../components/SiteFooter.astro";
 import Icon from "../../components/Icon.astro";
-import { insights } from "../../lib/seo-data";
 import { insightsSchema } from "../../lib/schema";
+import { getPublishedBlogPosts } from "../../lib/blog";
+
+const insights = await getPublishedBlogPosts();
 ---
 
 <BaseLayout
-  title="Drone Insights India | Heavy Payload UAV Guides | BKT Tactical"
-  description="Read practical insights on heavy payload drones, RTK navigation, Make in India UAV manufacturing, and emergency response drone logistics."
+  title="Drone Blogs India | Heavy Payload UAV Guides | BKT Tactical"
+  description="Read practical blogs on heavy payload drones, RTK navigation, Make in India drone manufacturing, and emergency response drone logistics."
   schema={insightsSchema()}
   bodyClass="bg-surface text-on-surface antialiased"
 >
   <SiteNav />
 
   <main>
-    <section class="min-h-[70svh] flex items-center bg-white py-28 md:py-40 reveal">
-      <div class="px-4 sm:px-6 md:px-12 max-w-7xl mx-auto w-full">
+    <section class="relative overflow-hidden min-h-[70svh] flex items-center bg-primary text-white py-28 md:py-40 reveal" style="background-color: #1A36B0;">
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_78%_18%,rgba(186,195,255,0.28),transparent_32%),linear-gradient(135deg,rgba(0,17,90,0.38),rgba(26,54,176,0)_55%)]"></div>
+      <div class="relative px-4 sm:px-6 md:px-12 max-w-7xl mx-auto w-full">
         <div class="max-w-4xl">
-          <div class="w-12 h-1 bg-primary mb-8"></div>
-          <h1 class="text-4xl sm:text-5xl md:text-7xl font-medium tracking-tight leading-[1.08] mb-8">Drone insights for heavy payload UAV decisions.</h1>
-          <p class="text-lg md:text-2xl text-on-surface-variant leading-relaxed max-w-3xl">
+          <div class="w-12 h-1 bg-white/75 mb-8"></div>
+          <h1 class="text-4xl sm:text-5xl md:text-7xl font-medium tracking-tight leading-[1.08] mb-8">Drone blogs and UAV guides for heavy payload decisions.</h1>
+          <p class="text-lg md:text-2xl text-white/82 leading-relaxed max-w-3xl">
             Practical guides on UAV payload planning, RTK navigation, Make in India drone manufacturing, and emergency response logistics.
           </p>
         </div>
@@ -33,10 +36,10 @@ import { insightsSchema } from "../../lib/schema";
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
           {insights.map((article) => (
             <a class="group block bg-white border border-slate-100 p-8 md:p-10 rounded-sm hover:bg-primary transition-colors" href={article.path}>
-              <div class="text-xs uppercase tracking-[0.28em] text-primary mb-6 group-hover:text-white/70">{article.category}</div>
-              <h2 class="text-3xl font-medium leading-tight mb-5 group-hover:text-white">{article.title}</h2>
-              <p class="text-on-surface-variant leading-relaxed mb-8 group-hover:text-white/82">{article.description}</p>
-              <span class="inline-flex items-center gap-3 text-primary group-hover:text-white">
+              <div class="text-xs uppercase tracking-[0.28em] text-slate-500 mb-6 transition-colors duration-300 group-hover:text-white/80">{article.category}</div>
+              <h2 class="text-3xl font-medium leading-tight mb-5 transition-colors duration-300 group-hover:text-white">{article.title}</h2>
+              <p class="text-on-surface-variant leading-relaxed mb-8 transition-colors duration-300 group-hover:text-white/85">{article.description}</p>
+              <span class="inline-flex items-center gap-3 text-primary transition-colors duration-300 group-hover:text-white">
                 Read guide
                 <Icon class="transition-transform group-hover:translate-x-1" name="arrow_forward" size={18} />
               </span>

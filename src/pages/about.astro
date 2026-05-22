@@ -7,6 +7,7 @@ import SiteFooter from "../components/SiteFooter.astro";
 import Icon from "../components/Icon.astro";
 import ResponsiveImage from "../components/ResponsiveImage.astro";
 import { aboutSchema } from "../lib/schema";
+import { companyProfile, hasVerifiedLegalDetails } from "../lib/company-profile";
 ---
 
 <BaseLayout
@@ -149,24 +150,57 @@ import { aboutSchema } from "../lib/schema";
             </div>
             <div class="lg:col-span-7 flex items-end">
               <p class="text-base sm:text-lg md:text-xl text-on-surface-variant leading-relaxed">
-                BKT Tactical will publish leadership, registration, certification, and compliance details only after verification. This keeps the site aligned with due diligence expectations for defence, UAV, and critical-sector buyers.
+                BKT Tactical publishes verified company registration and leadership details for due diligence. Certification and regulatory approval claims are stated only when supporting documents are confirmed.
               </p>
             </div>
           </div>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-surface-container">
-            <div class="bg-white p-6 sm:p-8 md:p-12">
-              <h3 class="text-2xl font-headline font-medium mb-4">Legal details</h3>
-              <p class="text-on-surface-variant leading-relaxed text-sm">CIN, GST, registered address, and formal company identifiers will be added after source documents are provided.</p>
-            </div>
-            <div class="bg-white p-6 sm:p-8 md:p-12">
-              <h3 class="text-2xl font-headline font-medium mb-4">Team credentials</h3>
-              <p class="text-on-surface-variant leading-relaxed text-sm">Real leadership profiles and LinkedIn references will be published only after the team approves verified public information.</p>
-            </div>
-            <div class="bg-white p-6 sm:p-8 md:p-12">
-              <h3 class="text-2xl font-headline font-medium mb-4">Compliance claims</h3>
-              <p class="text-on-surface-variant leading-relaxed text-sm">DGCA, certification, and approval status will be stated only when the exact claim and supporting evidence are confirmed.</p>
-            </div>
-          </div>
+          {
+            hasVerifiedLegalDetails ? (
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-surface-container">
+                {companyProfile.cin ? (
+                  <div class="bg-white p-6 sm:p-8 md:p-10">
+                    <h3 class="text-2xl font-headline font-medium mb-4">CIN</h3>
+                    <p class="text-on-surface-variant leading-relaxed text-sm">{companyProfile.cin}</p>
+                  </div>
+                ) : null}
+                {companyProfile.registeredAddress ? (
+                  <div class="bg-white p-6 sm:p-8 md:p-10">
+                    <h3 class="text-2xl font-headline font-medium mb-4">Registered office</h3>
+                    <p class="text-on-surface-variant leading-relaxed text-sm">
+                      {companyProfile.registeredAddress.streetAddress}, {companyProfile.registeredAddress.addressLocality}, {companyProfile.registeredAddress.addressRegion} {companyProfile.registeredAddress.postalCode}, {companyProfile.registeredAddress.addressCountry}
+                    </p>
+                  </div>
+                ) : null}
+                {companyProfile.directors.length ? (
+                  <div class="bg-white p-6 sm:p-8 md:p-10">
+                    <h3 class="text-2xl font-headline font-medium mb-4">Directors</h3>
+                    <p class="text-on-surface-variant leading-relaxed text-sm">{companyProfile.directors.join(", ")}</p>
+                  </div>
+                ) : null}
+                {companyProfile.gst ? (
+                  <div class="bg-white p-6 sm:p-8 md:p-10">
+                    <h3 class="text-2xl font-headline font-medium mb-4">GST</h3>
+                    <p class="text-on-surface-variant leading-relaxed text-sm">{companyProfile.gst}</p>
+                  </div>
+                ) : null}
+              </div>
+            ) : (
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-surface-container">
+                <div class="bg-white p-6 sm:p-8 md:p-12">
+                  <h3 class="text-2xl font-headline font-medium mb-4">Legal details</h3>
+                  <p class="text-on-surface-variant leading-relaxed text-sm">CIN, GST, registered address, and formal company identifiers will be added after source documents are provided.</p>
+                </div>
+                <div class="bg-white p-6 sm:p-8 md:p-12">
+                  <h3 class="text-2xl font-headline font-medium mb-4">Team credentials</h3>
+                  <p class="text-on-surface-variant leading-relaxed text-sm">Real leadership profiles and LinkedIn references will be published only after the team approves verified public information.</p>
+                </div>
+                <div class="bg-white p-6 sm:p-8 md:p-12">
+                  <h3 class="text-2xl font-headline font-medium mb-4">Compliance claims</h3>
+                  <p class="text-on-surface-variant leading-relaxed text-sm">DGCA, certification, and approval status will be stated only when the exact claim and supporting evidence are confirmed.</p>
+                </div>
+              </div>
+            )
+          }
         </div>
       </section>
       <section class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-20 md:py-32 border-t border-surface-container">
