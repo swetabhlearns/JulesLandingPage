@@ -54,9 +54,14 @@ export const solutions = [
       "Heavy payload UAV support for point-to-point delivery, remote-area supply movement, and time-sensitive logistics planning.",
   },
   {
-    name: "Tactical Surveillance",
+    name: "Tactical UAV & FPV Support",
     description:
-      "Mission-ready aerial systems for situational awareness, field observation, and secure operational planning.",
+      "Mission-ready UAV and FPV support for situational awareness, field observation, training, and deployment workflows.",
+  },
+  {
+    name: "Speaker Drone & Aerial Communication",
+    description:
+      "Aerial communication support for live voice transmission, pre-recorded announcements, GPS-assisted positioning, and large-area field messaging.",
   },
   {
     name: "Emergency Response",
@@ -67,6 +72,16 @@ export const solutions = [
     name: "Precision Agriculture",
     description:
       "UAV platforms adaptable for field monitoring, payload delivery, and high-accuracy navigation workflows.",
+  },
+  {
+    name: "Mining Survey & Monitoring",
+    description:
+      "Drone-enabled mapping, site monitoring, and survey support for mining environments where safety, visibility, and repeatability matter.",
+  },
+  {
+    name: "Drone Training & Integration",
+    description:
+      "Hands-on FPV assembly, heavy payload drone integration, flight training, troubleshooting, and field-readiness support.",
   },
 ] as const;
 

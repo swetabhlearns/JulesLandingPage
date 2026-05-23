@@ -9,7 +9,7 @@ import { careersSchema } from "../lib/schema";
 
 <BaseLayout
   title="Careers at BKT Tactical | Drone & Defence Tech Jobs India"
-  description="Explore UAV engineering, embedded systems, manufacturing, operations, supply chain, and field support career paths at BKT Tactical Solutions in India."
+  description="Explore UAV engineering, embedded systems, AI/ML, business development, sales, FPV integration, flight operations, and field support career paths at BKT Tactical Solutions in India."
   schema={careersSchema()}
   bodyClass="bg-surface text-on-surface antialiased"
 >
@@ -33,10 +33,10 @@ import { careersSchema } from "../lib/schema";
         <div class="max-w-3xl">
           <div class="w-12 h-1 bg-primary mb-8"></div>
           <h1 class="font-headline text-4xl sm:text-5xl md:text-7xl font-medium text-white tracking-tight leading-[1.1] mb-6 md:mb-8 text-shadow-sm">
-            Build drone and defence technology in India.
+            Build drone, FPV, and defence technology in India.
           </h1>
           <p class="text-base sm:text-lg md:text-xl text-slate-200 max-w-xl font-body mb-8 md:mb-10 leading-relaxed text-shadow-sm">
-            BKT Tactical is shaping UAV capability across engineering, embedded systems, manufacturing, operations, supply chain, and field deployment.
+            BKT Tactical is shaping UAV capability across engineering, embedded systems, AI/ML, outreach, sales, FPV integration, operations, and field deployment.
           </p>
           <a class="bg-primary text-on-primary px-8 py-4 rounded-sm font-medium hover:bg-primary-container transition-all w-full sm:w-auto text-center inline-flex justify-center" href="#focus-areas">Explore Career Areas</a>
         </div>
@@ -48,16 +48,19 @@ import { careersSchema } from "../lib/schema";
         <div class="mb-16">
           <div class="w-8 h-1 bg-primary mb-6"></div>
           <h2 class="text-4xl md:text-5xl font-medium text-on-surface mb-4 tracking-tight">Career areas aligned with UAV execution.</h2>
-          <p class="text-on-surface-variant text-lg font-medium max-w-3xl">The roles below represent the operating disciplines BKT Tactical expects to hire for as product development, manufacturing, and deployment programs mature.</p>
+          <p class="text-on-surface-variant text-lg font-medium max-w-3xl">The roles below represent the operating disciplines BKT Tactical expects to hire for as product development, training, business development, and deployment programs mature.</p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-slate-200 border border-slate-200">
           {[
             ["UAV Engineering", "Airframe, propulsion, payload integration, and flight-system engineering for heavy payload drone platforms.", "precision_manufacturing"],
-            ["Embedded Systems", "Flight electronics, datalink planning, sensor integration, and reliability-focused control systems.", "memory"],
-            ["Manufacturing & QA", "Production planning, assembly workflows, inspection, maintainability, and quality assurance.", "fact_check"],
-            ["Flight Operations", "Mission planning, test coordination, field procedures, and safety-focused deployment support.", "flight_takeoff"],
-            ["Supply Chain", "Vendor coordination, component planning, logistics readiness, and local sourcing workflows.", "inventory_2"],
-            ["Field Support", "On-ground deployment, customer coordination, maintenance support, and mission feedback loops.", "support_agent"],
+            ["Electronics & Embedded Systems", "Flight electronics, datalink planning, sensor integration, control systems, soldering, wiring, and reliability-focused hardware workflows.", "memory"],
+            ["Computer Science / AI/ML", "Software, data, automation, AI/ML experimentation, mission tools, and practical technology support for UAV programs.", "psychology"],
+            ["Outreach & Business Development", "Lead generation, client follow-ups, proposal support, market research, and industry outreach for drone solutions.", "share"],
+            ["Sales & Marketing", "B2B sales, customer coordination, product communication, digital marketing awareness, and solution presentation support.", "work"],
+            ["UAV/FPV Assembly & Integration", "FPV build workflows, heavy payload drone integration, component setup, tuning, troubleshooting, and maintenance readiness.", "settings_input_component"],
+            ["Flight Operations / Training Support", "Mission planning, test coordination, beginner-to-advanced flight training support, field procedures, and safety-focused deployment.", "flight_takeoff"],
+            ["Field Support", "On-ground deployment, customer coordination, maintenance support, and mission feedback loops across Ranchi, Delhi NCR, and hybrid requirements where applicable.", "hub"],
+            ["Manufacturing & QA", "Production planning, assembly workflows, inspection, maintainability, and quality assurance.", "check_circle"],
           ].map(([title, body, icon]) => (
             <div class="bg-white p-6 sm:p-8 md:p-10 transition-all duration-300 hover:bg-[#1A36B0] group cursor-default">
               <Icon class="text-primary text-3xl mb-6 transition-colors duration-300 group-hover:text-white" name={icon} />
@@ -82,12 +85,13 @@ import { careersSchema } from "../lib/schema";
           <div class="lg:col-span-7 space-y-5">
             {[
               "UAV or aerospace engineering experience",
-              "Embedded systems, electronics, or flight controller familiarity",
-              "Manufacturing, quality, or supply chain execution",
-              "Drone operations, mission planning, or field deployment experience",
+              "Electronics, embedded systems, flight controller, or FPV integration familiarity",
+              "Computer science, automation, AI/ML, or mission software experience",
+              "Outreach, business development, B2B sales, or marketing experience in technology markets",
+              "Drone operations, mission planning, flight training, or field deployment experience",
             ].map((item) => (
               <div class="flex items-center gap-4 bg-surface-container p-5 rounded-sm">
-                <Icon class="text-primary shrink-0" name="task_alt" />
+                <Icon class="text-primary shrink-0" name="check_circle" />
                 <span class="text-on-surface-variant">{item}</span>
               </div>
             ))}

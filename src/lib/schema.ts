@@ -39,8 +39,8 @@ export function homeSchema() {
     webPage(
       "WebPage",
       "/",
-      "Heavy Payload UAV Manufacturer India | BKT Tactical Solutions",
-      "BKT Tactical Solutions develops heavy payload UAV platforms, drone logistics support, RTK navigation workflows, and tactical deployment capability in India.",
+      "Drone, UAV & Tactical Technology Solutions India | BKT Tactical",
+      "BKT Tactical Solutions develops UAV platforms, FPV training, Speaker Drone communication, drone logistics, and tactical technology workflows for India.",
     ),
     {
       "@type": "ItemList",
@@ -61,7 +61,7 @@ export function aboutSchema() {
       "AboutPage",
       "/about/",
       "Drone & Tactical Solutions Company India | BKT Tactical",
-      "Learn about BKT Tactical Solutions Private Limited, an Indian drone and tactical solutions company focused on heavy payload UAVs, field deployment, and Make in India capability.",
+      "Learn about BKT Tactical Solutions Private Limited, an Indian drone and tactical technology company focused on UAV platforms, FPV integration, training, field deployment, and Make in India capability.",
     ),
     breadcrumb([
       { name: "Home", path: "/" },
@@ -135,8 +135,8 @@ export function solutionsSchema() {
     webPage(
       "CollectionPage",
       "/solutions/",
-      "Drone Logistics & Tactical UAV Solutions India | BKT Tactical",
-      "Explore UAV solutions for drone logistics, tactical surveillance, emergency response, precision agriculture, and field deployment in India.",
+      "Drone, Tactical, Training & Field Solutions India | BKT Tactical",
+      "Explore UAV solutions for drone logistics, tactical FPV support, Speaker Drone communication, agriculture, mining, training, and field deployment in India.",
     ),
     {
       "@type": "ItemList",
@@ -175,8 +175,8 @@ export function insightsSchema() {
     webPage(
       "CollectionPage",
       "/insights/",
-      "Drone Blogs India | Heavy Payload UAV Guides | BKT Tactical",
-      "Read practical blogs on heavy payload drones, RTK navigation, Make in India drone manufacturing, and emergency response drone logistics.",
+      "Drone Blogs India | UAV, FPV & Tactical Technology Guides | BKT Tactical",
+      "Read practical blogs on UAV platforms, FPV operations, RTK navigation, Make in India drone manufacturing, emergency response, and field deployment.",
     ),
     breadcrumb([
       { name: "Home", path: "/" },
@@ -239,7 +239,7 @@ export function contactSchema() {
         "ContactPage",
         "/contact/",
         "Contact BKT Tactical | UAV & Drone Solutions Enquiries",
-        "Contact BKT Tactical Solutions for heavy payload UAV, drone logistics, tactical deployment, and custom drone solution enquiries in India.",
+        "Contact BKT Tactical Solutions for UAV platforms, FPV training, Speaker Drone communication, drone logistics, tactical deployment, and custom drone solution enquiries in India.",
       ),
       mainEntity: {
         "@type": "ContactPoint",
@@ -262,7 +262,7 @@ export function careersSchema() {
       "WebPage",
       "/careers/",
       "Careers at BKT Tactical | Drone & Defence Tech Jobs India",
-      "Explore UAV engineering, embedded systems, manufacturing, operations, supply chain, and field support career paths at BKT Tactical Solutions in India.",
+      "Explore UAV engineering, embedded systems, AI/ML, business development, sales, FPV integration, flight operations, and field support career paths at BKT Tactical Solutions in India.",
     ),
     breadcrumb([
       { name: "Home", path: "/" },

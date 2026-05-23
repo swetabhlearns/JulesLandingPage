@@ -65,9 +65,15 @@ assertIncludes(companyProfile, "U26300JH2025PTC024324", "Company profile should 
 assertIncludes(companyProfile, "Atul Tripathi", "Company profile should publish verified director names.");
 assertIncludes(companyProfile, "Birendra Kumar Tripathi", "Company profile should publish verified director names.");
 
-const ogRoute = read("src/pages/og/[slug].svg.ts");
-assertIncludes(ogRoute, 'width="1200"', "Generated OG images should be 1200px wide.");
-assertIncludes(ogRoute, 'height="630"', "Generated OG images should be 630px tall.");
+const ogPngRoute = read("src/pages/og/[slug].png.ts");
+const ogHelper = read("src/lib/og.ts");
+assertIncludes(ogPngRoute, 'from "sharp"', "Generated OG images should be rendered through sharp.");
+assertIncludes(ogPngRoute, '"Content-Type": "image/png"', "Generated OG images should use PNG content type.");
+assertIncludes(ogHelper, 'width="1200"', "Generated OG images should be 1200px wide.");
+assertIncludes(ogHelper, 'height="630"', "Generated OG images should be 630px tall.");
+assertIncludes(ogHelper, ".png", "Open Graph helper should emit PNG image URLs.");
+assert(!ogHelper.includes(".svg/"), "Open Graph helper must not emit SVG image URLs.");
+assert(!ogHelper.includes(".png/"), "Open Graph helper should not emit trailing slash PNG URLs.");
 
 const sitemap = read("public/sitemap.xml");
 for (const path of expectedPaths) {
@@ -94,6 +100,22 @@ const pageFiles = [
   "src/pages/careers.astro",
   "src/pages/contact.astro",
 ];
+
+const publicPageSource = pageFiles.map((file) => read(file)).join("\n");
+const sharedContentSource = [
+  read("src/lib/seo-data.ts"),
+  read("src/lib/schema.ts"),
+  read("src/lib/og.ts"),
+  publicPageSource,
+].join("\n");
+
+for (const term of ["Speaker Drone", "FPV", "training", "agriculture", "mining", "embedded", "AI/ML", "business development"]) {
+  assertIncludes(sharedContentSource, term, `Broader LinkedIn-derived positioning should include ${term}.`);
+}
+
+for (const unsupportedClaim of ["Indian Army", "grenade", "13.32", "contract value"]) {
+  assert(!publicPageSource.includes(unsupportedClaim), `Public pages must not include unsupported claim: ${unsupportedClaim}.`);
+}
 
 for (const file of pageFiles) {
   const contents = read(file);
