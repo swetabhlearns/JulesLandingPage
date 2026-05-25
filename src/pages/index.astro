@@ -98,6 +98,10 @@ import { insights } from "../lib/seo-data";
               class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
               sizes="(min-width: 1024px) 50vw, 100vw"
               stem="/images/remote/01-6943f5504d"
+              width="512"
+              height="512"
+              avifWidths={[480, 960, 1440]}
+              webpWidths={[480]}
             />
           </div>
         </div>
@@ -183,9 +187,10 @@ import { insights } from "../lib/seo-data";
                 playsinline
                 preload="metadata"
                 poster="/media/trishul/trishul-frame-02.jpg"
+                data-lazy-video
                 class="w-full h-[280px] sm:h-[360px] lg:h-[460px] object-cover brightness-[0.8]"
               >
-                <source src="/media/trishul/trishul-demo.mp4" type="video/mp4" />
+                <source data-src="/media/trishul/trishul-demo.mp4" type="video/mp4" />
               </video>
               <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/35 to-transparent"></div>
             </div>
@@ -388,6 +393,37 @@ import { insights } from "../lib/seo-data";
       </div>
     </section>
   </main>
+
+  <script is:inline>
+    const loadVideo = (video) => {
+      video.querySelectorAll("source[data-src]").forEach((source) => {
+        source.src = source.dataset.src;
+        source.removeAttribute("data-src");
+      });
+      video.load();
+      video.play?.().catch(() => {});
+    };
+
+    const lazyVideos = Array.from(document.querySelectorAll("video[data-lazy-video]"));
+
+    if ("IntersectionObserver" in window) {
+      const videoObserver = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              loadVideo(entry.target);
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { rootMargin: "600px 0px" },
+      );
+
+      lazyVideos.forEach((video) => videoObserver.observe(video));
+    } else {
+      lazyVideos.forEach(loadVideo);
+    }
+  </script>
 
   <SiteFooter />
 </BaseLayout>

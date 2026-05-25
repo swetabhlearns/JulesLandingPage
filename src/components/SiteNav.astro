@@ -60,7 +60,7 @@ const isActive = (href: string) => (href === "/" ? pathname === "/" : pathname.s
     mobileNav?.setAttribute("aria-hidden", String(isDesktop));
   };
 
-  document.addEventListener("astro:page-load", syncResponsiveNavState);
+  window.addEventListener("resize", syncResponsiveNavState, { passive: true });
   syncResponsiveNavState();
 </script>
 

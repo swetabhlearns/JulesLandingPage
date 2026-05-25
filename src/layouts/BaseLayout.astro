@@ -1,6 +1,5 @@
 ---
 import "../styles/global.css";
-import { ViewTransitions } from "astro:transitions";
 import { siteUrl } from "../lib/seo-data";
 import { companyProfile } from "../lib/company-profile";
 import { ogImageForPath } from "../lib/og";
@@ -95,7 +94,6 @@ const jsonLd = graph.length > 0 ? { "@context": "https://schema.org", "@graph": 
     <meta name="twitter:title" content={title} />
     {description && <meta name="twitter:description" content={description} />}
     <meta name="twitter:image" content={ogImageUrl} />
-    <ViewTransitions />
     {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
     {
       gaMeasurementId && (
@@ -139,8 +137,6 @@ gtag("config", gaMeasurementId);`}
           observer.observe(el);
         });
       };
-
-      document.addEventListener("astro:page-load", initReveal);
       initReveal();
     </script>
   </body>
