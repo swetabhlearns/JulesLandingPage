@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import { ViewTransitions } from "astro:transitions";
 import { siteUrl } from "../lib/seo-data";
 import { companyProfile } from "../lib/company-profile";
 import { ogImageForPath } from "../lib/og";
@@ -94,6 +95,7 @@ const jsonLd = graph.length > 0 ? { "@context": "https://schema.org", "@graph": 
     <meta name="twitter:title" content={title} />
     {description && <meta name="twitter:description" content={description} />}
     <meta name="twitter:image" content={ogImageUrl} />
+    <ViewTransitions />
     {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
     {
       gaMeasurementId && (
@@ -155,11 +157,17 @@ window.addEventListener("load", queueAnalyticsLoad, { once: true });`}
           observer.observe(el);
         });
       };
-      if ("requestIdleCallback" in window) {
-        requestIdleCallback(initReveal, { timeout: 1200 });
-      } else {
-        setTimeout(initReveal, 300);
-      }
+
+      const scheduleReveal = () => {
+        if ("requestIdleCallback" in window) {
+          requestIdleCallback(initReveal, { timeout: 1200 });
+        } else {
+          setTimeout(initReveal, 300);
+        }
+      };
+
+      document.addEventListener("astro:page-load", scheduleReveal);
+      scheduleReveal();
     </script>
   </body>
 </html>

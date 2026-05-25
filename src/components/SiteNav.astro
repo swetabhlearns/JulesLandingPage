@@ -61,6 +61,7 @@ const isActive = (href: string) => (href === "/" ? pathname === "/" : pathname.s
   };
 
   window.addEventListener("resize", syncResponsiveNavState, { passive: true });
+  document.addEventListener("astro:page-load", syncResponsiveNavState);
   syncResponsiveNavState();
 </script>
 
