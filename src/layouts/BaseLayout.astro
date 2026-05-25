@@ -97,17 +97,35 @@ const jsonLd = graph.length > 0 ? { "@context": "https://schema.org", "@graph": 
     {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
     {
       gaMeasurementId && (
-        <>
-          <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`} />
-          <script
-            is:inline
-            define:vars={{ gaMeasurementId }}
-            set:html={`window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag("js", new Date());
-gtag("config", gaMeasurementId);`}
-          />
-        </>
+        <script
+          is:inline
+          define:vars={{ gaMeasurementId }}
+          set:html={`window.dataLayer = window.dataLayer || [];
+window.gtag = window.gtag || function gtag(){dataLayer.push(arguments);};
+
+const loadAnalytics = () => {
+  if (window.__bktAnalyticsLoaded) return;
+  window.__bktAnalyticsLoaded = true;
+
+  const script = document.createElement("script");
+  script.async = true;
+  script.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(gaMeasurementId);
+  document.head.appendChild(script);
+
+  window.gtag("js", new Date());
+  window.gtag("config", gaMeasurementId);
+};
+
+const queueAnalyticsLoad = () => {
+  setTimeout(loadAnalytics, 8000);
+};
+
+["click", "keydown", "pointerdown", "scroll", "touchstart"].forEach((eventName) => {
+  window.addEventListener(eventName, loadAnalytics, { once: true, passive: true });
+});
+
+window.addEventListener("load", queueAnalyticsLoad, { once: true });`}
+        />
       )
     }
     <slot name="head" />
@@ -137,7 +155,11 @@ gtag("config", gaMeasurementId);`}
           observer.observe(el);
         });
       };
-      initReveal();
+      if ("requestIdleCallback" in window) {
+        requestIdleCallback(initReveal, { timeout: 1200 });
+      } else {
+        setTimeout(initReveal, 300);
+      }
     </script>
   </body>
 </html>
