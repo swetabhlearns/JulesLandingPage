@@ -5,5 +5,8 @@ export default defineConfig({
   site: 'https://bkttactical.com',
   output: 'static',
   trailingSlash: 'always',
+  build: {
+    inlineStylesheets: 'always',
+  },
   integrations: [tailwind()],
 });
