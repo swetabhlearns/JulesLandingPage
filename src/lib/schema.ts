@@ -1,5 +1,5 @@
 import { insights, products, siteUrl, solutions } from "./seo-data";
-import { productFaqItems, productSpecRows } from "./product-content";
+import { productFaqItems } from "./product-content";
 
 type BreadcrumbItem = {
   name: string;
@@ -90,26 +90,7 @@ export function productSchema(slug: string) {
   if (!product) return [];
 
   return [
-    webPage("Product", product.path, product.title, product.description),
-    {
-      "@type": "Product",
-      "@id": `${absoluteUrl(product.path)}#product`,
-      name: product.name,
-      description: product.description,
-      brand: {
-        "@type": "Brand",
-        name: "BKT Tactical Solutions",
-      },
-      manufacturer: {
-        "@id": `${siteUrl}#organization`,
-      },
-      category: "Heavy Payload UAV",
-      additionalProperty: productSpecRows(product).map((row) => ({
-        "@type": "PropertyValue",
-        name: row.label,
-        value: row.value,
-      })),
-    },
+    webPage("ItemPage", product.path, product.title, product.description),
     {
       "@type": "FAQPage",
       "@id": `${absoluteUrl(product.path)}#faq`,

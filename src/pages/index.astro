@@ -6,6 +6,7 @@ import SiteFooter from "../components/SiteFooter.astro";
 import Icon from "../components/Icon.astro";
 import ResponsiveImage from "../components/ResponsiveImage.astro";
 import { homeSchema } from "../lib/schema";
+import { insights } from "../lib/seo-data";
 ---
 
 <BaseLayout
@@ -335,6 +336,39 @@ import { homeSchema } from "../lib/schema";
               sizes="(min-width: 1024px) 50vw, 100vw"
               stem="/images/remote/06-bd114049ac"
             />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="field-guides" class="py-20 md:py-28 bg-white reveal">
+      <div class="px-4 sm:px-6 md:px-12 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+          <div class="lg:col-span-4">
+            <span class="text-primary font-medium text-xs uppercase tracking-widest block mb-4">Latest UAV Guides</span>
+            <h2 class="text-4xl md:text-5xl font-medium tracking-tight mb-6">Field guides for UAV planning.</h2>
+            <p class="text-on-surface-variant leading-relaxed font-medium">
+              Practical reading for teams evaluating payload class, navigation accuracy, domestic manufacturing, and emergency logistics workflows.
+            </p>
+            <a class="inline-flex items-center gap-3 mt-8 text-primary font-medium" href="/insights/">
+              View all guides
+              <Icon name="arrow_forward" size={18} />
+            </a>
+          </div>
+          <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-px bg-slate-200 border border-slate-200">
+            {insights.map((article) => (
+              <a class="group bg-slate-50 p-7 md:p-8 min-h-[250px] flex flex-col justify-between hover:bg-primary transition-colors duration-300" href={article.path}>
+                <div>
+                  <div class="text-xs uppercase tracking-[0.28em] text-primary mb-5 transition-colors duration-300 group-hover:text-white/70">{article.category}</div>
+                  <h3 class="text-2xl font-medium tracking-tight leading-tight mb-4 transition-colors duration-300 group-hover:text-white">{article.title}</h3>
+                  <p class="text-sm text-on-surface-variant leading-relaxed transition-colors duration-300 group-hover:text-white/80">{article.description}</p>
+                </div>
+                <span class="inline-flex items-center gap-3 mt-8 text-primary transition-colors duration-300 group-hover:text-white">
+                  Read guide
+                  <Icon class="transition-transform group-hover:translate-x-1" name="arrow_forward" size={18} />
+                </span>
+              </a>
+            ))}
           </div>
         </div>
       </div>
