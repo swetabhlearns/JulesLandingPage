@@ -118,6 +118,22 @@ const { name, class: className = "", size = 24 } = Astro.props;
       stroke-width="1.8"
     />
   )}
+  {name === "flight" && (
+    <path
+      d="M3.5 13.5 20 5l-3.2 14-4.5-5.2-5.4 3.5 1.8-6.1-5.2 2.3Z"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="1.8"
+    />
+  )}
+  {name === "route" && (
+    <>
+      <circle cx="6" cy="6" r="2.2" stroke="currentColor" stroke-width="1.8" />
+      <circle cx="18" cy="18" r="2.2" stroke="currentColor" stroke-width="1.8" />
+      <path d="M8.2 6h5.3a3 3 0 0 1 0 6h-3a3 3 0 0 0 0 6h5.3" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" />
+    </>
+  )}
   {name === "bolt" && <path d="M13.2 2 5 13h5.2L10 22l9-11h-5.2L13.2 2Z" fill="currentColor" />}
   {name === "schedule" && (
     <>
