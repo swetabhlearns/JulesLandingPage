@@ -18,7 +18,7 @@ const {
 } = Astro.props;
 const canonicalUrl = canonical ?? new URL(Astro.url.pathname, siteUrl).href;
 const siteName = "BKT Tactical Solutions";
-const logoUrl = new URL("/images/bkt-logo-mark.svg", siteUrl).href;
+const logoUrl = new URL("/images/bkt-logo.png", siteUrl).href;
 const ogImageUrl = new URL(ogImage ?? ogImageForPath(Astro.url.pathname), siteUrl).href;
 const gaMeasurementId = import.meta.env.PUBLIC_GA_MEASUREMENT_ID ?? "G-H7BQYR81SD";
 const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
@@ -80,7 +80,7 @@ const jsonLd = graph.length > 0 ? { "@context": "https://schema.org", "@graph": 
     <title>{title}</title>
     {description && <meta name="description" content={description} />}
     {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
-    <link rel="icon" href="/images/bkt-logo-mark.svg" type="image/svg+xml" />
+    <link rel="icon" href="/images/bkt-logo.png" type="image/png" />
     <link rel="apple-touch-icon" href="/images/bkt-logo-mark-192.png" />
     {googleSiteVerification && <meta name="google-site-verification" content={googleSiteVerification} />}
     <meta property="og:title" content={title} />
